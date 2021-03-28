@@ -3808,16 +3808,16 @@
   <screen name="VirtualKeyBoard" position="0,0" backgroundColor="transparent" title="Virtual KeyBoard" flags="wfNoBorder" size="1280,720" zPosition="99">
 	<!--*VirtualKeyBoard*-->
 	<ePixmap pixmap="KravenHD/backg.png" position="0,0" size="1280,720" zPosition="-10" />
-	<ePixmap pixmap="KravenHD/graphics/virtualkeyboard.png" position="285,128" size="710,464" zPosition="-9" alphatest="blend" />
-	<widget backgroundColor="Kravenbg6" source="Title" render="Label" position="325,152" size="630,34" font="Regular2;27" foregroundColor="KravenFont2" transparent="1" noWrap="1" />
-    <widget backgroundColor="Kravenbg6" name="prompt" conditional="prompt" position="325,204" size="630,27" font="Regular;22" foregroundColor="KravenFont2" transparent="1" noWrap="1" />
-    <eLabel backgroundColor="KravenBorder" position="325,241" size="630,2" zPosition="-1" />
-    <eLabel backgroundColor="KravenBorder" position="325,279" size="630,2" zPosition="-1" />
-    <eLabel backgroundColor="KravenBorder" position="325,241" size="2,40" zPosition="-1" />
-    <eLabel backgroundColor="KravenBorder" position="953,241" size="2,40" zPosition="-1" />
-    <widget backgroundColor="Kravenbg6" name="text" position="327,243" size="626,35" font="Regular;28" foregroundColor="KravenFont1" valign="center" noWrap="1" transparent="1" />
-    <widget backgroundColor="#001E1E1E" name="list" position="325,290" size="630,225" selectionDisabled="1" foregroundColor="white" transparent="1" />
-    <widget backgroundColor="Kravenbg6" name="locale" conditional="locale" position="325,530" size="630,27" font="Regular;22" foregroundColor="KravenFont1" transparent="1" noWrap="1" />
+	<ePixmap pixmap="KravenHD/graphics/virtualkeyboard.png" position="330,128" size="620,464" zPosition="-9" alphatest="blend" />
+	<widget backgroundColor="Kravenbg6" source="Title" render="Label" position="370,152" size="540,34" font="Regular2;27" foregroundColor="KravenFont2" transparent="1" noWrap="1" />
+    <widget backgroundColor="Kravenbg6" name="header" position="370,204" size="540,27" font="Regular;22" foregroundColor="KravenFont2" transparent="1" noWrap="1" />
+    <eLabel backgroundColor="KravenBorder" position="370,241" size="540,2" zPosition="-1" />
+    <eLabel backgroundColor="KravenBorder" position="370,279" size="540,2" zPosition="-1" />
+    <eLabel backgroundColor="KravenBorder" position="370,241" size="2,40" zPosition="-1" />
+    <eLabel backgroundColor="KravenBorder" position="908,241" size="2,40" zPosition="-1" />
+    <widget backgroundColor="Kravenbg6" name="text" position="372,243" size="536,35" font="Regular;28" foregroundColor="KravenFont1" valign="center" noWrap="1" transparent="1" />
+    <widget backgroundColor="#000D192F" name="list" position="370,290" size="540,225" selectionDisabled="1" foregroundColor="white" transparent="1" />
+    <widget backgroundColor="Kravenbg6" source="country" render="Label" position="370,530" size="540,27" font="Regular;22" foregroundColor="KravenFont1" transparent="1" noWrap="1" />
   </screen>
 
   <screen backgroundColor="transparent" flags="wfNoBorder" name="Console" position="0,0" size="1280,720" title="Command execution...">

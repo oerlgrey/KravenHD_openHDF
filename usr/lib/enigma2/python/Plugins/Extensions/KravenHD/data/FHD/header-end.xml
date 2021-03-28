@@ -39,9 +39,7 @@
     <parameter name="MediaPlayerPlayList" value="35,1,1150,35" />
     <parameter name="MediaPlayerPlayListFont" value="Regular;30" />
     <!-- VirtualKeyboard -->
-	<parameter name="VirtualKeyBoard" value="67,67"/>
-	<parameter name="VirtualKeyBoardAlignment" value="0,0"/>
-	<parameter name="VirtualKeyBoardPadding" value="6,6"/>
+	<parameter name="VirtualKeyboard" value="67,67"/>
     <!-- GMultiEPGTimeline -->
     <parameter name="GMultiEPGTimelineFont" value="Regular;28" />
     <parameter name="GMultiEPGTimelineItemHeight" value="28" />
@@ -159,7 +157,7 @@
   <fonts>
 	<alias name="FileList" font="Regular" size="32" height="45" />
 	<alias name="FileListMulti" font="Regular" size="32" height="45" />
-	<alias name="VirtualKeyBoard" font="Regular" size="42" height="67" />
+	<alias name="VirtualKeyboard" font="Regular" size="42" height="67" />
 	<alias name="ServiceInfo" font="Regular" size="32" height="45"/>
 	<alias name="PluginBrowser0" font="Regular" size="32" height="75"/>
 	<alias name="PluginBrowser1" font="Regular" size="22"/>
