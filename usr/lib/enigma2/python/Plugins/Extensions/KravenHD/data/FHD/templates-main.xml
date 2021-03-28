@@ -2504,80 +2504,84 @@
 		<applet type="onLayoutFinish">
 from enigma import eSize, ePoint, getDesktop
 deskwidth = getDesktop(0).size().width()
+bswindow_horizontal = 21
+bswindow_top = 72
+bswindow_bottom = 30
+offset_bswindow = 15
 deskheight = getDesktop(0).size().height()
-textsize_org = self["text"].getSize()
+offset_horizontal = 15
 
+# text
+textsize_org = self["text"].getSize()
 textwidth_add = 30
 textsize = (textsize_org[0] + textwidth_add, textsize_org[1] + textwidth_add)
-
-offset_listposx = 15
-offset_listposy = 40
-offset_listwidth = 18
-offset_listheight = 45
-offset_textwidth = 109
-offset_textheight = 18
-min_width = 600
-min_height = 90
 textwidth = textsize[0]
-textheight = textsize[1] + offset_textheight
+textheight = self["text"].instance.calculateSize().height()
+lineheight = 41
+offset_text_horizontal = 114
+min_textwidth = 600
+if ((lineheight * 2) &gt; textheight):
+	textheight = lineheight * 2
+if (min_textwidth &gt; textwidth):
+	textwidth = min_textwidth
+full_textwidth = offset_text_horizontal + textwidth
 
+# list
 listwidth = 0
 listheight = 0
-
+list_itemheight = 45
 if self.list:
 	try:
 		for i in self.list:
-			if len(i[0]) > listwidth:
+			if len(i[0]) > 0:
 				listwidth = len(i[0])
-		listwidth = listwidth * offset_listwidth
-		listheight = len(self.list) * offset_listheight
+		listheight = len(self.list) * list_itemheight
 	except:
 		pass
 
-if (min_height &gt; textheight):
-	textheight = min_height
-if (min_width &gt; textwidth):
-	textwidth = min_width
-
 if (listheight &gt; 0):
-	offset = 21
+	offset_text_to_list = 60
+	offset_bottom = 9
 else:
-	offset = 6
+	offset_text_to_list = 0
+	offset_bottom = 30
 
-if (textwidth &gt; listwidth):
-	wsizex = offset_textwidth + textwidth + offset_listposx * 2
+# window
+if (full_textwidth &gt; listwidth):
+	windowwidth = full_textwidth + (offset_horizontal * 2)
 else:
-	textwidth = listwidth - offset_textwidth
-	wsizex = listwidth + offset_listposx
+	full_textwidth = listwidth
+	windowwidth = full_textwidth + (offset_horizontal * 2)
 
-wsizey = textheight + listheight + offset
+max_windowheight = deskheight - bswindow_top - bswindow_bottom - (offset_bswindow * 2)
+windowheight = textheight + offset_text_to_list + listheight + offset_bottom
+if (windowheight &gt; deskheight):
+	textheight = max_windowheight - offset_text_to_list - listheight - offset_bottom
+	windowheight = textheight + offset_text_to_list + listheight + offset_bottom
 
-if ((wsizey + offset_listposy - offset_listposx) &gt;deskheight):
-	textheight = deskheight - listheight - offset - offset_listposy + offset_listposx
-	wsizey = textheight + listheight + offset
+max_windowwidth = deskwidth - (bswindow_horizontal * 2) - (offset_bswindow * 2)
+if (windowwidth &gt; max_windowwidth):
+	textwidth = (max_windowwidth - offset_text_horizontal) - (offset_horizontal * 2)
+	listwidth = max_windowwidth
 
-if (wsizex &gt; deskwidth):
-	textwidth = deskwidth - offset_textwidth - offset_listposx * 2
-	listwidth = wsizex = deskwidth
-
-wsize = (wsizex,wsizey + offset_listposy - offset_listposx)
+windowsize = (windowwidth, windowheight)
 
 # resize
-self.instance.resize(eSize(*wsize))
+self.instance.resize(eSize(* windowsize))
 
 # resize label
-textsize = (textwidth,textheight)
-self["text"].instance.resize(eSize(*textsize))
+textsize = (textwidth, textheight)
+self["text"].instance.resize(eSize(* textsize))
 
 # move list
-listsize = (wsizex - offset_listposx * 2,listheight)
-self["list"].instance.move(ePoint(offset_listposx,textheight + offset_listposy))
-self["list"].instance.resize(eSize(*listsize))
+listsize = (windowwidth - (offset_horizontal * 2), listheight)
+self["list"].instance.move(ePoint(offset_horizontal, textheight + offset_text_to_list))
+self["list"].instance.resize(eSize(* listsize))
 
 # center window
-newwidth = wsize[0]
-newheight = wsize[1]
-self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2 + 28))
+new_windowwidth = windowsize[0]
+new_windowheight = windowsize[1]
+self.instance.move(ePoint(int(deskwidth - new_windowwidth) / 2, (int(deskheight - new_windowheight) / 2) + ((bswindow_top - bswindow_bottom) / 2)))
 		</applet>
 	</screen>
 	

@@ -151,10 +151,12 @@ class KravenHDColorSelection(ConfigListScreen, Screen):
 		self.mylist()
 
 	def keyDown(self):
-		pass
+		self["config"].instance.moveSelection(self["config"].instance.moveDown)
+		self.mylist()
 
 	def keyUp(self):
-		pass
+		self["config"].instance.moveSelection(self["config"].instance.moveUp)
+		self.mylist()
 
 	def keyUpLong(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveUp)

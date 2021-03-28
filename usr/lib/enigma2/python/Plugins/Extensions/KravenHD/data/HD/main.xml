@@ -493,28 +493,28 @@
 
   <screen backgroundColor="transparent" flags="wfNoBorder" name="ScSelection" position="0,0" size="1280,720" title="Softcam Cardserver Manager">
 	<!--*ScSelection*-->
-	<widget backgroundColor="Kravenbg" name="entries" position="68,160" size="505,360" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
-	<eLabel backgroundColor="Kravenbg" text="ECM:" position="695,160" size="90,26" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg" source="session.CurrentService" render="Label" position="780,160" size="490,56" transparent="1" font="Regular;18" foregroundColor="KravenFont1" noWrap="1" valign="top" halign="left">
+	<widget backgroundColor="Kravenbg3" name="entries" position="42,80" size="736,240" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+	<eLabel backgroundColor="Kravenbg3" text="ECM:" position="58,330" size="704,27" font="Regular2;22" foregroundColor="KravenFont2" transparent="1" />
+	<widget backgroundColor="Kravenbg3" source="session.CurrentService" render="Label" position="58,360" size="704,27" font="Regular;22" foregroundColor="KravenFont1" noWrap="1" transparent="1">
 	  <convert type="CryptoInfo">VerboseInfo</convert>
 	</widget>
-	<eLabel backgroundColor="Kravenbg" text="Channel:" position="695,220" size="90,26" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg" source="session.CurrentService" render="Label" position="780,220" size="480,26" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1">
+	<eLabel backgroundColor="Kravenbg3" text="Channel:" position="58,400" size="704,27" font="Regular2;22" foregroundColor="KravenFont2" transparent="1" />
+	<widget backgroundColor="Kravenbg3" source="session.CurrentService" render="Label" position="58,430" size="704,27" font="Regular;22" foregroundColor="KravenFont1" transparent="1">
 	  <convert type="ServiceName">All</convert>
 	</widget>
-	<widget backgroundColor="Kravenbg" source="session.CurrentService" render="Label" position="695,300" size="479,26" font="Regular;18" foregroundColor="KravenFont1" noWrap="1" valign="top" transparent="1">
+	<widget backgroundColor="Kravenbg3" source="session.CurrentService" render="Label" position="58,460" size="704,27" font="Regular;22" foregroundColor="KravenFont1" noWrap="1" transparent="1">
 	  <convert type="XionHDFExtraInfo">CryptoInfo</convert>
 	</widget>
-	<eLabel backgroundColor="Kravenbg" text="RES:" position="695,260" size="90,26" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg" source="session.CurrentService" render="Label" position="780,260" size="55,24" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1">
+	<eLabel backgroundColor="Kravenbg3" text="RES:" position="58,500" size="704,27" font="Regular2;22" foregroundColor="KravenFont2" transparent="1" />
+	<widget backgroundColor="Kravenbg3" source="session.CurrentService" render="Label" position="58,530" size="54,27" font="Regular;22" foregroundColor="KravenFont1" transparent="1">
 	  <convert type="XionHDFServiceInfo">VideoWidth</convert>
 	</widget>
-	<eLabel backgroundColor="Kravenbg" text="x" position="830,260" size="35,24" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg" source="session.CurrentService" render="Label" position="850,260" size="55,24" font="Regular;18" foregroundColor="KravenFont1" valign="top" transparent="1">
+	<eLabel backgroundColor="Kravenbg3" text="x" position="112,530" size="10,27" font="Regular;22" foregroundColor="KravenFont1" halign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg3" source="session.CurrentService" render="Label" position="122,530" size="54,27" font="Regular;22" foregroundColor="KravenFont1" halign="right" transparent="1">
 	  <convert type="XionHDFServiceInfo">VideoHeight</convert>
 	</widget>
     <panel name="Title-big"/>
-	<panel name="Background"/>
+	<!-- Logo -->
 	<panel name="gradient-menu"/>
     <panel name="SourceRedGreenYellowBlue"/>
 	<panel name="Colorbuttons"/>
@@ -3415,14 +3415,15 @@
     <panel name="Colorbuttons"/>
   </screen>
 
-  <screen name="StreamingClientsInfo" position="0,0" size="1280,720" flags="wfNoBorder" title="StreamingClientsInfo" backgroundColor="transparent" >
+  <screen name="StreamingClientsInfo" title="Streaming clients info" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*StreamingClientsInfo*-->
-    <widget source="total" render="Label" position="42,80" size="736,30" font="Regular;24" foregroundColor="KravenFont2" backgroundColor="Kravenbg3" transparent="1" />
-	<widget source="liste" render="Label" position="42,114" size="736,486" font="Regular;22" foregroundColor="KravenFont1" backgroundColor="Kravenbg3" valign="top" noWrap="1" transparent="1" />
+	<widget backgroundColor="Kravenbg3" name="ScrollLabel" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" position="42,80" size="736,330" scrollbarMode="showOnDemand" transparent="1" />
+    <widget backgroundColor="Kravenbg3" name="ScrollLabel2" position="42,440" size="736,135" font="Regular2;22" foregroundColor="KravenFont2" scrollbarMode="showNever" transparent="1" />
     <panel name="Title-big"/>
 	<!-- Logo -->
 	<panel name="gradient-menu"/>
     <panel name="Colorbuttons"/>
+    <panel name="SourceRedGreenYellowBlue"/>
     <panel name="OKExit"/>
   </screen>
 
