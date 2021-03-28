@@ -706,7 +706,6 @@ config.plugins.KravenHD.ShowUnusedTuner = ConfigSelection(default="on", choices 
 				
 config.plugins.KravenHD.Infobox = ConfigSelection(default="sat", choices = [
 				("sat", _("Tuner/Satellite + SNR")),
-				("db", _("Tuner/Satellite + dB")),
 				("tunerinfo", _("Tunerinfo")),
 				("cpu", _("CPU + Load")),
 				("temp", _("Temperature + Fan"))
@@ -1869,8 +1868,6 @@ class KravenHD(ConfigListScreen, Screen):
 		elif option in (config.plugins.KravenHD.Infobox,config.plugins.KravenHD.Infobox2):
 			if option.value == "sat":
 				self.showText(50,"19.2E S:99%")
-			elif option.value == "db":
-				self.showText(50,"19.2E 12.9dB")
 			elif option.value == "tunerinfo":
 				self.showText(50,"19.2E DVB-S")
 			elif option.value == "cpu":

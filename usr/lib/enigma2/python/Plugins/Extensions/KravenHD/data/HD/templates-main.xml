@@ -1611,7 +1611,7 @@
 		<convert type="KravenHDServiceName2">OrbitalPos</convert>
 	  </widget>
 	  <widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1180,365" size="40,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-		<convert type="KravenHDFrontendInfo">SNR</convert>
+		<convert type="FrontendInfo">SNR</convert>
 	  </widget>
 	</screen>
 	
@@ -1650,7 +1650,7 @@
 		<convert type="KravenHDServiceName2">OrbitalPos</convert>
 	  </widget>
 	  <widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1220,365" size="40,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-		<convert type="KravenHDFrontendInfo">SNR</convert>
+		<convert type="FrontendInfo">SNR</convert>
 	  </widget>
 	</screen>
 	
@@ -1714,7 +1714,7 @@
 		<convert type="KravenHDServiceName2">OrbitalPos</convert>
 	  </widget>
 	  <widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1180,315" size="40,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-		<convert type="KravenHDFrontendInfo">SNR</convert>
+		<convert type="FrontendInfo">SNR</convert>
 	  </widget>
 	  <widget source="session.CurrentService" render="Label" position="960,345" size="100,20" font="Regular;16" halign="left" valign="bottom" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
 		<convert type="KravenHDTextTranslator">flash</convert>
@@ -1777,7 +1777,7 @@
 		<convert type="KravenHDServiceName2">OrbitalPos</convert>
 	  </widget>
 	  <widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1220,315" size="40,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-		<convert type="KravenHDFrontendInfo">SNR</convert>
+		<convert type="FrontendInfo">SNR</convert>
 	  </widget>
 	  <widget source="session.CurrentService" render="Label" position="1000,345" size="100,20" font="Regular;16" halign="left" valign="bottom" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
 		<convert type="KravenHDTextTranslator">flash</convert>
@@ -1889,7 +1889,7 @@
 		<convert type="KravenHDServiceName2">OrbitalPos</convert>
 	  </widget>
 	  <widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1180,345" size="40,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-		<convert type="KravenHDFrontendInfo">SNR</convert>
+		<convert type="FrontendInfo">SNR</convert>
 	  </widget>
 	  <widget source="session.CurrentService" render="Label" position="960,375" size="100,20" font="Regular;16" halign="left" valign="bottom" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
 		<convert type="KravenHDTextTranslator">flash</convert>
@@ -1976,7 +1976,7 @@
 		<convert type="KravenHDServiceName2">OrbitalPos</convert>
 	  </widget>
 	  <widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1220,345" size="40,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-		<convert type="KravenHDFrontendInfo">SNR</convert>
+		<convert type="FrontendInfo">SNR</convert>
 	  </widget>
 	  <widget source="session.CurrentService" render="Label" position="1000,375" size="100,20" font="Regular;16" halign="left" valign="bottom" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
 		<convert type="KravenHDTextTranslator">flash</convert>

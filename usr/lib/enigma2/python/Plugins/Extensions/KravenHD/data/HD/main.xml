@@ -74,7 +74,7 @@
       <convert type="KravenHDTextTranslator">snr</convert>
 	</widget>
 	<widget source="session.FrontendStatus" render="Label" font="Regular;16" position="1205,16" size="35,20" halign="right" valign="bottom" backgroundColor="KravenIBbg" transparent="1" noWrap="1" foregroundColor="KravenIBFont1">
-      <convert type="KravenHDFrontendInfo">SNR</convert>
+      <convert type="FrontendInfo">SNR</convert>
 	</widget>
 	<panel name="gradient-sib"/>
 	<!-- Infobar mainstyles -->
