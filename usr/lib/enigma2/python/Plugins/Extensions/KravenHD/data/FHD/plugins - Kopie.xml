@@ -2532,3 +2532,49 @@
     <panel name="Colorbuttons"/>
     <panel name="OKExit"/>
   </screen>
+
+  <screen name="SherlockII" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*SherlockII*-->
+	<eLabel text="Sherlock" position="63,10" size="1500,69" backgroundColor="KravenIBbg2" font="Regular2;50" foregroundColor="KravenIBGFont2" halign="left" valign="center" transparent="1" />
+	<widget backgroundColor="transparent" position="63,105" render="Pig" size="1104,621" source="session.VideoPicture"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="dataFileName" noWrap="1" position="1260,108" size="597,41" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="dccamdName" noWrap="1" position="1260,153" size="597,41" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="daten" position="1260,198" size="597,492" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="system_info" position="1260,690" size="597,246" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular2;35" foregroundColor="KravenFont2" noWrap="1" position="63,756" render="Label" size="600,45" source="session.CurrentService" transparent="1">
+	  <convert type="ServiceName">Name</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="OrbitalPosition" noWrap="1" position="63,813" size="111,41" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" noWrap="1" position="180,813" render="Label" size="483,41" source="session.CurrentService" transparent="1">
+	  <convert type="ServiceName">Provider</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="signal_info" position="63,854" size="400,82" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" position="675,750" render="Label" size="105,41" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">BER</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" halign="center" position="810,750" render="Label" size="135,41" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">SNRdB</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" halign="right" position="945,750" render="Label" size="135,41" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">SNR</convert>
+	</widget>
+	<widget borderColor="KravenBorder" borderWidth="1" foregroundColor="KravenProgress" pixmap="KravenHD/progress/progress270_2.png" position="675,795" render="Progress" size="405,12" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">SNR</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;32" foregroundColor="KravenFont1" name="video_bitrate" noWrap="1" position="675,813" size="405,123" transparent="1"/>
+	<widget alphatest="blend" path="sherlock-icons" position="63,1012" render="KravenHDServiceIcon" options="IsCrypted" size="65,33" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDServiceInfoEX">IsCrypted</convert>
+	</widget>
+	<widget alphatest="blend" path="sherlock-icons" position="138,1012" render="KravenHDServiceIcon" options="VideoHeight" size="65,33" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDServiceInfoEX">VideoHeight</convert>
+	</widget>
+	<widget alphatest="blend" path="sherlock-icons" position="213,1012" render="KravenHDDolbyIcon" size="65,33" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDDolbyState">IsMehrFisch</convert>
+	</widget>
+	<widget alphatest="blend" path="sherlock-icons" position="288,1012" render="KravenHDServiceIcon" options="HasTelext" size="65,33" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDServiceInfoEX">HasTelext</convert>
+	</widget>
+    <panel name="Background"/>
+	<panel name="gradient-menu"/>
+    <panel name="Exit"/>
+  </screen>

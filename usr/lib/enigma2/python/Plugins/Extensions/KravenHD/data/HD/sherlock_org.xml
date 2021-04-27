@@ -1,0 +1,46 @@
+
+  <screen name="SherlockII" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*SherlockII*-->
+	<eLabel text="Sherlock" position="42,7" size="1000,46" backgroundColor="KravenIBbg2" font="Regular2;34" foregroundColor="KravenIBGFont2" halign="left" valign="center" transparent="1" />
+	<widget backgroundColor="transparent" position="42,70" render="Pig" size="736,414" source="session.VideoPicture"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="dataFileName" noWrap="1" position="840,75" size="398,27" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="dccamdName" noWrap="1" position="840,105" size="398,27" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="daten" position="840,135" size="398,324" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="system_info" position="840,459" size="398,162" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular2;24" foregroundColor="KravenFont2" noWrap="1" position="42,504" render="Label" size="400,30" source="session.CurrentService" transparent="1">
+	  <convert type="ServiceName">Name</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="OrbitalPosition" noWrap="1" position="42,540" size="74,27" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" noWrap="1" position="120,540" render="Label" size="322,27" source="session.CurrentService" transparent="1">
+	  <convert type="ServiceName">Provider</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="signal_info" position="42,567" size="400,54" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" position="450,500" render="Label" size="70,27" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">BER</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" halign="center" position="540,500" render="Label" size="90,27" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">SNRdB</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" halign="right" position="630,500" render="Label" size="90,27" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">SNR</convert>
+	</widget>
+	<widget borderColor="KravenBorder" borderWidth="1" foregroundColor="KravenProgress" pixmap="KravenHD/progress/progress270_2.png" position="450,530" render="Progress" size="270,8" source="session.FrontendStatus" transparent="1">
+	  <convert type="FrontendInfo">SNR</convert>
+	</widget>
+	<widget backgroundColor="Kravenbg2" font="Regular;22" foregroundColor="KravenFont1" name="video_bitrate" noWrap="1" position="450,540" size="270,81" transparent="1"/>
+	<widget alphatest="blend" path="sherlock-icons" position="42,675" render="KravenHDServiceIcon" options="IsCrypted" size="43,22" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDServiceInfoEX">IsCrypted</convert>
+	</widget>
+	<widget alphatest="blend" path="sherlock-icons" position="92,675" render="KravenHDServiceIcon" options="VideoHeight" size="43,22" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDServiceInfoEX">VideoHeight</convert>
+	</widget>
+	<widget alphatest="blend" path="sherlock-icons" position="142,675" render="KravenHDDolbyIcon" size="43,22" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDDolbyState">IsMehrFisch</convert>
+	</widget>
+	<widget alphatest="blend" path="sherlock-icons" position="192,675" render="KravenHDServiceIcon" options="HasTelext" size="43,22" source="session.CurrentService" zPosition="1">
+	  <convert type="KravenHDServiceInfoEX">HasTelext</convert>
+	</widget>
+    <panel name="Background"/>
+	<panel name="gradient-menu"/>
+    <panel name="Exit"/>
+  </screen>

@@ -3,7 +3,7 @@
 #  Service Name 2 Converter
 #
 #  Coded/Modified/Adapted by örlgrey
-#  Based on teamBlue image source code
+#  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
 #  Attribution-NonCommercial-ShareAlike 3.0 Unported 

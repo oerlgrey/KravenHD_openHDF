@@ -42,8 +42,8 @@
 	<parameter name="VirtualKeyboard" value="67,67"/>
     <!-- GMultiEPGTimeline -->
     <parameter name="GMultiEPGTimelineFont" value="Regular;28" />
-    <parameter name="GMultiEPGTimelineItemHeight" value="28" />
-    <parameter name="GMultiEPGTimelineItemSize" value="100,30" />
+    <parameter name="GMultiEPGTimelineItemHeight" value="41" />
+    <parameter name="GMultiEPGTimelineItemSize" value="100,41" />
     <!-- PluginList -->
     <parameter name="PluginListFont1" value="Regular;30" />
     <parameter name="PluginListFont2" value="Regular;25" />

@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: KravenHD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-06 23:16+0200\n"
-"PO-Revision-Date: 2021-03-27 17:18+0100\n"
+"PO-Revision-Date: 2021-04-25 22:18+0200\n"
 "Last-Translator: örlgrey <ochzoetna@gmail.com>\n"
-"Language-Team: kraven & mike99\n"
+"Language-Team: örlgrey\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1649,14 +1649,6 @@ msgid "Choose gradient or color for the info panels (Sysinfos, Timeshiftbar etc.
 msgstr "Wählen Sie Verlauf oder eine Farbe für die Infofelder (Sysinfos, Timeshiftbar etc.)."
 
 #: KravenHD.py
-msgid "This sections offers all settings for EPGSelection."
-msgstr "In diesem Abschnitt finden Sie alle Einstellungen zu EPGSelection."
-
-#: KravenHD.py
-msgid "EPGSelection-Style"
-msgstr "EPGSelection-Stil"
-
-#: KravenHD.py
 msgid "EPG-List Fontsize"
 msgstr "EPG-Liste Schriftgrösse"
 
@@ -2253,3 +2245,59 @@ msgid ""
 msgstr ""
 "Wählen Sie aus verschiedenen Optionen um Ihre Einstellungen vorzunehmen.\n"
 "Drücken Sie die rote Taste um nach dem Wetter-Code zu suchen."
+
+#: KravenHD.py
+msgid "EPG-List Font"
+msgstr "EPG-Liste Schrift"
+
+#: KravenHD.py
+msgid "EPG-List Background"
+msgstr "EPG-Liste Hintergrund"
+
+#: KravenHD.py
+msgid "EPG-List selected Font"
+msgstr "EPG-Liste ausgewählte Schrift"
+
+#: KravenHD.py
+msgid "EPG-List selected Background"
+msgstr "EPG-Liste ausgewählter Hintergrund"
+
+#: KravenHD.py
+msgid "EPG-List current Background"
+msgstr "EPG-Liste aktueller Hintergrund"
+
+#: KravenHD.py
+msgid "Choose the font color in the EPG-List. Press OK to define your own RGB color."
+msgstr "Wählen Sie die Schriftfarbe in der EPG-Liste. Drücken Sie OK, um Ihre eigene RGB-Farbe festzulegen."
+
+#: KravenHD.py
+msgid "Choose the background color in the EPG-List. Press OK to define your own RGB color."
+msgstr "Wählen Sie die Hintergrundfarbe in der EPG-Liste. Drücken Sie OK, um Ihre eigene RGB-Farbe festzulegen."
+
+#: KravenHD.py
+msgid "Choose the font color of the selected event in the EPG-List. Press OK to define your own RGB color."
+msgstr "Wählen Sie die Schriftfarbe der ausgewählten Sendung in der EPG-Liste. Drücken Sie OK, um Ihre eigene RGB-Farbe festzulegen."
+
+#: KravenHD.py
+msgid "Choose the background color of the selected event in the EPG-List. Press OK to define your own RGB color."
+msgstr "Wählen Sie die Hintergrundfarbe der ausgewählten Sendung in der EPG-Liste. Drücken Sie OK, um Ihre eigene RGB-Farbe festzulegen."
+
+#: KravenHD.py
+msgid "Choose the background color of current running events in the EPG-List. Press OK to define your own RGB color."
+msgstr "Wählen Sie die Hintergrundfarbe der aktuell laufenden Sendungen in der EPG-Liste. Drücken Sie OK, um Ihre eigene RGB-Farbe festzulegen."
+
+#: KravenHD.py
+msgid "original"
+msgstr "original"
+
+#: KravenHD.py
+msgid "modified"
+msgstr "modifiziert"
+
+#: KravenHD.py
+msgid "Sherlock modified"
+msgstr "Sherlock modifiziert"
+
+#: KravenHD.py
+msgid "Choose whether Sherlock should be displayed as original or modified."
+msgstr "Wählen Sie, ob Sherlock original oder modifiziert angezeigt werden soll."

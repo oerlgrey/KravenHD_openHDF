@@ -416,8 +416,7 @@
     <widget name="gast_active" pixmap="KravenHD/buttons/green.png" position="97,560" size="24,24" alphatest="blend" />
     <widget name="gast_inactive" pixmap="KravenHD/buttons/grey.png" position="97,560" size="24,24" alphatest="blend" />
     <widget name="FBFGast" position="130,559" size="760,27" font="Regular;22" backgroundColor="Kravenbg" transparent="1" foregroundColor="KravenFont1" />
-    <panel name="NameRedGreen2"/>
-    <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,644" size="220,52" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+    <panel name="NameRedGreenYellow2"/>
     <panel name="Title-big2"/>
     <panel name="Colorbuttons"/>
     <panel name="Background"/>
@@ -726,8 +725,7 @@
 		}
 	  </convert>
 	</widget>
-    <panel name="NameRedGreen2"/>
-    <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+    <panel name="NameRedGreenYellow2"/>
     <panel name="Colorbuttons"/>
 	<!-- globalbg */-->
 	<panel name="gradient-menu"/>
@@ -1339,8 +1337,7 @@
 	<!-- Logo -->
 	<panel name="gradient-menu"/>
     <panel name="Colorbuttons"/>
-    <panel name="NameRedGreen"/>
-    <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+    <panel name="NameRedGreenYellow"/>
     <panel name="OKExit"/>
   </screen>
 
@@ -1788,7 +1785,7 @@
   <screen backgroundColor="transparent" flags="wfNoBorder" name="CreateQuadPipChannelEntry" position="0,0" size="1280,720" title=" " >
 	<!--*CreateQuadPipChannelEntry*-->
     <panel name="Title-big2"/>
-    <widget backgroundColor="Kravenbg" scrollbarMode="showOnDemand" picServiceEventProgressbar="KravenHD/progress/progress52.png" colorEventProgressbar="KravenProgress" colorEventProgressbarSelected="KravenProgress" foregroundColorMarkedSelected="green" foregroundColor="KravenFont1" colorEventProgressbarBorder="KravenBorder" colorEventProgressbarBorderSelected="KravenSelFont" colorServiceDescription="KravenFont2" colorServiceDescriptionSelected="KravenSelFont" colorServiceRecording="red" foregroundColorServiceNotAvail="KravenNotAvailable" name="list" position="42,78" serviceInfoFont="Regular;24" serviceItemHeight="34" selectionPixmap="KravenHD/graphics/sel_45.png" serviceNameFont="Regular;24" serviceNumberFont="Regular;24" size="736,544" fieldMargins="15" nonplayableMargins="15" itemsDistances="8" progressBarWidth="52" progressbarHeight="10" transparent="1" />
+    <widget backgroundColor="Kravenbg" scrollbarMode="showOnDemand" picServiceEventProgressbar="KravenHD/progress/progress52.png" colorEventProgressbar="KravenProgress" colorEventProgressbarSelected="KravenProgress" foregroundColorMarkedSelected="green" foregroundColor="KravenFont1" colorEventProgressbarBorder="KravenBorder" colorEventProgressbarBorderSelected="KravenSelFont" colorServiceDescription="KravenFont2" colorServiceDescriptionSelected="KravenSelFont" foregroundColorServiceNotAvail="KravenNotAvailable" name="list" position="42,78" serviceInfoFont="Regular;24" serviceItemHeight="34" selectionPixmap="KravenHD/graphics/sel_45.png" serviceNameFont="Regular;24" serviceNumberFont="Regular;24" size="736,544" fieldMargins="15" nonplayableMargins="15" itemsDistances="8" progressBarWidth="52" progressbarHeight="10" transparent="1" />
 	<widget backgroundColor="Kravenbg" name="textChannels" position="820,200" size="418,27" font="Regular2;22" foregroundColor="KravenFont2" halign="left" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg" name="selectedList" position="820,239" size="418,120" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" transparent="1" />
 	<widget backgroundColor="Kravenbg" name="description" position="820,371" size="418,108" font="Regular2;22" foregroundColor="KravenFont2" halign="left" valign="center" transparent="1" />
@@ -2520,6 +2517,18 @@
     <widget font="Regular;20" halign="left" valign="center" name="k_g" position="297,670" size="240,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
     <widget font="Regular;20" halign="left" valign="center" name="k_y" position="547,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
     <widget font="Regular;20" halign="left" valign="center" name="k_b" position="797,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+    <panel name="Colorbuttons"/>
+    <panel name="OKExit"/>
+  </screen>
+
+  <screen name="ConfigSherlock" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*ConfigSherlock*-->
+    <widget backgroundColor="Kravenbg3" name="config" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" position="42,80" size="736,540" scrollbarMode="showOnDemand" transparent="1" />
+    <panel name="Title-big"/>
+	<!-- Logo -->
+	<panel name="gradient-menu"/>
+    <eLabel font="Regular;20" halign="left" valign="center" text="Cancel" position="47,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+    <eLabel font="Regular;20" halign="left" valign="center" text="Save" position="297,670" size="240,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
     <panel name="Colorbuttons"/>
     <panel name="OKExit"/>
   </screen>

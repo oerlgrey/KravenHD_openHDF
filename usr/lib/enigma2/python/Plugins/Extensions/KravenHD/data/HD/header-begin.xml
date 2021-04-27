@@ -49,11 +49,13 @@
     <color name="KravenBorder" value="#00ffffff" />
     <color name="KravenBorder2" value="#003F3F3F" />
     <color name="KravenNZBorder" value="#00ffffff" />
+    <color name="KravenGMEFont" value="#00ffffff" />
     <color name="KravenGMEBorder" value="#00ffffff" />
     <color name="KravenGMESelFg" value="#00ffffff" />
     <color name="KravenGMESelBg" value="#00389416" />
     <color name="KravenGMENowFg" value="#00F0A30A" />
     <color name="KravenGMENowBg" value="#000064c7" />
+    <color name="KravenGMEBg" value="#003F3F3F" />
     <color name="KravenLine" value="#00ffffff" />
     <color name="KravenIBLine" value="#00ffffff" />
     <color name="KravenProgress" value="#00C3461B" />

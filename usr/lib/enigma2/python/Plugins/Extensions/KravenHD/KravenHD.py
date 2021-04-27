@@ -3,7 +3,7 @@
 #  Kraven Plugin
 #
 #  Coded/Modified/Adapted by örlgrey
-#  Based on teamBlue image source code
+#  Based on openHDF image source code
 #  Thankfully inspired by MyMetrix by iMaxxx
 #
 #  This code is licensed under the Creative Commons 
@@ -502,6 +502,26 @@ config.plugins.KravenHD.GMEDescriptionSize = ConfigSelection(default="small", ch
 				("big", _("big"))
 				])
 
+config.plugins.KravenHD.GMECurrentColorList = ConfigSelection(default="1B1775", choices = ColorSelfList)
+config.plugins.KravenHD.GMECurrentColorSelf = ConfigText(default="1B1775")
+config.plugins.KravenHD.GMECurrentColor = ConfigText(default="1B1775")
+
+config.plugins.KravenHD.GMESelectedColorList = ConfigSelection(default="008A00", choices = ColorSelfList)
+config.plugins.KravenHD.GMESelectedColorSelf = ConfigText(default="008A00")
+config.plugins.KravenHD.GMESelectedColor = ConfigText(default="008A00")
+
+config.plugins.KravenHD.GMEOtherColorList = ConfigSelection(default="3F3F3F", choices = ColorSelfList)
+config.plugins.KravenHD.GMEOtherColorSelf = ConfigText(default="3F3F3F")
+config.plugins.KravenHD.GMEOtherColor = ConfigText(default="3F3F3F")
+
+config.plugins.KravenHD.GMEFontColorList = ConfigSelection(default="ffffff", choices = ColorSelfList)
+config.plugins.KravenHD.GMEFontColorSelf = ConfigText(default="ffffff")
+config.plugins.KravenHD.GMEFontColor = ConfigText(default="ffffff")
+
+config.plugins.KravenHD.GMESelectedFontColorList = ConfigSelection(default="ffffff", choices = ColorSelfList)
+config.plugins.KravenHD.GMESelectedFontColorSelf = ConfigText(default="ffffff")
+config.plugins.KravenHD.GMESelectedFontColor = ConfigText(default="ffffff")
+
 config.plugins.KravenHD.MovieSelection = ConfigSelection(default="movieselection-no-cover", choices = [
 				("movieselection-no-cover", _("no Cover")),
 				("movieselection-no-cover2", _("no Cover2")),
@@ -514,16 +534,6 @@ config.plugins.KravenHD.MovieSelection = ConfigSelection(default="movieselection
 config.plugins.KravenHD.EPGSelection = ConfigSelection(default="epgselection-standard", choices = [
 				("epgselection-standard", _("standard")),
 				("epgselection-minitv", _("MiniTV"))
-				])
-
-config.plugins.KravenHD.EPGListSize = ConfigSelection(default="small", choices = [
-				("small", _("small")),
-				("big", _("big"))
-				])
-
-config.plugins.KravenHD.EPGSelectionEPGSize = ConfigSelection(default="small", choices = [
-				("small", _("small")),
-				("big", _("big"))
 				])
 
 config.plugins.KravenHD.EMCStyle = ConfigSelection(default="emc-minitv", choices = [
@@ -889,10 +899,6 @@ config.plugins.KravenHD.CategoryChannellist = ConfigSelection(default="category"
 				("category", _(" "))
 				])
 
-config.plugins.KravenHD.CategoryEPGSelection = ConfigSelection(default="category", choices = [
-				("category", _(" "))
-				])
-
 config.plugins.KravenHD.CategoryGraphicalEPG = ConfigSelection(default="category", choices = [
 				("category", _(" "))
 				])
@@ -954,6 +960,11 @@ config.plugins.KravenHD.PopupStyle = ConfigSelection(default="popup-grad-trans",
 				("popup-grad", _("gradient")),
 				("popup-box-trans", _("box transparent")),
 				("popup-box", _("box"))
+				])
+
+config.plugins.KravenHD.Sherlock = ConfigSelection(default="sherlock_org", choices = [
+				("sherlock_org", _("original")),
+				("sherlock_mod", _("modified"))
 				])
 
 config.plugins.KravenHD.IBProgressList = ConfigSelection(default="ffffff", choices = ProgressList)
@@ -1353,6 +1364,7 @@ class KravenHD(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(_("VIEWS ________________________________________________________________________________"), config.plugins.KravenHD.CategoryViews, _("This sections offers all settings for skinned plugins.")))
 		list.append(getConfigListEntry(_("Volume"), config.plugins.KravenHD.Volume, _("Choose from different styles for the volume display.")))
 		list.append(getConfigListEntry(_("SecondInfobar"), config.plugins.KravenHD.SIB, _("Choose from different styles for SecondInfobar. \nActivate the SecondInfobar in the \nOSD settings. \n2nd infobar -> 2nd Infobar INFO")))
+		list.append(getConfigListEntry(_("EPGSelection"), config.plugins.KravenHD.EPGSelection, _("Choose from different styles to display EPGSelection.")))
 		list.append(getConfigListEntry(_("CoolTVGuide"), config.plugins.KravenHD.CoolTVGuide, _("Choose from different styles for CoolTVGuide.")))
 		list.append(getConfigListEntry(_("MovieSelection"), config.plugins.KravenHD.MovieSelection, _("Choose from different styles for MovieSelection.")))
 		list.append(getConfigListEntry(_("SerienRecorder"), config.plugins.KravenHD.SerienRecorder, _("Choose whether you want the Kraven skin to be applied to 'Serienrecorder' or not. Activation of this option prohibits the skin selection in the SR-plugin.")))
@@ -1360,13 +1372,14 @@ class KravenHD(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(_("MediaPortal"), config.plugins.KravenHD.MediaPortal, _("Choose whether you want the Kraven skin to be applied to 'MediaPortal' or not. To remove it again, you must deactivate it here and activate another skin in 'MediaPortal'.")))
 		else:
 			emptyLines+=1
+		list.append(getConfigListEntry(_("Sherlock"), config.plugins.KravenHD.Sherlock, _("Choose whether Sherlock should be displayed as original or modified.")))
 		list.append(getConfigListEntry(_("Popups"), config.plugins.KravenHD.PopupStyle, _("Choose from different styles to display popups like 'MessageBox', 'ChoiceBox', 'ExtensionsList', 'VirtualKeyboard' and more.")))
 		list.append(getConfigListEntry(_("PermanentClock-Color"), config.plugins.KravenHD.PermanentClock, _("Choose the colors of PermanentClock.")))
 		if config.plugins.KravenHD.PermanentClock.value in ("permanentclock-transparent-big","permanentclock-transparent-small"):
 			list.append(getConfigListEntry(_("PermanentClock-Font"), config.plugins.KravenHD.PermanentClockFontList, _("Choose the font color of PermanentClock. Press OK to define your own RGB color.")))
 		else:
 			emptyLines+=1
-		for i in range(emptyLines+2):
+		for i in range(emptyLines):
 			list.append(getConfigListEntry(_(" "), ))
 
 		# page 7
@@ -1388,27 +1401,23 @@ class KravenHD(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(_("Primetime-Font"), config.plugins.KravenHD.PrimetimeFontList, _("Choose the font color of the primetime information. Press OK to define your own RGB color.")))
 		else:
 			emptyLines+=2
-		for i in range(emptyLines+10):
-			list.append(getConfigListEntry(_(" "), ))
-		
-		# page 8
-		emptyLines=0
-		list.append(getConfigListEntry(_("EPGSELECTION ________________________________________________________________________________"), config.plugins.KravenHD.CategoryEPGSelection, _("This sections offers all settings for EPGSelection.")))
-		list.append(getConfigListEntry(_("EPGSelection-Style"), config.plugins.KravenHD.EPGSelection, _("Choose from different styles to display EPGSelection.")))
-		list.append(getConfigListEntry(_("EPG-List Fontsize"), config.plugins.KravenHD.EPGListSize, _("Choose the font size of EPG-List.")))
-		list.append(getConfigListEntry(_("EPG Fontsize"), config.plugins.KravenHD.EPGSelectionEPGSize, _("Choose the font size of event description.")))
 		for i in range(emptyLines+1):
 			list.append(getConfigListEntry(_(" "), ))
 
-		# page 8 (category 2)
+		# page 7 (category 2)
 		emptyLines=0
 		list.append(getConfigListEntry(_("GRAPHICALEPG ________________________________________________________________________________"), config.plugins.KravenHD.CategoryGraphicalEPG, _("This sections offers all settings for GraphicalEPG.")))
 		list.append(getConfigListEntry(_("GraphicalEPG-Style"), config.plugins.KravenHD.GraphicalEPG, _("Choose from different styles for GraphicalEPG.")))
 		list.append(getConfigListEntry(_("Event Description Fontsize"), config.plugins.KravenHD.GMEDescriptionSize, _("Choose the font size of event description.")))
+		list.append(getConfigListEntry(_("EPG-List Font"), config.plugins.KravenHD.GMEFontColorList, _("Choose the font color in the EPG-List. Press OK to define your own RGB color.")))
+		list.append(getConfigListEntry(_("EPG-List Background"), config.plugins.KravenHD.GMEOtherColorList, _("Choose the background color in the EPG-List. Press OK to define your own RGB color.")))
+		list.append(getConfigListEntry(_("EPG-List selected Font"), config.plugins.KravenHD.GMESelectedFontColorList, _("Choose the font color of the selected event in the EPG-List. Press OK to define your own RGB color.")))
+		list.append(getConfigListEntry(_("EPG-List selected Background"), config.plugins.KravenHD.GMESelectedColorList, _("Choose the background color of the selected event in the EPG-List. Press OK to define your own RGB color.")))
+		list.append(getConfigListEntry(_("EPG-List current Background"), config.plugins.KravenHD.GMECurrentColorList, _("Choose the background color of current running events in the EPG-List. Press OK to define your own RGB color.")))
 		for i in range(emptyLines+1):
 			list.append(getConfigListEntry(_(" "), ))
 
-		# page 8 (category 3)
+		# page 8
 		emptyLines=0
 		list.append(getConfigListEntry(_("ENHANCED MOVIE CENTER ________________________________________________________________________________"), config.plugins.KravenHD.CategoryEMC, _("This sections offers all settings for EMC ('EnhancedMovieCenter').")))
 		list.append(getConfigListEntry(_("EMC-Style"), config.plugins.KravenHD.EMCStyle, _("Choose from different styles for EnhancedMovieCenter.")))
@@ -1424,7 +1433,7 @@ class KravenHD(ConfigListScreen, Screen):
 		for i in range(emptyLines+1):
 			list.append(getConfigListEntry(_(" "), ))
 
-		# page 9
+		# page 8 (category 2)
 		emptyLines=0
 		list.append(getConfigListEntry(_("PLAYER ________________________________________________________________________________"), config.plugins.KravenHD.CategoryPlayers, _("This sections offers all settings for the movie players.")))
 		list.append(getConfigListEntry(_("Clock"), config.plugins.KravenHD.PlayerClock, _("Choose from different options to show the clock in the players.")))
@@ -1435,27 +1444,24 @@ class KravenHD(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(_("PVRState"), config.plugins.KravenHD.PVRState, _("Choose from different options to display the PVR state.")))
 		for i in range(emptyLines+1):
 			list.append(getConfigListEntry(_(" "), ))
-		
-		# page 9 (category 2)
-		emptyLines=0
-		if config.plugins.KravenHD.IBStyle.value == "grad":
-			list.append(getConfigListEntry(_("ANTIALIASING BRIGHTNESS ________________________________________________________________________________"), config.plugins.KravenHD.CategoryAntialiasing, _("This sections offers all antialiasing settings. Distortions or color frames around fonts can be reduced by this settings.")))
-			list.append(getConfigListEntry(_("Infobar"), config.plugins.KravenHD.InfobarAntialias, _("Reduce distortions (faint/blurry) or color frames around fonts in the infobar and widgets by adjusting the antialiasing brightness.")))
-			list.append(getConfigListEntry(_("ECM Infos"), config.plugins.KravenHD.ECMLineAntialias, _("Reduce distortions (faint/blurry) or color frames around the ECM information in the infobar by adjusting the antialiasing brightness.")))
-			list.append(getConfigListEntry(_("Screens"), config.plugins.KravenHD.ScreensAntialias, _("Reduce distortions (faint/blurry) or color frames around fonts at top and bottom of screens by adjusting the antialiasing brightness.")))
-			emptyLines=1
-		else:
-			emptyLines+=0
-		for i in range(emptyLines):
-			list.append(getConfigListEntry(_(" "), ))
 
-		# page 9 (category 3)
+		# page 8 (category 3)
 		emptyLines=0
 		list.append(getConfigListEntry(_("VARIOUS SETTINGS ________________________________________________________________________________"), config.plugins.KravenHD.CategoryVarious, _("This sections offers various settings.")))
 		list.append(getConfigListEntry(_("Screennames"), config.plugins.KravenHD.DebugNames, _("Activate or deactivate small screen names for debugging purposes.")))
 		list.append(getConfigListEntry(_("Icon-Font vertical position"), config.plugins.KravenHD.KravenIconVPosition, _("Correct the vertical font position within some icons for the infobars and players.")))
-		for i in range(emptyLines):
+		for i in range(emptyLines+1):
 			list.append(getConfigListEntry(_(" "), ))
+
+		# page 9
+		if config.plugins.KravenHD.IBStyle.value == "grad":
+			emptyLines=0
+			list.append(getConfigListEntry(_("ANTIALIASING BRIGHTNESS ________________________________________________________________________________"), config.plugins.KravenHD.CategoryAntialiasing, _("This sections offers all antialiasing settings. Distortions or color frames around fonts can be reduced by this settings.")))
+			list.append(getConfigListEntry(_("Infobar"), config.plugins.KravenHD.InfobarAntialias, _("Reduce distortions (faint/blurry) or color frames around fonts in the infobar and widgets by adjusting the antialiasing brightness.")))
+			list.append(getConfigListEntry(_("ECM Infos"), config.plugins.KravenHD.ECMLineAntialias, _("Reduce distortions (faint/blurry) or color frames around the ECM information in the infobar by adjusting the antialiasing brightness.")))
+			list.append(getConfigListEntry(_("Screens"), config.plugins.KravenHD.ScreensAntialias, _("Reduce distortions (faint/blurry) or color frames around fonts at top and bottom of screens by adjusting the antialiasing brightness.")))
+			for i in range(emptyLines+1):
+				list.append(getConfigListEntry(_(" "), ))
 
 		### Assign list or self color
 		if config.plugins.KravenHD.BackgroundListColor.value == "self":
@@ -1590,6 +1596,26 @@ class KravenHD(ConfigListScreen, Screen):
 			config.plugins.KravenHD.EMCSelectionFont.value = config.plugins.KravenHD.EMCSelectionFontSelf.value
 		else:
 			config.plugins.KravenHD.EMCSelectionFont.value = config.plugins.KravenHD.EMCSelectionFontList.value
+		if config.plugins.KravenHD.GMECurrentColorList.value == "self":
+			config.plugins.KravenHD.GMECurrentColor.value = config.plugins.KravenHD.GMECurrentColorSelf.value
+		else:
+			config.plugins.KravenHD.GMECurrentColor.value = config.plugins.KravenHD.GMECurrentColorList.value
+		if config.plugins.KravenHD.GMESelectedColorList.value == "self":
+			config.plugins.KravenHD.GMESelectedColor.value = config.plugins.KravenHD.GMESelectedColorSelf.value
+		else:
+			config.plugins.KravenHD.GMESelectedColor.value = config.plugins.KravenHD.GMESelectedColorList.value
+		if config.plugins.KravenHD.GMEOtherColorList.value == "self":
+			config.plugins.KravenHD.GMEOtherColor.value = config.plugins.KravenHD.GMEOtherColorSelf.value
+		else:
+			config.plugins.KravenHD.GMEOtherColor.value = config.plugins.KravenHD.GMEOtherColorList.value
+		if config.plugins.KravenHD.GMEFontColorList.value == "self":
+			config.plugins.KravenHD.GMEFontColor.value = config.plugins.KravenHD.GMEFontColorSelf.value
+		else:
+			config.plugins.KravenHD.GMEFontColor.value = config.plugins.KravenHD.GMEFontColorList.value
+		if config.plugins.KravenHD.GMESelectedFontColorList.value == "self":
+			config.plugins.KravenHD.GMESelectedFontColor.value = config.plugins.KravenHD.GMESelectedFontColorSelf.value
+		else:
+			config.plugins.KravenHD.GMESelectedFontColor.value = config.plugins.KravenHD.GMESelectedFontColorList.value
 		if config.plugins.KravenHD.Android2List.value == "self":
 			config.plugins.KravenHD.Android2.value = config.plugins.KravenHD.Android2Self.value
 		else:
@@ -1678,9 +1704,14 @@ class KravenHD(ConfigListScreen, Screen):
 		option = self["config"].getCurrent()[1]
 		position = self["config"].instance.getCurrentIndex()
 
-		if position == 0: # about
-			self["key_yellow"].setText("<< " + _("various"))
-			self["key_blue"].setText(_("profiles") + " >>")
+		if config.plugins.KravenHD.IBStyle.value == "box":
+			if position == 0: # about
+				self["key_yellow"].setText("<< " + _("various"))
+				self["key_blue"].setText(_("profiles") + " >>")
+		else:
+			if position == 0: # about
+				self["key_yellow"].setText("<< " + _("antialiasing"))
+				self["key_blue"].setText(_("profiles") + " >>")
 		if (2 <= position <= 4): # profiles
 			self["key_yellow"].setText("<< " + _("about"))
 			self["key_blue"].setText(_("system") + " >>")
@@ -1708,36 +1739,28 @@ class KravenHD(ConfigListScreen, Screen):
 		if (96 <= position <= 107): # views
 			self["key_yellow"].setText("<< " + _("ECM infos"))
 			self["key_blue"].setText(_("channellist") + " >>")
-		if (108 <= position <= 125): # channellist
+		if (108 <= position <= 115): # channellist
 			self["key_yellow"].setText("<< " + _("views"))
-			self["key_blue"].setText(_("EPGSelection") + " >>")
-		if (126 <= position <= 129): # epgselection
-			self["key_yellow"].setText("<< " + _("channellist"))
 			self["key_blue"].setText(_("GraphicalEPG") + " >>")
-		if (131 <= position <= 133): # graphicalepg
-			self["key_yellow"].setText("<< " + _("EPGSelection"))
+		if (117 <= position <= 125): # graphicalepg
+			self["key_yellow"].setText("<< " + _("channellist"))
 			self["key_blue"].setText(_("EMC") + " >>")
-		if (135 <= position <= 143): # emc
+		if (126 <= position <= 133): # emc
 			self["key_yellow"].setText("<< " + _("GraphicalEPG"))
 			self["key_blue"].setText(_("player") + " >>")
+		if (135 <= position <= 138): # player
+			self["key_yellow"].setText("<< " + _("EMC"))
+			self["key_blue"].setText(_("various") + " >>")
 		if config.plugins.KravenHD.IBStyle.value == "box":
-			if (144 <= position <= 147): # player
-				self["key_yellow"].setText("<< " + _("EMC"))
-				self["key_blue"].setText(_("various") + " >>")
-		else:
-			if (144 <= position <= 147): # player
-				self["key_yellow"].setText("<< " + _("EMC"))
-				self["key_blue"].setText(_("antialiasing") + " >>")
-		if config.plugins.KravenHD.IBStyle.value == "box":
-			if (149 <= position <= 151): # various
+			if (140 <= position <= 142): # various
 				self["key_yellow"].setText("<< " + _("player"))
 				self["key_blue"].setText(_("about") + " >>")
 		else:
-			if (149 <= position <= 152): # antialiasing
+			if (140 <= position <= 142): # various
 				self["key_yellow"].setText("<< " + _("player"))
-				self["key_blue"].setText(_("various") + " >>")
-			if (154 <= position <= 156): # various
-				self["key_yellow"].setText("<< " + _("antialiasing"))
+				self["key_blue"].setText(_("antialiasing") + " >>")
+			if (144 <= position <= 147): # antialiasing
+				self["key_yellow"].setText("<< " + _("various"))
 				self["key_blue"].setText(_("about") + " >>")
 
 		### version
@@ -1896,16 +1919,6 @@ class KravenHD(ConfigListScreen, Screen):
 				self.showText(30,_("small"))
 			elif config.plugins.KravenHD.GMEDescriptionSize.value == "big":
 				self.showText(40,_("big"))
-		elif option == config.plugins.KravenHD.EPGSelectionEPGSize:
-			if config.plugins.KravenHD.EPGSelectionEPGSize.value == "small":
-				self.showText(30,_("small"))
-			elif config.plugins.KravenHD.EPGSelectionEPGSize.value == "big":
-				self.showText(40,_("big"))
-		elif option == config.plugins.KravenHD.EPGListSize:
-			if config.plugins.KravenHD.EPGListSize.value == "small":
-				self.showText(30,_("small"))
-			elif config.plugins.KravenHD.EPGListSize.value == "big":
-				self.showText(40,_("big"))
 		elif option == config.plugins.KravenHD.IBFontSize:
 			if config.plugins.KravenHD.IBFontSize.value == "small":
 				self.showText(30,_("small"))
@@ -2048,6 +2061,16 @@ class KravenHD(ConfigListScreen, Screen):
 			self.showColor(self.hexRGB(config.plugins.KravenHD.TunerRecord.value))
 		elif option == config.plugins.KravenHD.TunerXtremeBusyList:
 			self.showColor(self.hexRGB(config.plugins.KravenHD.TunerXtremeBusy.value))
+		elif option == config.plugins.KravenHD.GMECurrentColorList:
+			self.showGradient(config.plugins.KravenHD.GMECurrentColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMECurrentColor.value))
+		elif option == config.plugins.KravenHD.GMESelectedColorList:
+			self.showGradient(config.plugins.KravenHD.GMESelectedColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMESelectedColor.value))
+		elif option == config.plugins.KravenHD.GMEOtherColorList:
+			self.showGradient(config.plugins.KravenHD.GMEOtherColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMEOtherColor.value))
+		elif option == config.plugins.KravenHD.GMEFontColorList:
+			self.showColor(self.hexRGB(config.plugins.KravenHD.GMEFontColor.value))
+		elif option == config.plugins.KravenHD.GMESelectedFontColorList:
+			self.showColor(self.hexRGB(config.plugins.KravenHD.GMESelectedFontColor.value))
 		elif option == config.plugins.KravenHD.ECMVisible:
 			if option.value == "0":
 				self.showText(36,_("Off"))
@@ -2057,6 +2080,11 @@ class KravenHD(ConfigListScreen, Screen):
 				self.showText(36,"SecondInfobar")
 			elif option.value == "ib+sib":
 				self.showText(36,_("Infobar & \nSecondInfobar"))
+		elif option == config.plugins.KravenHD.Sherlock:
+			if option.value == "sherlock_org":
+				self.showText(36,_("Sherlock original"))
+			elif option.value == "sherlock_mod":
+				self.showText(36,_("Sherlock modified"))
 		else:
 			self["helperimage"].show()
 
@@ -2197,10 +2225,10 @@ class KravenHD(ConfigListScreen, Screen):
 		position = self["config"].instance.getCurrentIndex()
 		if config.plugins.KravenHD.IBStyle.value == "box":
 			if position == 0: # about
-				self["config"].instance.moveSelectionTo(163)
+				self["config"].instance.moveSelectionTo(141)
 		else:
 			if position == 0: # about
-				self["config"].instance.moveSelectionTo(168)
+				self["config"].instance.moveSelectionTo(145)
 		if (2 <= position <= 4): # profiles
 			self["config"].instance.moveSelectionTo(0)
 		if (6 <= position <= 17): # system
@@ -2219,24 +2247,19 @@ class KravenHD(ConfigListScreen, Screen):
 			self["config"].instance.moveSelectionTo(84)
 		if (96 <= position <= 107): # views
 			self["config"].instance.moveSelectionTo(91)
-		if (108 <= position <= 125): # channellist
+		if (108 <= position <= 115): # channellist
 			self["config"].instance.moveSelectionTo(97)
-		if (126 <= position <= 129): # epgselection
+		if (117 <= position <= 125): # graphicalepg
 			self["config"].instance.moveSelectionTo(109)
-		if (131 <= position <= 133): # graphicalepg
+		if (126 <= position <= 133): # emc
+			self["config"].instance.moveSelectionTo(118)
+		if (135 <= position <= 138): # player
 			self["config"].instance.moveSelectionTo(127)
-		if (135 <= position <= 143): # emc
-			self["config"].instance.moveSelectionTo(132)
-		if (144 <= position <= 147): # player
+		if (140 <= position <= 142): # various
 			self["config"].instance.moveSelectionTo(136)
-		if config.plugins.KravenHD.IBStyle.value == "box":
-			if (149 <= position <= 151): # various
-				self["config"].instance.moveSelectionTo(145)
-		else:
-			if (149 <= position <= 152): # antialiasing
-				self["config"].instance.moveSelectionTo(145)
-			if (154 <= position <= 156): # various
-				self["config"].instance.moveSelectionTo(150)
+		if not config.plugins.KravenHD.IBStyle.value == "box":
+			if (144 <= position <= 147): # antialiasing
+				self["config"].instance.moveSelectionTo(141)
 		self.mylist()
 
 	def categoryUp(self):
@@ -2261,23 +2284,21 @@ class KravenHD(ConfigListScreen, Screen):
 			self["config"].instance.moveSelectionTo(97)
 		if (96 <= position <= 107): # views
 			self["config"].instance.moveSelectionTo(109)
-		if (108 <= position <= 125): # channellist
+		if (108 <= position <= 115): # channellist
+			self["config"].instance.moveSelectionTo(118)
+		if (117 <= position <= 125): # graphicalepg
 			self["config"].instance.moveSelectionTo(127)
-		if (126 <= position <= 129): # epgselection
-			self["config"].instance.moveSelectionTo(132)
-		if (131 <= position <= 133): # graphicalepg
+		if (126 <= position <= 133): # emc
 			self["config"].instance.moveSelectionTo(136)
-		if (135 <= position <= 143): # emc
-			self["config"].instance.moveSelectionTo(145)
-		if (144 <= position <= 147): # player
-			self["config"].instance.moveSelectionTo(150)
+		if (135 <= position <= 138): # player
+			self["config"].instance.moveSelectionTo(141)
 		if config.plugins.KravenHD.IBStyle.value == "box":
-			if (149 <= position <= 151): # various
+			if (140 <= position <= 142): # various
 				self["config"].instance.moveSelectionTo(0)
 		else:
-			if (149 <= position <= 152): # antialiasing
-				self["config"].instance.moveSelectionTo(155)
-			if (154 <= position <= 156): # various
+			if (140 <= position <= 142): # various
+				self["config"].instance.moveSelectionTo(145)
+			if (144 <= position <= 147): # antialiasing
 				self["config"].instance.moveSelectionTo(0)
 		self.mylist()
 
@@ -2510,6 +2531,21 @@ class KravenHD(ConfigListScreen, Screen):
 		elif option == config.plugins.KravenHD.TunerXtremeBusyList:
 			optionislistcolor=True
 			self.actSelfColorSelection = config.plugins.KravenHD.TunerXtremeBusySelf
+		elif option == config.plugins.KravenHD.GMECurrentColorList:
+			optionislistcolor=True
+			self.actSelfColorSelection = config.plugins.KravenHD.GMECurrentColorSelf
+		elif option == config.plugins.KravenHD.GMESelectedColorList:
+			optionislistcolor=True
+			self.actSelfColorSelection = config.plugins.KravenHD.GMESelectedColorSelf
+		elif option == config.plugins.KravenHD.GMEOtherColorList:
+			optionislistcolor=True
+			self.actSelfColorSelection = config.plugins.KravenHD.GMEOtherColorSelf
+		elif option == config.plugins.KravenHD.GMEFontColorList:
+			optionislistcolor=True
+			self.actSelfColorSelection = config.plugins.KravenHD.GMEFontColorSelf
+		elif option == config.plugins.KravenHD.GMESelectedFontColorList:
+			optionislistcolor=True
+			self.actSelfColorSelection = config.plugins.KravenHD.GMESelectedFontColorSelf
 
 		if optionislistcolor:
 			self.actListColorSelection=option
@@ -2868,6 +2904,12 @@ class KravenHD(ConfigListScreen, Screen):
 		self.skinSearchAndReplace.append(['name="KravenAndroid" value="#00ffffff', 'name="KravenAndroid" value="#00' + config.plugins.KravenHD.Android.value])
 		self.skinSearchAndReplace.append(['name="KravenAndroid2" value="#00ffffff', 'name="KravenAndroid2" value="#00' + config.plugins.KravenHD.Android2.value])
 		self.skinSearchAndReplace.append(['name="KravenPrime" value="#0070AD11', 'name="KravenPrime" value="#00' + config.plugins.KravenHD.PrimetimeFont.value])
+		self.skinSearchAndReplace.append(['name="KravenGMEFont" value="#00ffffff', 'name="KravenGMEFont" value="#00' + config.plugins.KravenHD.GMEFontColor.value])
+		self.skinSearchAndReplace.append(['name="KravenGMESelFg" value="#00ffffff', 'name="KravenGMESelFg" value="#00' + config.plugins.KravenHD.GMESelectedFontColor.value])
+		self.skinSearchAndReplace.append(['name="KravenGMESelBg" value="#00389416', 'name="KravenGMESelBg" value="#00' + config.plugins.KravenHD.GMESelectedColor.value])
+		self.skinSearchAndReplace.append(['name="KravenGMENowFg" value="#00F0A30A', 'name="KravenGMENowFg" value="#00' + config.plugins.KravenHD.GMEFontColor.value])
+		self.skinSearchAndReplace.append(['name="KravenGMENowBg" value="#000064c7', 'name="KravenGMENowBg" value="#00' + config.plugins.KravenHD.GMECurrentColor.value])
+		self.skinSearchAndReplace.append(['name="KravenGMEBg" value="#003F3F3F', 'name="KravenGMEBg" value="#00' + config.plugins.KravenHD.GMEOtherColor.value])
 
 		### Infobar (Serviceevent) Font-Size
 		if config.plugins.KravenHD.SkinResolution.value == "hd":
@@ -2957,9 +2999,11 @@ class KravenHD(ConfigListScreen, Screen):
 			if config.plugins.KravenHD.IconStyle2.value == "icons-dark2":
 				self.skinSearchAndReplace.append(["/global-icons/", "/icons-dark/"])
 				self.skinSearchAndReplace.append(["/infobar-global-icons/", "/icons-dark/"])
+				self.skinSearchAndReplace.append(["sherlock-icons", "icons-dark"])
 			elif config.plugins.KravenHD.IconStyle2.value == "icons-light2":
 				self.skinSearchAndReplace.append(["/global-icons/", "/icons-light/"])
 				self.skinSearchAndReplace.append(["/infobar-global-icons/", "/icons-light/"])
+				self.skinSearchAndReplace.append(["sherlock-icons", "icons-light"])
 			if config.plugins.KravenHD.IconStyle.value == "icons-dark":
 				self.skinSearchAndReplace.append(['name="KravenIcon" value="#00fff0e0"', 'name="KravenIcon" value="#00000000"'])
 				self.skinSearchAndReplace.append(["infobar-icons", "icons-dark"])
@@ -2974,9 +3018,11 @@ class KravenHD(ConfigListScreen, Screen):
 				self.skinSearchAndReplace.append(['name="KravenIcon" value="#00fff0e0"', 'name="KravenIcon" value="#00000000"'])
 				self.skinSearchAndReplace.append(["infobar-icons", "icons-dark"])
 				self.skinSearchAndReplace.append(["/infobar-global-icons/", "/icons-dark/"])
+				self.skinSearchAndReplace.append(["sherlock-icons", "icons-dark"])
 			elif config.plugins.KravenHD.IconStyle.value == "icons-light":
 				self.skinSearchAndReplace.append(["infobar-icons", "icons-light"])
 				self.skinSearchAndReplace.append(["/infobar-global-icons/", "/icons-light/"])
+				self.skinSearchAndReplace.append(["sherlock-icons", "icons-light"])
 
 		console2 = eConsoleAppContainer()
 		if config.plugins.KravenHD.SkinResolution.value == "hd":
@@ -3016,6 +3062,8 @@ class KravenHD(ConfigListScreen, Screen):
 			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_32.png"'," "])
 		if config.plugins.KravenHD.SelectionStyle.value == "color":
 			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_CS.png"', " "])
+			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_ES.png"', " "])
+			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_ESM.png"', " "])
 			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_30.png"'," "])
 			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_36.png"'," "])
 			self.skinSearchAndReplace.append(['selectionPixmap="KravenHD/graphics/sel_40.png"'," "])
@@ -3052,6 +3100,28 @@ class KravenHD(ConfigListScreen, Screen):
 				CSheight = 560
 			self.actCSItemHeight = int(((CSheight / CSitems) * CSlines) +1)
 
+			# EPGSelection
+			ESitems = config.epgselection.enhanced_itemsperpage.value
+			if (ESitems <= 10):
+				self.skinSearchAndReplace.append(['sel_ES.png', 'sel_70.png'])
+			if (11 <= ESitems <= 13):
+				self.skinSearchAndReplace.append(['sel_ES.png', 'sel_45.png'])
+			if (14 <= ESitems <= 16):
+				self.skinSearchAndReplace.append(['sel_ES.png', 'sel_36.png'])
+			if (17 <= ESitems):
+				self.skinSearchAndReplace.append(['sel_ES.png', 'sel_30.png'])
+
+			# EPGSelectionMulti
+			ESMitems = config.epgselection.multi_itemsperpage.value
+			if (ESMitems <= 10):
+				self.skinSearchAndReplace.append(['sel_ESM.png', 'sel_70.png'])
+			if (11 <= ESMitems <= 13):
+				self.skinSearchAndReplace.append(['sel_ESM.png', 'sel_45.png'])
+			if (14 <= ESMitems <= 16):
+				self.skinSearchAndReplace.append(['sel_ESM.png', 'sel_36.png'])
+			if (17 <= ESMitems):
+				self.skinSearchAndReplace.append(['sel_ESM.png', 'sel_30.png'])
+
 		### Progress
 		if not config.plugins.KravenHD.Progress.value == "progress":
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress18.png"'," "])
@@ -3059,6 +3129,7 @@ class KravenHD(ConfigListScreen, Screen):
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress170.png"'," "])
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress248.png"'," "])
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress270.png"'," "])
+			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress270_2.png"'," "])
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress300.png"'," "])
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress328.png"'," "])
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress380.png"'," "])
@@ -3296,29 +3367,6 @@ class KravenHD(ConfigListScreen, Screen):
 			self.skinSearchAndReplace.append(['<convert type="KravenHDECMLine">ShortReader', '<convert type="KravenHDECMLine">' + config.plugins.KravenHD.ECMLine2.value])
 		elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-x4","infobar-style-zz1","infobar-style-zz2","infobar-style-zz3","infobar-style-zzz1"):
 			self.skinSearchAndReplace.append(['<convert type="KravenHDECMLine">ShortReader', '<convert type="KravenHDECMLine">' + config.plugins.KravenHD.ECMLine3.value])
-
-		### EPGSelection EPGList
-		if config.plugins.KravenHD.SkinResolution.value == "hd":
-			if config.plugins.KravenHD.EPGListSize.value == "big":
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelection_EPGSearch"', 'setEventItemFont="Regular;26" setEventTimeFont="Regular;21" setTimeWidth="116" setIconDistance="8" setIconShift="0" setColWidths="70,144" setColGap="10" itemHeight="35" position="42,135" size="736,490"']) # EPGSelection, EPGSearch
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelectionMulti"', 'setEventItemFont="Regular;26" setEventTimeFont="Regular;21" setTimeWidth="116" setIconDistance="8" setIconShift="0" setColWidths="220,100" setColGap="10" itemHeight="35" position="42,135" size="736,490"']) # EPGSelectionMulti
-			else:
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelection_EPGSearch"', 'setEventItemFont="Regular;23" setEventTimeFont="Regular;20" setTimeWidth="100" setIconDistance="8" setIconShift="0" setColWidths="60,136" setColGap="10" itemHeight="32" position="42,140" size="736,480"']) # EPGSelection, EPGSearch
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelectionMulti"', 'setEventItemFont="Regular;23" setEventTimeFont="Regular;20" setTimeWidth="100" setIconDistance="8" setIconShift="0" setColWidths="220,100" setColGap="10" itemHeight="32" position="42,140" size="736,480"']) # EPGSelectionMulti
-		else:
-			if config.plugins.KravenHD.EPGListSize.value == "big":
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelection_EPGSearch"', 'setEventItemFont="Regular;37" setEventTimeFont="Regular;30" setTimeWidth="170" setIconDistance="12" setIconShift="0" setColWidths="100,207" setColGap="15" itemHeight="52" position="63,202" size="1104,735"']) # EPGSelection, EPGSearch
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelectionMulti"', 'setEventItemFont="Regular;37" setEventTimeFont="Regular;30" setTimeWidth="170" setIconDistance="12" setIconShift="0" setColWidths="330,150" setColGap="15" itemHeight="52" position="63,202" size="1104,736"']) # EPGSelectionMulti
-			else:
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelection_EPGSearch"', 'setEventItemFont="Regular;35" setEventTimeFont="Regular;29" setTimeWidth="150" setIconDistance="12" setIconShift="0" setColWidths="90,204" setColGap="15" itemHeight="48" position="63,210" size="1104,720"']) # EPGSelection, EPGSearch
-				self.skinSearchAndReplace.append(['teamBlueEPGListSkinParameter="EPGSelectionMulti"', 'setEventItemFont="Regular;35" setEventTimeFont="Regular;29" setTimeWidth="150" setIconDistance="12" setIconShift="0" setColWidths="330,150" setColGap="15" itemHeight="48" position="63,210" size="1104,720"']) # EPGSelectionMulti
-
-		### EPGSelection EPGSize
-		if config.plugins.KravenHD.EPGSelectionEPGSize.value == "big":
-			if config.plugins.KravenHD.EPGSelection.value == "epgselection-minitv":
-				self.skinSearchAndReplace.append(['<panel name="EPGSelection-EPG-small-minitv"/>', '<panel name="EPGSelection-EPG-big-minitv"/>'])
-			else:
-				self.skinSearchAndReplace.append(['<panel name="EPGSelection-EPG-small"/>', '<panel name="EPGSelection-EPG-big"/>'])
 
 		### Infobar typewriter effect
 		if config.plugins.KravenHD.TypeWriter.value == "runningtext":
@@ -3723,6 +3771,9 @@ class KravenHD(ConfigListScreen, Screen):
 		### MovieSelection
 		self.appendSkinFile(self.data + config.plugins.KravenHD.MovieSelection.value + ".xml")
 
+		### Sherlock
+		self.appendSkinFile(self.data + config.plugins.KravenHD.Sherlock.value + ".xml")
+
 		### bsWindow
 		self.makebsWindowpng()
 
@@ -3793,6 +3844,19 @@ class KravenHD(ConfigListScreen, Screen):
 		# make selection pixmaps
 		if config.plugins.KravenHD.SelectionStyle.value == "pixmap":
 			self.makeSELGradientpng()
+
+		# make GraphEPG list graphics
+		self.makeGraphEPGpng("CurrentEvent", config.plugins.KravenHD.GMECurrentColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMECurrentColor.value))
+		self.makeGraphEPGpng("CurrentService", config.plugins.KravenHD.GMECurrentColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMECurrentColor.value))
+		self.makeGraphEPGpng("OtherEvent", config.plugins.KravenHD.GMEOtherColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMEOtherColor.value))
+		self.makeGraphEPGpng("OtherService", config.plugins.KravenHD.GMEOtherColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMEOtherColor.value))
+		self.makeGraphEPGpng("SelectedCurrentEvent", config.plugins.KravenHD.GMESelectedColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMESelectedColor.value))
+		self.makeGraphEPGpng("SelectedEvent", config.plugins.KravenHD.GMESelectedColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMESelectedColor.value))
+		self.makeGraphEPGpng("SelectedRecordEvent", config.plugins.KravenHD.GMESelectedColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMESelectedColor.value))
+		self.makeGraphEPGpng("TimeLineTime", config.plugins.KravenHD.GMEOtherColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMEOtherColor.value))
+		self.makeGraphEPGpng("TimeLineDate", config.plugins.KravenHD.GMEOtherColor.value, self.calcSecondcolor(config.plugins.KravenHD.GMEOtherColor.value))
+		self.makeGraphEPGpng("RecordEvent", "E51400", "330400")
+		self.makeGraphEPGpng("RecordingEvent", "E51400", "330400")
 
 		# copy bsWindow to MediaPortal-folder
 		console5 = eConsoleAppContainer()
@@ -4710,6 +4774,29 @@ class KravenHD(ConfigListScreen, Screen):
 					pixels[x, y] = (r1, g1, b1, a)
 		img.save(self.graphics + output + ".png")
 
+	def makeGraphEPGpng(self, name, color1, color2):
+		width = int(8)
+		height = int(100)
+
+		color1 = color1[-6:]
+		r1 = int(color1[0:2], 16)
+		g1 = int(color1[2:4], 16)
+		b1 = int(color1[4:6], 16)
+		color2 = color2[-6:]
+		r2 = int(color2[0:2], 16)
+		g2 = int(color2[2:4], 16)
+		b2 = int(color2[4:6], 16)
+
+		gradient = Image.new("RGB", (1, height), (r2, g2, b2))
+		for pos in range(0, height):
+			p = pos / float(height)
+			r = r2 * p + r1 * (1 - p)
+			g = g2 * p + g1 * (1 - p)
+			b = b2 * p + b1 * (1 - p)
+			gradient.putpixel((0, pos), (int(r), int(g), int(b)))
+		gradient = gradient.resize((width, height))
+		gradient.save("/usr/share/enigma2/KravenHD/epg/" + name + ".png")
+
 	def changeColor(self,input,output,color1,color2):
 		img = Image.open(self.templates + input + ".png")
 
@@ -4779,6 +4866,27 @@ class KravenHD(ConfigListScreen, Screen):
 		t1 = int(trans1,16)
 		t2 = int(trans2,16)
 		return str(hex(min(t1,t2))[2:4]).zfill(2)
+
+	def calcSecondcolor(self, color):
+		color = color[-6:]
+		r1 = int(color[0:2], 16)
+		r2 = r1 - 60
+		if r2 <= 0:
+			r2 = 0
+		g1 = int(color[2:4], 16)
+		g2 = g1 - 60
+		if g2 <= 0:
+			g2 = 0
+		b1 = int(color[4:6], 16)
+		b2 = b1 - 60
+		if b2 <= 0:
+			b2 = 0
+		secondcolor = str(hex(r2)[2:4]).zfill(2) + str(hex(g2)[2:4]).zfill(2) + str(hex(b2)[2:4]).zfill(2)
+		return secondcolor
+
+	def hex2dec(self, color):
+		dec = int(color, 16)
+		return str(dec)
 
 	def hexRGB(self,color):
 		color = color[-6:]
