@@ -72,6 +72,17 @@ class KravenHDTempFanInfo(Poll, Converter, object):
 				systemp = str(f.readline().strip())
 				systemp = systemp[:-3]
 				f.close()
+			elif path.exists('/proc/stb/power/avs'):
+				f = open('/proc/stb/power/avs', 'rb')
+				systemp = str(f.readline().strip())
+				f.close()
+			elif path.exists('/proc/hisi/msp/pm_cpu'):
+				for line in open('/proc/hisi/msp/pm_cpu').readlines():
+					line = [x.strip() for x in line.strip().split(":")]
+					if line[0] in ("Tsensor"):
+						systemp = line[1].split("=")
+						systemp = line[1].split(" ")
+						systemp = systemp[2]
 		except:
 			pass
 		if systemp <> "N/A":
