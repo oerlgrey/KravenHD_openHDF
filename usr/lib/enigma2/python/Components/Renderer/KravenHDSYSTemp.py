@@ -2,7 +2,7 @@
 
 #  Sys Temp Renderer
 #
-#  Coded/Modified/Adapted by örlgrey
+#  Coded/Modified/Adapted by oerlgrey
 #  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
@@ -17,7 +17,7 @@
 
 from Components.VariableText import VariableText
 from enigma import eLabel
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from os import path, popen
 
 class KravenHDSYSTemp(Renderer, VariableText):

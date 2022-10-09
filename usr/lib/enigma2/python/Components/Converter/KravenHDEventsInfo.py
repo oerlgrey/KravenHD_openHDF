@@ -2,7 +2,7 @@
 
 #  Events Info Converter
 #
-#  Coded/Modified/Adapted by örlgrey
+#  Coded/Modified/Adapted by oerlgrey
 #  Based on openHDF image source code
 #  Based on Next Events by m0rphU & LN
 #
@@ -89,7 +89,7 @@ class KravenHDEventsInfo(Converter, object):
 				next = self.epgcache.getNextTimeEntry()
 				if next:
 					textvalue = self.formatEvent(next)
-		
+
 		elif self.type == self.PrimeTime:
 			curEvent = self.source.getCurrentEvent()
 			if curEvent:
@@ -111,7 +111,7 @@ class KravenHDEventsInfo(Converter, object):
 		return textvalue
 
 	text = property(getText)
-	
+
 	def formatEvent(self, event):
 		begin = strftime("%H:%M", localtime(event.getBeginTime()))
 		end = strftime("%H:%M", localtime(event.getBeginTime() + event.getDuration()))

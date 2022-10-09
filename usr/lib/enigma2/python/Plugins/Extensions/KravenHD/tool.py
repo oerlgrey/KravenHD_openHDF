@@ -2,7 +2,7 @@
 
 #  Kraven Tool
 #
-#  Coded/Modified/Adapted by örlgrey
+#  Coded/Modified/Adapted by oerlgrey
 #  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
@@ -22,10 +22,7 @@ class KravenTool:
 
 	def __init__(self):
 		self.fb_proc_path = '/proc/stb/vmpeg'
-		self.fb_info = ['dst_width',
-		 'dst_height',
-		 'dst_left',
-		 'dst_top']
+		self.fb_info = ['dst_width', 'dst_height', 'dst_left', 'dst_top']
 		self.new_fb_size_pos = None
 		self.decoder = None
 		self.delayTimer = None
