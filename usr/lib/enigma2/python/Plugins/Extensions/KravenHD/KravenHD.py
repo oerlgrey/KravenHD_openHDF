@@ -3314,11 +3314,11 @@ class KravenHD(ConfigListScreen, Screen):
 			self.changeColor("analogclock","analogclock",config.plugins.KravenHD.AnalogColor.value,None)
 
 		### HDF-Radio Icon Color
-		self.changeColor("play","play",config.plugins.KravenHD.Font2.value,None)
-		self.changeColor("pause","pause",config.plugins.KravenHD.Font2.value,None)
-		self.changeColor("stop","stop",config.plugins.KravenHD.Font2.value,None)
-		self.changeColor("sorted","sorted",config.plugins.KravenHD.Font2.value,None)
-		self.changeColor("shuffle","shuffle",config.plugins.KravenHD.Font2.value,None)
+		self.changeColor("play", "play", config.plugins.KravenHD.Font1.value, None)
+		self.changeColor("pause", "pause", config.plugins.KravenHD.Font1.value, None)
+		self.changeColor("stop", "stop", config.plugins.KravenHD.Font1.value, None)
+		self.changeColor("sorted", "sorted", config.plugins.KravenHD.Font1.value, None)
+		self.changeColor("shuffle", "shuffle", config.plugins.KravenHD.Font1.value, None)
 
 		### Screennames
 		if config.plugins.KravenHD.DebugNames.value == "screennames-on":
@@ -3814,6 +3814,12 @@ class KravenHD(ConfigListScreen, Screen):
 				else:
 					if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/MediaPortal/skins_1080/KravenHD/MP_skin.xml"):
 						console4.execute("rm -rf /usr/lib/enigma2/python/Plugins/Extensions/MediaPortal/skins_1080/KravenHD")
+
+		### skin-user
+		try:
+			self.appendSkinFile(self.data + "skin-user.xml")
+		except:
+			pass
 
 		### skin-end
 		self.appendSkinFile(self.data + "skin-end.xml")
