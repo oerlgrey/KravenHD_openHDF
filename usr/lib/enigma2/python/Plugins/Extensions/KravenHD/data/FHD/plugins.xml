@@ -852,13 +852,13 @@
   <screen backgroundColor="transparent" flags="wfNoBorder" name="YouTubeMain" position="0,0" size="1920,1080" title="YouTube">
 	<!--*YouTubeMain*-->
     <panel name="Title-big"/>
-	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_90.png" position="63,120" size="1104,675" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" />
-	  <convert type="TemplatedMultiContent" >
+	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_90.png" position="63,120" size="1104,810" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" >
+	  <convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryPixmapAlphaTest(pos=(6, 13), size=(150, 108), png=2), # Thumbnail
-					MultiContentEntryText(pos=(180, 0), size=(900, 78), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=3), # Title
-					MultiContentEntryText(pos=(180, 78), size=(435, 57), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # Views
-					MultiContentEntryText(pos=(630, 78), size=(450, 57), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=5), # Duration
+					MultiContentEntryText(pos=(180, 0), size=(900, 82), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=3), # Title
+					MultiContentEntryText(pos=(180, 82), size=(435, 51), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # Views
+					MultiContentEntryText(pos=(630, 82), size=(450, 51), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=5), # Duration
 					],
 				"fonts": [gFont("Regular",32), gFont("Regular",27)],
 				"itemHeight": 135}
@@ -874,8 +874,8 @@
   <screen backgroundColor="transparent" flags="wfNoBorder" name="YouTubeSearch" position="0,0" size="1920,1080" title="YouTubeSearch">
 	<!--*YouTubeSearch*-->
     <panel name="Title-big"/>
-	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" position="63,120" size="1104,540" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" />
-	  <convert type="TemplatedMultiContent" >
+	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" position="63,120" size="1104,540" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" >
+	  <convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryText(pos=(15, 2), size=(1065, 41), font=0, flags=RT_HALIGN_LEFT, text=0)
 				],
