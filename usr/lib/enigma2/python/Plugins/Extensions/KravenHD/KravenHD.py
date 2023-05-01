@@ -817,8 +817,8 @@ config.plugins.KravenHD.searchby = ConfigSelection(default="auto-ip", choices = 
 				("location", _("Enter location manually"))
 				])
 
-config.plugins.KravenHD.cityfound = ConfigText(default = "")
-config.plugins.KravenHD.cityname = ConfigText(default = "")
+config.plugins.KravenHD.cityname = ConfigText(default="")
+config.plugins.KravenHD.cityfound = ConfigText(default="")
 config.plugins.KravenHD.latitude = ConfigText(default="")
 config.plugins.KravenHD.longitude = ConfigText(default="")
 
@@ -4014,22 +4014,40 @@ class KravenHD(ConfigListScreen, Screen):
 					line=line.split("|")
 					name=line[0]
 					value=line[1]
-					valuetype=line[2].strip('\n')
-					if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
-						# fix for changed value "gradient"/"grad"
-						if name=="IBStyle" and value=="gradient":
-							value="grad"
-						# fix for changed name "InfobarColor"/"InfobarGradientColor"
-						if name=="InfobarColor":
-							config.plugins.KravenHD.InfobarGradientColor.value=value
-						if valuetype == "<class 'int'>":
-							getattr(config.plugins.KravenHD, name).value=int(value)
-						elif valuetype == "<class 'hex'>":
-							getattr(config.plugins.KravenHD, name).value=hex(value)
-						elif valuetype == "<class 'list'>":
-							getattr(config.plugins.KravenHD, name).value=eval(value)
-						else:
-							getattr(config.plugins.KravenHD, name).value=str(value)
+					if six.PY2:
+						type=line[2].strip('\n')
+						if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "cityfound", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
+							# fix for changed value "gradient"/"grad"
+							if name=="IBStyle" and value=="gradient":
+								value="grad"
+							# fix for changed name "InfobarColor"/"InfobarGradientColor"
+							if name=="InfobarColor":
+								config.plugins.KravenHD.InfobarGradientColor.value=value
+							if type == "<type 'int'>":
+								getattr(config.plugins.KravenHD, name).value=int(value)
+							elif type == "<type 'hex'>":
+								getattr(config.plugins.KravenHD, name).value=hex(value)
+							elif type == "<type 'list'>":
+								getattr(config.plugins.KravenHD, name).value=eval(value)
+							else:
+								getattr(config.plugins.KravenHD, name).value=str(value)
+					else:
+						valuetype=line[2].strip('\n')
+						if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "cityfound", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
+							# fix for changed value "gradient"/"grad"
+							if name=="IBStyle" and value=="gradient":
+								value="grad"
+							# fix for changed name "InfobarColor"/"InfobarGradientColor"
+							if name=="InfobarColor":
+								config.plugins.KravenHD.InfobarGradientColor.value=value
+							if valuetype == "<class 'int'>":
+								getattr(config.plugins.KravenHD, name).value=int(value)
+							elif valuetype == "<class 'hex'>":
+								getattr(config.plugins.KravenHD, name).value=hex(value)
+							elif valuetype == "<class 'list'>":
+								getattr(config.plugins.KravenHD, name).value=eval(value)
+							else:
+								getattr(config.plugins.KravenHD, name).value=str(value)
 				except:
 					pass
 			pFile.close()
@@ -4046,7 +4064,7 @@ class KravenHD(ConfigListScreen, Screen):
 				print("[KravenPlugin]: Save profile " + fname)
 				pFile=open(fname, "w")
 				for name in config.plugins.KravenHD.dict():
-					if not name in ("customProfile", "DebugNames", "searchby", "cityname", "latitude", "longitude"):
+					if not name in ("customProfile", "DebugNames", "searchby", "cityname", "cityfound", "latitude", "longitude"):
 						value=getattr(config.plugins.KravenHD, name).value
 						pFile.writelines(name+"|"+str(value)+"|"+str(type(value))+"\n")
 				pFile.close()
