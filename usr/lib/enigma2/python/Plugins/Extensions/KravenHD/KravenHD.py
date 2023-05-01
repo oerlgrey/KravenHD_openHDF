@@ -40,7 +40,6 @@ from PIL import Image, ImageFilter, ImageDraw
 import gettext, time, subprocess, requests
 from enigma import ePicLoad, getDesktop, eConsoleAppContainer, eTimer
 from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
-from xml.etree.cElementTree import fromstring
 import six
 
 DESKTOP_WIDTH = getDesktop(0).size().width()
@@ -252,7 +251,7 @@ for i in range(1, 21):
 			name = '4 ' + _("colored")
 		profList.append((n, _(name)))
 config.plugins.KravenHD.defaultProfile = ConfigSelection(default="default", choices = profList)
-				
+
 config.plugins.KravenHD.refreshInterval = ConfigSelection(default="60", choices = [
 				("15", _("15")),
 				("30", _("30")),
@@ -813,38 +812,15 @@ config.plugins.KravenHD.PVRState = ConfigSelection(default="pvrstate-center-big"
 				("pvrstate-off", _("off"))
 				])
 
-config.plugins.KravenHD.msn_language = ConfigSelection(default="de-DE", choices = [
-				("de-DE", _("Deutsch")),
-				("en-US", _("English")),
-				("ru-RU", _("Russian")),
-				("it-IT", _("Italian")),
-				("es-ES", _("Spanish")),
-				("uk-UA", _("Ukrainian")),
-				("pt-PT", _("Portuguese")),
-				("ro-RO", _("Romanian")),
-				("pl-PL", _("Polish")),
-				("fi-FI", _("Finnish")),
-				("nl-NL", _("Dutch")),
-				("fr-FR", _("French")),
-				("bg-BG", _("Bulgarian")),
-				("sv-SE", _("Swedish")),
-				("tr-TR", _("Turkish")),
-				("hr-HR", _("Croatian")),
-				("ca-AD", _("Catalan")),
-				("sk-SK", _("Slovak"))
-				])
-
-config.plugins.KravenHD.msn_searchby = ConfigSelection(default="auto-ip", choices = [
+config.plugins.KravenHD.searchby = ConfigSelection(default="auto-ip", choices = [
 				("auto-ip", _("IP")),
 				("location", _("Enter location manually"))
 				])
 
-SearchResultList = []
-config.plugins.KravenHD.msn_list = ConfigSelection(default = "", choices = SearchResultList)
-
-config.plugins.KravenHD.msn_cityfound = ConfigText(default = "")
-config.plugins.KravenHD.msn_cityname = ConfigText(default = "")
-config.plugins.KravenHD.msn_code = ConfigText(default = "")
+config.plugins.KravenHD.cityfound = ConfigText(default = "")
+config.plugins.KravenHD.cityname = ConfigText(default = "")
+config.plugins.KravenHD.latitude = ConfigText(default="")
+config.plugins.KravenHD.longitude = ConfigText(default="")
 
 config.plugins.KravenHD.PlayerClock = ConfigSelection(default="player-classic", choices = [
 				("player-classic", _("standard")),
@@ -1298,12 +1274,11 @@ class KravenHD(ConfigListScreen, Screen):
 				else:
 					list.append(getConfigListEntry(_("Weather"), config.plugins.KravenHD.WeatherStyle2, _("Activate or deactivate displaying the weather in the infobar.")))
 					self.actWeatherstyle=config.plugins.KravenHD.WeatherStyle2.value
-			list.append(getConfigListEntry(_("Search option"), config.plugins.KravenHD.msn_searchby, _("Choose from different options to enter your settings.\nPress the red button to search for the weather code.")))
-			if config.plugins.KravenHD.msn_searchby.value == "location":
-				list.append(getConfigListEntry(_("Location "), config.plugins.KravenHD.msn_cityname, _("Enter your location.\nPress OK to use the virtual keyboard.\nPress the red button to search for the weather code.")))
+			list.append(getConfigListEntry(_("Search option"), config.plugins.KravenHD.searchby, _("Choose from different options to enter your settings.\nThen press the red button to search for the coordinates.")))
+			if config.plugins.KravenHD.searchby.value == "location":
+				list.append(getConfigListEntry(_("Location "), config.plugins.KravenHD.cityname, _("Enter your location.\nPress OK to use the virtual keyboard.\nThen press the red button to search for the coordinates.")))
 			else:
 				emptyLines+=1
-			list.append(getConfigListEntry(_("Language"), config.plugins.KravenHD.msn_language, _("Specify the language for the weather output.")))
 			list.append(getConfigListEntry(_("Refresh interval (in minutes)"), config.plugins.KravenHD.refreshInterval, _("Choose the frequency of loading weather data from the internet.")))
 			list.append(getConfigListEntry(_("Weather-Style"), config.plugins.KravenHD.WeatherView, _("Choose between graphical weather symbols and Meteo symbols.")))
 			if config.plugins.KravenHD.WeatherView.value == "meteo":
@@ -1313,8 +1288,8 @@ class KravenHD(ConfigListScreen, Screen):
 		else:
 			list.append(getConfigListEntry(_("Weather"), config.plugins.KravenHD.WeatherStyleNoInternet, _("You have no internet connection. This function is disabled.")))
 			self.actWeatherstyle="none"
-			emptyLines+=6
-		for i in range(emptyLines+3):
+			emptyLines+=5
+		for i in range(emptyLines+4):
 			list.append(getConfigListEntry(_(" "), ))
 
 		# page 5 (category 2)
@@ -1790,6 +1765,11 @@ class KravenHD(ConfigListScreen, Screen):
 				self["helperimage"].show()
 			else:
 				self.showText(23, "/etc/enigma2/kravenhd_default_"+str(config.plugins.KravenHD.defaultProfile.value))
+		elif option in (config.plugins.KravenHD.searchby, config.plugins.KravenHD.cityname):
+			if config.plugins.KravenHD.cityfound.value != "" and config.plugins.KravenHD.latitude.value != "" and config.plugins.KravenHD.longitude.value != "":
+				self.showText(30, str(config.plugins.KravenHD.cityfound.value) + "\n" + "lat: " + str(config.plugins.KravenHD.latitude.value) + "\n" + "lon: " + str(config.plugins.KravenHD.longitude.value))
+			else:
+				self.showText(30, _("No location set."))
 		elif option == config.plugins.KravenHD.TypeWriter:
 			if option.value == "runningtext":
 				self.showText(48, _("runningtext"))
@@ -1869,10 +1849,6 @@ class KravenHD(ConfigListScreen, Screen):
 				self.showText(17, "CAM - CAID - System - Reader - Hops - Time")
 		elif option == config.plugins.KravenHD.FTA and option.value == "FTAVisible":
 			self.showText(17, _("free to air"))
-		elif option in (config.plugins.KravenHD.msn_searchby, config.plugins.KravenHD.msn_code, config.plugins.KravenHD.msn_cityname):
-			self.showText(30, _("Weather-Code:\n") + config.plugins.KravenHD.msn_code.value)
-		elif option == config.plugins.KravenHD.msn_language:
-			self.showText(30, _("Language") + ":\n" + option.value)
 		elif option == config.plugins.KravenHD.refreshInterval:
 			if option.value == "15":
 				self.showText(50, "00:15")
@@ -2093,8 +2069,8 @@ class KravenHD(ConfigListScreen, Screen):
 
 	def showRedText(self):
 		option = self["config"].getCurrent()[1]
-		if option.value == "auto-ip" or option.value == "location" or option == config.plugins.KravenHD.msn_cityname:
-			self["key_red"].text = _("Search Code")
+		if option in (config.plugins.KravenHD.searchby, config.plugins.KravenHD.cityname):
+			self["key_red"].text = _("Find coordinates")
 		else:
 			self["key_red"].text = _("FAQs")
 
@@ -2302,73 +2278,81 @@ class KravenHD(ConfigListScreen, Screen):
 
 	def redbutton(self):
 		option = self["config"].getCurrent()[1]
-		if option in (config.plugins.KravenHD.msn_searchby, config.plugins.KravenHD.msn_cityname, config.plugins.KravenHD.msn_code):
-			self.checkCode()
+		if option in (config.plugins.KravenHD.searchby, config.plugins.KravenHD.cityname):
+			if self.InternetAvailable:
+				self.getWeatherData()
+			else:
+				self.session.open(MessageBox, _("You have no internet connection.\nPlease solve the problem."), MessageBox.TYPE_INFO, timeout=8)
 		else:
 			self.faq()
 
-	def getCityByIP(self):
-		try:
-			res_city = requests.get('http://ip-api.com/json/?lang=de&fields=status,city', timeout=1)
-			data_city = res_city.json()
-			if data_city['status'] == 'success':
-				return str(data_city['city'])
-		except:
-			self.session.open(MessageBox, _('No valid location found.'), MessageBox.TYPE_INFO, timeout = 10)
-
-	def checkCode(self):
-		if self.InternetAvailable:
-			option = self["config"].getCurrent()[1]
+	def getWeatherData(self):
+		option = self["config"].getCurrent()[1]
+		if option.value == "auto-ip" or (option.value == "location" and config.plugins.KravenHD.cityname.value in ("", " ")) or (option == config.plugins.KravenHD.cityname and config.plugins.KravenHD.cityname.value in ("", " ")):
 			if option.value == "auto-ip":
-				cityip = self.getCityByIP()
-				iplist = []
-				try:
-					res_gc = requests.get('http://weather.service.msn.com/find.aspx?src=windows&outputview=search&weasearchstr=' + str(cityip) + '&culture=' + str(config.plugins.KravenHD.msn_language.value), timeout=1)
-					data_gc = fromstring(res_gc.text)
+				self.getCityByIP("ip")
+			else:
+				self.getCityByIP("empty")
+		elif (option.value == "location" and not config.plugins.KravenHD.cityname.value in ("", " ")) or (option == config.plugins.KravenHD.cityname and not config.plugins.KravenHD.cityname.value in ("", " ")):
+			try:
+				res = requests.request('get', 'http://dev.virtualearth.net/REST/v1/Locations/' + str(config.plugins.KravenHD.cityname.value) + '?&key=Amdqp42KR1c0kHZjTSFXtovl5Y-YridPCqZFguFnvFk6TbW-ITF8jdINSt0jqUQ2', timeout=3)
+				data = res.json()
+				reslist = []
+				for idx, locations in enumerate(data['resourceSets'][0]['resources']):
+					city = data['resourceSets'][0]['resources'][int(idx)]['address']['locality']
+					region = data['resourceSets'][0]['resources'][int(idx)]['address']['countryRegion']
+					lat = data['resourceSets'][0]['resources'][int(idx)]['geocodePoints'][0]['coordinates'][0]
+					lon = data['resourceSets'][0]['resources'][int(idx)]['geocodePoints'][0]['coordinates'][1]
+					reslist.append((city + " / " + region, city, lat, lon))
+				if len(reslist) > 0:
+					self.session.openWithCallback(self.LocationCallBack, ChoiceBox, list=reslist)
+				else:
+					self.getCityByIP("fallback")
+			except:
+				self.getCityByIP("fallback")
 
-					for weather in data_gc.findall("./weather"):
-						ipcity = weather.get('weatherlocationname')
-						weathercode = weather.get('weatherlocationcode')
-						iplist.append((ipcity, weathercode + "//" + ipcity))
+	def LocationCallBack(self, callback):
+		if callback:
+			self.session.open(MessageBox, _("Location found:") + "\n" + str(callback[0]) + "\n\n" + _("latitude: ") + str(callback[2]) + "\n" + _("longitude: ") + str(callback[3]), MessageBox.TYPE_INFO, timeout=8)
+			config.plugins.KravenHD.cityfound.value = str(callback[1])
+			config.plugins.KravenHD.cityfound.save()
+			config.plugins.KravenHD.latitude.value = str(callback[2])
+			config.plugins.KravenHD.latitude.save()
+			config.plugins.KravenHD.longitude.value = str(callback[3])
+			config.plugins.KravenHD.longitude.save()
+			self.showPreview()
 
-					def WeatherCodeCallBack(callback):
-						callback = callback and callback[1]
-						if callback:
-							config.plugins.KravenHD.msn_code.value = str(callback.split("//")[0])
-							config.plugins.KravenHD.msn_code.save()
-							config.plugins.KravenHD.msn_cityfound.value = str(callback.split("//")[1].split(",")[0])
-							config.plugins.KravenHD.msn_cityfound.save()
-							self.session.open(MessageBox, _("Weather-Code found:\n") + str(config.plugins.KravenHD.msn_code.value), MessageBox.TYPE_INFO, timeout = 10)
-						self.showPreview()
-					self.session.openWithCallback(WeatherCodeCallBack, ChoiceBox, title = _("Choose your location:"), list = iplist)
+	def getCityByIP(self, failed):
+		city = ""
+		lat = ""
+		lon = ""
 
-				except:
-					self.session.open(MessageBox, _('No valid location found.'), MessageBox.TYPE_INFO, timeout = 10)
+		try:
+			res_city = requests.get('http://ip-api.com/json/?lang=de&fields=status,city,lat,lon,country', timeout=2)
+			data = res_city.json()
+			if data['status'] == 'success':
+				city = data['city']
+				region = data['country']
+				lat = data['lat']
+				lon = data['lon']
+				if failed == "fallback":
+					config.plugins.KravenHD.cityname.value = ""
+					config.plugins.KravenHD.cityname.save()
+					self.session.open(MessageBox, _("No valid location found.") + "\n" + _("Fallback to IP.") + "\n\n" + _("Location found:") + "\n" + str(city) + " / " + str(region) + "\n\n" + _("latitude: ") + str(lat) + "\n" + _("longitude: ") + str(lon), MessageBox.TYPE_INFO, timeout=10)
+				elif failed == "empty":
+					self.session.open(MessageBox, _("You have no location entered.") + "\n" + _("Fallback to IP.") + "\n\n" + _("Location found:") + "\n" + str(city) + " / " + str(region) + "\n\n" + _("latitude: ") + str(lat) + "\n" + _("longitude: ") + str(lon), MessageBox.TYPE_INFO, timeout=10)
+				else:
+					self.session.open(MessageBox, _("Location found:") + "\n" + str(city) + " / " + str(region) + "\n\n" + _("latitude: ") + str(lat) + "\n" + _("longitude: ") + str(lon), MessageBox.TYPE_INFO, timeout=8)
+		except:
+			pass
 
-			if option.value == "location" or option == config.plugins.KravenHD.msn_cityname:
-				citylist = []
-				try:
-					res_gc = requests.get('http://weather.service.msn.com/find.aspx?src=windows&outputview=search&weasearchstr=' + str(config.plugins.KravenHD.msn_cityname.value) + '&culture=' + str(config.plugins.KravenHD.msn_language.value), timeout=1)
-					data_gc = fromstring(res_gc.text)
-
-					for weather in data_gc.findall("./weather"):
-						city = weather.get('weatherlocationname')
-						code = weather.get('weatherlocationcode')
-						citylist.append((city, code + "//" + city))
-
-					def LocationCallBack(callback):
-						callback = callback and callback[1]
-						if callback:
-							config.plugins.KravenHD.msn_code.value = str(callback.split("//")[0])
-							config.plugins.KravenHD.msn_code.save()
-							config.plugins.KravenHD.msn_cityfound.value = str(callback.split("//")[1].split(",")[0])
-							config.plugins.KravenHD.msn_cityfound.save()
-							self.session.open(MessageBox, _("Weather-Code found:\n") + str(config.plugins.KravenHD.msn_code.value), MessageBox.TYPE_INFO, timeout = 10)
-						self.showPreview()
-					self.session.openWithCallback(LocationCallBack, ChoiceBox, title = _("Choose your location:"), list = citylist)
-
-				except:
-					self.session.open(MessageBox, _('No valid Weather-Code found.'), MessageBox.TYPE_INFO, timeout = 10)
+		config.plugins.KravenHD.cityfound.value = str(city)
+		config.plugins.KravenHD.cityfound.save()
+		config.plugins.KravenHD.latitude.value = str(lat)
+		config.plugins.KravenHD.latitude.save()
+		config.plugins.KravenHD.longitude.value = str(lon)
+		config.plugins.KravenHD.longitude.save()
+		self.showPreview()
 
 	def VirtualKeyBoardCallBack(self, callback):
 		try:
@@ -2557,11 +2541,11 @@ class KravenHD(ConfigListScreen, Screen):
 			else:
 				color = self.actListColorSelection.value
 			self.session.openWithCallback(self.ColorSelectionCallBack, KravenHDColorSelection, title = title, color = color)
-		elif option == config.plugins.KravenHD.msn_cityname:
+		elif option == config.plugins.KravenHD.cityname:
 			text = self["config"].getCurrent()[1].value
 			title = _("Enter your location:")
 			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
-			config.plugins.KravenHD.msn_cityname.save()
+			config.plugins.KravenHD.cityname.save()
 		elif option == config.plugins.KravenHD.customProfile:
 			self.saveProfile(msg=True)
 		elif option == config.plugins.KravenHD.defaultProfile:
@@ -3042,14 +3026,14 @@ class KravenHD(ConfigListScreen, Screen):
 				self.skinSearchAndReplace.append(['size="50,50" path="WetterIcons" render="KravenHDWetterPicon" alphatest="blend"', 'size="50,50" render="Label" font="Meteo; 45" halign="center" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
 				self.skinSearchAndReplace.append(['size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons"', 'size="70,70" render="Label" font="Meteo; 60" halign="center" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
 				self.skinSearchAndReplace.append(['size="100,100" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons"', 'size="100,100" render="Label" font="Meteo; 1000" halign="center" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
-				self.skinSearchAndReplace.append(['"KravenHDWeather">icon', '"KravenHDWeather">meteo'])
+				self.skinSearchAndReplace.append([',Icon</convert>', ',MeteoFont</convert>'])
 		else:
 			if config.plugins.KravenHD.WeatherView.value == "meteo":
 				self.skinSearchAndReplace.append(['size="75,75" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons"', 'size="75,75" render="Label" font="Meteo;60" halign="right" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
 				self.skinSearchAndReplace.append(['size="75,75" path="WetterIcons" render="KravenHDWetterPicon" alphatest="blend"', 'size="75,75" render="Label" font="Meteo;67" halign="center" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
 				self.skinSearchAndReplace.append(['size="105,105" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons"', 'size="105,105" render="Label" font="Meteo;90" halign="center" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
 				self.skinSearchAndReplace.append(['size="150,150" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons"', 'size="150,150" render="Label" font="Meteo;1500" halign="center" valign="center" foregroundColor="KravenMeteo" noWrap="1"'])
-				self.skinSearchAndReplace.append(['"KravenHDWeather">icon', '"KravenHDWeather">meteo'])
+				self.skinSearchAndReplace.append([',Icon</convert>', ',MeteoFont</convert>'])
 
 		### Meteo-Font
 		if config.plugins.KravenHD.MeteoColor.value == "meteo-dark":
@@ -4031,7 +4015,7 @@ class KravenHD(ConfigListScreen, Screen):
 					name=line[0]
 					value=line[1]
 					valuetype=line[2].strip('\n')
-					if not (name in ("customProfile", "DebugNames", "msn_language", "msn_searchby", "msn_list", "msn_cityname", "msn_code") or (loadDefault and name == "defaultProfile")):
+					if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
 						# fix for changed value "gradient"/"grad"
 						if name=="IBStyle" and value=="gradient":
 							value="grad"
@@ -4062,7 +4046,7 @@ class KravenHD(ConfigListScreen, Screen):
 				print("[KravenPlugin]: Save profile " + fname)
 				pFile=open(fname, "w")
 				for name in config.plugins.KravenHD.dict():
-					if not name in ("customProfile", "DebugNames", "msn_language", "msn_searchby", "msn_list", "msn_cityname", "msn_code"):
+					if not name in ("customProfile", "DebugNames", "searchby", "cityname", "latitude", "longitude"):
 						value=getattr(config.plugins.KravenHD, name).value
 						pFile.writelines(name+"|"+str(value)+"|"+str(type(value))+"\n")
 				pFile.close()

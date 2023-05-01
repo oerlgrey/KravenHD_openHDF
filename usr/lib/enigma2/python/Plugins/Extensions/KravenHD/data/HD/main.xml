@@ -1210,6 +1210,18 @@
 
   <screen backgroundColor="transparent" flags="wfNoBorder" name="SkinSelector" position="0,0" size="1280,720" title="Skin Selector">
 	<!--*SkinSelector*-->
+	<!-- new widgets -->
+	<widget backgroundColor="Kravenbg3" source="skins" render="Listbox" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" enableWrapAround="1" scrollbarMode="showOnDemand" position="42,80" size="348,420" transparent="1">
+	  <convert type="TemplatedMultiContent">
+	      {"template": [ MultiContentEntryText(pos = (8, 1), size = (332, 27), flags = RT_HALIGN_LEFT, text = 0) ],
+	      "fonts": [gFont("Regular", 22)],
+	      "itemHeight": 30
+	      }
+	  </convert>
+	</widget>
+    <widget alphatest="blend" name="preview" position="428,70" size="280,210" />
+    <widget backgroundColor="Kravenbg3" font="Regular2;22" halign="center" position="42,545" render="Label" size="736,54" source="description" transparent="1" foregroundColor="KravenFont2" />
+	<!-- old widgets -->
     <widget backgroundColor="Kravenbg3" name="SkinList" font="Regular;22" foregroundColor="KravenFont1" itemHeight="30" selectionPixmap="KravenHD/graphics/sel_30.png" enableWrapAround="1" scrollbarMode="showOnDemand" position="42,80" size="348,420" transparent="1" />
     <widget alphatest="blend" name="Preview" position="428,70" size="280,210" />
     <widget backgroundColor="Kravenbg3" font="Regular2;22" halign="center" position="42,545" render="Label" size="736,54" source="introduction" transparent="1" foregroundColor="KravenFont2" />
