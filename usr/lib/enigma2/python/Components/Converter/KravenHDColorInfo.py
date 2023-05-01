@@ -2,7 +2,7 @@
 
 #  Color Info Converter
 #
-#  Coded/Modified/Adapted by örlgrey
+#  Coded/Modified/Adapted by oerlgrey
 #  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
@@ -18,7 +18,7 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.config import config
-from Poll import Poll
+from Components.Converter.Poll import Poll
 
 class KravenHDColorInfo(Poll, Converter, object):
 	def __init__(self, type):

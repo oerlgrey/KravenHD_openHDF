@@ -2,7 +2,7 @@
 
 #  Bitrate
 #
-#  Coded/Modified/Adapted by örlgrey
+#  Coded/Modified/Adapted by oerlgrey
 #  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
@@ -111,5 +111,5 @@ class Bitrate:
 				return "mipsel"
 			elif getImageArch() == "cortexa15hf-neon-vfpv4":
 				return "arm"
-		except ImportError:
+		except:
 			return "unknown"

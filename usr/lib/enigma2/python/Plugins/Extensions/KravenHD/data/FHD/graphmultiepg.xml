@@ -35,8 +35,7 @@
     <widget name="timeline5" backgroundColor="orange" position="0,498" size="1,450" zPosition="1" />
 	<widget name="timeline_now" position="0,490" zPosition="2" size="23,465" pixmap="KravenHD/epg/timeline-ge.png" alphatest="blend" />
     <panel name="GE-small"/>
-    <panel name="NameRedGreenYellowBlue2"/>
-    <panel name="Colorbuttons"/>
+	<panel name="RGYB_Buttons2" />
     <panel name="Background"/>
     <panel name="MenuOKExit"/>
   </screen>

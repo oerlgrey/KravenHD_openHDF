@@ -2,7 +2,7 @@
 
 #  Single EPG List Renderer
 #
-#  Coded/Modified/Adapted by örlgrey
+#  Coded/Modified/Adapted by oerlgrey
 #  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
@@ -17,7 +17,7 @@
 
 from Components.VariableText import VariableText
 from enigma import eLabel, eEPGCache
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from time import localtime
 
 class KravenHDSingleEpgList(Renderer, VariableText):

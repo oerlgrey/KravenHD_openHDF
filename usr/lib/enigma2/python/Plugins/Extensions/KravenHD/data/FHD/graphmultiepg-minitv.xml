@@ -43,7 +43,6 @@
     <!-- nontransbg */-->
 	<panel name="gradient-menu"/>
     <panel name="GEMT-small"/>
-    <panel name="NameRedGreenYellowBlue2"/>
-    <panel name="Colorbuttons"/>
+	<panel name="RGYB_Buttons5" />
     <panel name="MenuOKExit"/>
   </screen>

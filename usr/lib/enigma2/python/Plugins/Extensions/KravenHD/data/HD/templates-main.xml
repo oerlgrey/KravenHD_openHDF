@@ -186,65 +186,176 @@
       <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
 	</screen>
 	
-	<screen name="NameRedGreen">
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="RGYB_Buttons">
+      <panel name="TemplateButtonRed"/>
+      <panel name="TemplateButtonGreen"/>
+      <panel name="TemplateButtonYellow"/>
+      <panel name="TemplateButtonBlue"/>
 	</screen>
 	
-	<screen name="NameRedGreen2">
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="RGYB_Buttons2">
+      <panel name="TemplateButtonRed2"/>
+      <panel name="TemplateButtonGreen2"/>
+      <panel name="TemplateButtonYellow2"/>
+      <panel name="TemplateButtonBlue2"/>
 	</screen>
 	
-	<screen name="NameRedGreenYellow">
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="RGYB_Buttons4">
+      <panel name="TemplateButtonRed4"/>
+      <panel name="TemplateButtonGreen4"/>
+      <panel name="TemplateButtonYellow4"/>
+      <panel name="TemplateButtonBlue4"/>
 	</screen>
 	
-	<screen name="NameRedGreenYellow2">
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="RGYB_Buttons5">
+      <panel name="TemplateButtonRed5"/>
+      <panel name="TemplateButtonGreen5"/>
+      <panel name="TemplateButtonYellow5"/>
+      <panel name="TemplateButtonBlue5"/>
 	</screen>
 	
-	<screen name="NameRedGreenYellowBlue">
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="TemplateButtonRed">
+	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
+	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_red" position="47,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="NameRedGreenYellowBlue2">
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="TemplateButtonGreen">
+	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
+	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="SourceRedGreen">
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" position="47,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_green" position="297,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="TemplateButtonYellow">
+	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
+	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_yellow" position="547,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="SourceRedGreenYellow">
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" position="47,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_green" position="297,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_yellow" position="547,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="TemplateButtonBlue">
+	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
+	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_blue" position="797,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="SourceRedGreenYellowBlue">
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" position="47,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_green" position="297,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_yellow" position="547,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_blue" position="797,670" size="220,26" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="TemplateButtonRed2">
+	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
+	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_red" position="47,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="SourceRedGreenYellowBlue2">
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" position="47,670" size="220,26" render="Label" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_green" position="297,670" size="220,26" render="Label" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_yellow" position="547,670" size="220,26" render="Label" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_blue" position="797,670" size="220,26" render="Label" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	<screen name="TemplateButtonGreen2">
+	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
+	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonYellow2">
+	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
+	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_yellow" position="547,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonBlue2">
+	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
+	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_blue" position="797,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonRed4">
+	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
+	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_red" position="47,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonGreen4">
+	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
+	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonYellow4">
+	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
+	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_yellow" position="547,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonBlue4">
+	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
+	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_blue" position="797,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonRed5">
+	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
+	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_red" position="47,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonGreen5">
+	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
+	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_green" position="297,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonYellow5">
+	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
+	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_yellow" position="547,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	</screen>
+	
+	<screen name="TemplateButtonBlue5">
+	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
+	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+		<convert type="ConditionalShowHide" />
+	  </widget>
+	  <widget name="key_blue" position="797,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,Button,Label" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
+	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
 	<screen name="Title-big">
@@ -342,12 +453,9 @@
 	  </widget>
       <widget backgroundColor="Kravenbg" font="Regular2;22" foregroundColor="KravenFont2" halign="center" source="playtext" render="Label" position="42,520" size="736,108" transparent="1" valign="center" zPosition="2" />
       <widget backgroundColor="Kravenbg" font="Regular2;22" foregroundColor="KravenFont2" name="help" position="42,520" size="736,108" transparent="1" valign="center" zPosition="3" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	  <panel name="RGYB_Buttons2" />
       <widget font="Regular;20" halign="left" valign="center" name="key_red2" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="3" />
       <widget font="Regular;20" halign="left" valign="center" name="key_green2" position="297,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="3" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
 	  <widget name="buttons_abdeck" position="547,665" zPosition="2" size="470,26" font="Regular;20" valign="center" halign="left" foregroundColor="KravenButton" backgroundColor="KravenIBbg2" />
       <widget name="rec_pic" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/webradioFS/skin/images/rec1.png" position="1030,668" size="40,30" zPosition="2" />
 	</screen>
@@ -357,24 +465,14 @@
       <widget backgroundColor="Kravenbg" font="Regular2;22" foregroundColor="KravenFont2" halign="center" name="rec_txt" position="42,80" size="736,27" transparent="1" valign="center" zPosition="2" />
       <widget backgroundColor="Kravenbg" foregroundColor="KravenFont1" name="config" itemHeight="26" selectionPixmap="KravenHD/graphics/sel_30.png" position="42,110" size="736,416" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="0" zPosition="3" />
       <widget backgroundColor="Kravenbg" font="Regular2;22" foregroundColor="KravenFont2" halign="center" name="playtext" position="42,545" size="736,81" transparent="1" valign="center" zPosition="2" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	  <panel name="RGYB_Buttons2" />
 	</screen>
 	
 	<screen name="EMCSelection-template">
 	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg2" foregroundColor="KravenIBGFont1" position="1138,16" size="100,28" font="Regular;26" halign="right" transparent="1" valign="center">
 	    <convert type="KravenHDClockToText">Default</convert>
 	  </widget>
-	  <widget font="Regular;20" halign="left" valign="center" source="key_red" render="Label" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="center" source="key_green" render="Label" position="297,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="center" source="key_yellow" render="Label" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="center" source="key_blue" render="Label" position="797,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_red1.png" position="42,697" size="200,5" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="292,697" size="200,5" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_yellow1.png" position="542,697" size="200,5" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
+	  <panel name="RGYB_Buttons2" />
       <!-- globalbg */-->
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_menu.png" position="1095,675" size="43,22" alphatest="blend" />
 	  <ePixmap pixmap="KravenHD/infobar-global-icons/key_ok.png" position="1145,675" size="43,22" alphatest="blend" />
@@ -385,14 +483,7 @@
 	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg5" foregroundColor="KravenIBGFont1" position="1138,16" size="100,28" font="Regular;26" halign="right" transparent="1" valign="center">
 	    <convert type="KravenHDClockToText">Default</convert>
 	  </widget>
-	  <widget font="Regular;20" halign="left" valign="center" source="key_red" render="Label" position="47,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="center" source="key_green" render="Label" position="297,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="center" source="key_yellow" render="Label" position="547,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="center" source="key_blue" render="Label" position="797,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" noWrap="1" transparent="1" zPosition="1" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_red1.png" position="42,697" size="200,5" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="292,697" size="200,5" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_yellow1.png" position="542,697" size="200,5" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
+	  <panel name="RGYB_Buttons5" />
       <!-- nontransbg */-->
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_menu.png" position="1095,675" size="43,22" alphatest="blend" />
 	  <ePixmap pixmap="KravenHD/infobar-global-icons/key_ok.png" position="1145,675" size="43,22" alphatest="blend" />
@@ -403,14 +494,7 @@
       <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg2" foregroundColor="KravenIBGFont1" position="1138,16" size="100,28" font="Regular;26" halign="right" transparent="1" valign="center">
         <convert type="KravenHDClockToText">Default</convert>
       </widget>
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_red1.png" position="42,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="292,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_yellow1.png" position="542,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
+	  <panel name="RGYB_Buttons2" />
       <!-- globalbg */-->
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_menu.png" position="1095,675" size="43,22" alphatest="blend" />
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_ok.png" position="1145,675" size="43,22" alphatest="blend" />
@@ -421,14 +505,7 @@
       <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg5" foregroundColor="KravenIBGFont1" position="1138,16" size="100,28" font="Regular;26" halign="right" transparent="1" valign="center">
         <convert type="KravenHDClockToText">Default</convert>
       </widget>
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_green" position="297,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_red1.png" position="42,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="292,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_yellow1.png" position="542,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
+	  <panel name="RGYB_Buttons5" />
       <!-- nontransbg */-->
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_menu.png" position="1095,675" size="43,22" alphatest="blend" />
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_ok.png" position="1145,675" size="43,22" alphatest="blend" />
@@ -440,14 +517,7 @@
 	  <widget source="global.CurrentTime" render="Label" position="1138,16" size="100,28" foregroundColor="KravenIBGFont1" font="Regular;26" halign="right" backgroundColor="KravenIBbg4" transparent="1" valign="center">
         <convert type="KravenHDClockToText">Default</convert>
       </widget>
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg4" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="top" name="key_green" position="297,670" size="220,26" backgroundColor="KravenIBbg4" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg4" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg4" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_red1.png" position="42,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="292,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_yellow1.png" position="542,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
+	  <panel name="RGYB_Buttons4" />
 	  <!-- channelbg */-->
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_menu.png" position="1095,675" size="43,22" alphatest="blend" />
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_ok.png" position="1145,675" size="43,22" alphatest="blend" />
@@ -459,14 +529,7 @@
 	  <widget source="global.CurrentTime" render="Label" position="1138,16" size="100,28" foregroundColor="KravenIBGFont1" font="Regular;26" halign="right" backgroundColor="KravenIBbg5" transparent="1" valign="center">
         <convert type="KravenHDClockToText">Default</convert>
       </widget>
-      <widget font="Regular;20" halign="left" valign="center" name="key_red" position="47,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="top" name="key_green" position="297,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_yellow" position="547,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" name="key_blue" position="797,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-	  <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_red1.png" position="42,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="292,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_yellow1.png" position="542,697" size="200,5" />
-      <ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_blue1.png" position="792,697" size="200,5" />
+	  <panel name="RGYB_Buttons5" />
       <!-- nontransbg */-->
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_menu.png" position="1095,675" size="43,22" alphatest="blend" />
       <ePixmap pixmap="KravenHD/infobar-global-icons/key_ok.png" position="1145,675" size="43,22" alphatest="blend" />
@@ -482,10 +545,7 @@
 		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
       </widget>
 	  <!-- globalbg */-->
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" render="Label" position="47,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="top" source="key_green" render="Label" position="297,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_yellow" render="Label" position="547,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_blue" render="Label" position="797,670" size="220,26" backgroundColor="KravenIBbg2" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	  <panel name="RGYB_Buttons2" />
 	</screen>
 	
 	<screen name="EPGSelection-nontransbg-template">
@@ -503,10 +563,7 @@
 		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
       </widget>
       <!-- nontransbg */-->
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" render="Label" position="47,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-	  <widget font="Regular;20" halign="left" valign="top" source="key_green" render="Label" position="297,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_yellow" render="Label" position="547,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_blue" render="Label" position="797,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	  <panel name="RGYB_Buttons5" />
 	</screen>
 	
 	<screen name="EventView-template">
@@ -539,6 +596,7 @@
       <widget backgroundColor="Kravenbg" foregroundColor="KravenFont2" font="Regular2;35" halign="left" name="channel" position="42,85" size="854,60" transparent="1" />
       <widget backgroundColor="Kravenbg" foregroundColor="KravenFont2" font="Regular2;30" halign="right" name="datetime" position="928,85" size="310,60" transparent="1" valign="center" />
       <widget backgroundColor="Kravenbg" font="Regular2;24" halign="right" name="duration" position="965,603" size="273,40" transparent="1" foregroundColor="KravenFont2" />
+	  <panel name="RGYB_Buttons2" />
 	</screen>
 	
 	<screen name="EventView-nontransbg-template">
@@ -581,10 +639,7 @@
 	  <eLabel backgroundColor="KravenBorder2" position="822,80" size="3,234" transparent="0" zPosition="4" />
 	  <eLabel backgroundColor="KravenBorder2" position="1235,80" size="3,234" transparent="0" zPosition="4" />
       <!-- nontransbg */-->
-      <widget font="Regular;20" halign="left" valign="center" source="key_red" render="Label" position="47,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_yellow" render="Label" position="547,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
-      <widget font="Regular;20" halign="left" valign="center" source="key_blue" render="Label" position="797,670" size="220,26" backgroundColor="KravenIBbg5" foregroundColor="KravenButton" transparent="1" zPosition="1" />
+	  <panel name="RGYB_Buttons5" />
 	</screen>
 	
 	<screen name="channelselection-style-minitv-small">
@@ -1227,23 +1282,23 @@
 	</screen>
 	
 	<screen name="gradient-ibepg">
-      <ePixmap pixmap="KravenHD/graphics/ibar.png" position="0,75" size="1280,310" zPosition="-9" />
-      <ePixmap pixmap="KravenHD/graphics/ibar.png" position="0,0" size="1280,310" zPosition="-8" />
+      <ePixmap pixmap="KravenHD/graphics/ibar.png" position="0,410" size="1280,310" zPosition="-9" alphatest="blend" />
+      <ePixmap pixmap="KravenHD/graphics/ibar.png" position="0,335" size="1280,310" zPosition="-8" />
 	</screen>
 	
 	<screen name="box-ibepg">
-	  <eLabel position="0,100" size="1280,285" backgroundColor="KravenIBbg" zPosition="-9" />
-	  <eLabel position="0,100" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
+	  <eLabel position="0,435" size="1280,285" backgroundColor="KravenIBbg" zPosition="-9" />
+	  <eLabel position="0,435" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
 	<screen name="box2-ibepg">
-      <ePixmap pixmap="KravenHD/graphics/ibar7.png" position="0,100" size="1280,285" zPosition="-9" />
-	  <eLabel position="0,100" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
+      <ePixmap pixmap="KravenHD/graphics/ibar7.png" position="0,435" size="1280,285" zPosition="-9" alphatest="blend" />
+	  <eLabel position="0,435" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
 	<screen name="texture-ibepg">
-      <ePixmap pixmap="KravenHD/graphics/ibtexture.png" position="0,100" size="1280,285" zPosition="-9" />
-	  <eLabel position="0,100" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
+      <ePixmap pixmap="KravenHD/graphics/ibtexture.png" position="0,435" size="1280,285" zPosition="-9" alphatest="blend" />
+	  <eLabel position="0,435" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
 	<screen name="gradient-ibev">
@@ -1287,10 +1342,10 @@
 	
 	<screen name="player-weather">
 	  <widget alphatest="blend" render="KravenHDWetterPicon" position="1090,615" size="100,100" source="session.CurrentService" path="WetterIcons" transparent="1" zPosition="1">
-		<convert type="KravenHDWeather"> icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon </convert>
 	  </widget>
 	  <widget source="session.CurrentService" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont2" position="1190,622" size="90,27" font="Regular2;24" noWrap="1" halign="center" valign="center" zPosition="2" transparent="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont1" position="1190,655" size="90,30" font="Regular;26" halign="center" valign="center" zPosition="2" transparent="1">
 		<convert type="KravenHDClockToText">Default</convert>
@@ -1308,10 +1363,10 @@
 		<convert type="KravenHDClockToText">Format:%M</convert>
 	  </widget>
 	  <widget alphatest="blend" render="KravenHDAndroidPicon" position="1074,588" size="200,122" source="session.CurrentService" path="clock" transparent="1" zPosition="1">
-		<convert type="KravenHDWeather"> icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon </convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="#00666666" font="Regular2;20" foregroundColor="KravenAndroid2" render="Label" position="1150,675" size="100,25" source="session.CurrentService" zPosition="2" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	</screen>
 	
@@ -1352,51 +1407,51 @@
 	</screen>
 	
 	<screen name="gradient-EPGBar">
-      <ePixmap pixmap="KravenHD/graphics/ibar.png" position="0,0" size="1280,310" zPosition="-9" />
+      <ePixmap pixmap="KravenHD/graphics/ibar.png" position="0,410" size="1280,310" zPosition="-9" />
 	</screen>
 	
 	<screen name="box-EPGBar">
-	  <eLabel position="0,104" size="1280,206" backgroundColor="KravenIBbg" zPosition="-9" />
-	  <eLabel position="0,104" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
+	  <eLabel position="0,514" size="1280,206" backgroundColor="KravenIBbg" zPosition="-9" />
+	  <eLabel position="0,514" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
 	<screen name="box2-EPGBar">
-      <ePixmap pixmap="KravenHD/graphics/ibar6.png" position="0,104" size="1280,206" zPosition="-9" />
-	  <eLabel position="0,104" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
+      <ePixmap pixmap="KravenHD/graphics/ibar6.png" position="0,514" size="1280,206" zPosition="-9" />
+	  <eLabel position="0,514" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
 	<screen name="texture-EPGBar">
-      <ePixmap pixmap="KravenHD/graphics/ibtexture.png" position="0,104" size="1280,206" zPosition="-9" />
-	  <eLabel position="0,104" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
+      <ePixmap pixmap="KravenHD/graphics/ibtexture.png" position="0,514" size="1280,206" zPosition="-9" />
+	  <eLabel position="0,514" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
 	<screen name="weather-small">
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" transparent="1" zPosition="8" position="960,55" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular2;36" foregroundColor="KravenIBFont2" render="Label" position="1030,55" size="115,70" source="session.CurrentService" zPosition="3" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1145,55" size="75,35" source="session.CurrentService" zPosition="8" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">high0</convert>
+		<convert type="KravenHDWeather">Day_0,MaxTemp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1145,90" size="75,35" source="session.CurrentService" zPosition="8" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">low0</convert>
+		<convert type="KravenHDWeather">Day_0,MinTemp</convert>
 	  </widget>
 	</screen>
 	
 	<screen name="weather-small2">
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" transparent="1" zPosition="8" position="1000,25" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular2;36" foregroundColor="KravenIBFont2" render="Label" position="1070,25" size="115,70" source="session.CurrentService" zPosition="3" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1185,25" size="75,35" source="session.CurrentService" zPosition="8" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">high0</convert>
+		<convert type="KravenHDWeather">Day_0,MaxTemp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1185,60" size="75,35" source="session.CurrentService" zPosition="8" halign="right" valign="center" transparent="1">
-		<convert type="KravenHDWeather">low0</convert>
+		<convert type="KravenHDWeather">Day_0,MinTemp</convert>
 	  </widget>
 	</screen>
 	
@@ -1424,130 +1479,118 @@
 	
 	<screen name="weather-left">
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" position="12,9" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="69,9" size="36,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday0</convert>
+		<convert type="KravenHDWeather">Day_0,WetterDate</convert>
 	  </widget>
 	  <widget source="session.CurrentService" render="Label" position="105,9" size="55,25" font="Regular;20" halign="left" foregroundColor="KravenIBFont1" backgroundColor="KravenIBbg" noWrap="1" transparent="1" zPosition="3">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="69,34" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax0</convert>
+		<convert type="KravenHDWeather">Day_0,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" position="177,9" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon1</convert>
+		<convert type="KravenHDWeather">Day_1,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="234,9" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday1</convert>
+		<convert type="KravenHDWeather">Day_1,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="234,34" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax1</convert>
+		<convert type="KravenHDWeather">Day_1,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" position="308,9" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon2</convert>
+		<convert type="KravenHDWeather">Day_2,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="365,9" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday2</convert>
+		<convert type="KravenHDWeather">Day_2,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="365,34" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax2</convert>
+		<convert type="KravenHDWeather">Day_2,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" position="437,9" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon3</convert>
+		<convert type="KravenHDWeather">Day_3,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="494,9" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday3</convert>
+		<convert type="KravenHDWeather">Day_3,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="494,34" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax3</convert>
+		<convert type="KravenHDWeather">Day_3,MinMaxTemp</convert>
 	  </widget>
 	</screen>
 	
 	<screen name="weather-big">
 	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="10,18" size="55,25" source="session.CurrentService" zPosition="3" halign="right" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday0</convert>
+		<convert type="KravenHDWeather">Day_0,WetterDate</convert>
 	  </widget>
 	  <widget source="session.CurrentService" position="79,1" transparent="1" zPosition="8" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="46,71" size="136,42" source="session.CurrentService" halign="center" transparent="1" zPosition="8" valign="center" >
-		<convert type="KravenHDWeather">text_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Text</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="155,6" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">high0</convert>
+		<convert type="KravenHDWeather">Day_0,MaxTemp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="155,31" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">low0</convert>
+		<convert type="KravenHDWeather">Day_0,MinTemp</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="252,18" size="55,25" source="session.CurrentService" zPosition="3" halign="right" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday1</convert>
+		<convert type="KravenHDWeather">Day_1,WetterDate</convert>
 	  </widget>
 	  <widget source="session.CurrentService" position="321,1" transparent="1" zPosition="8" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon1</convert>
+		<convert type="KravenHDWeather">Day_1,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="288,71" size="136,42" source="session.CurrentService" halign="center" transparent="1" zPosition="8" valign="center">
-		<convert type="KravenHDWeather">text1</convert>
+		<convert type="KravenHDWeather">Day_1,Text</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="397,6" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">high1</convert>
+		<convert type="KravenHDWeather">Day_1,MaxTemp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="397,31" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">low1</convert>
+		<convert type="KravenHDWeather">Day_1,MinTemp</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="494,18" size="55,25" source="session.CurrentService" zPosition="3" halign="right" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday2</convert>
+		<convert type="KravenHDWeather">Day_2,WetterDate</convert>
 	  </widget>
 	  <widget source="session.CurrentService" position="563,1" transparent="1" zPosition="8" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon2</convert>
+		<convert type="KravenHDWeather">Day_2,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="530,71" size="136,42" source="session.CurrentService" halign="center" transparent="1" zPosition="8" valign="center">
-		<convert type="KravenHDWeather">text2</convert>
+		<convert type="KravenHDWeather">Day_2,Text</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="639,6" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">high2</convert>
+		<convert type="KravenHDWeather">Day_2,MaxTemp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="639,31" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">low2</convert>
+		<convert type="KravenHDWeather">Day_2,MinTemp</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="736,18" size="55,25" source="session.CurrentService" zPosition="3" halign="right" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday3</convert>
+		<convert type="KravenHDWeather">Day_3,WetterDate</convert>
 	  </widget>
 	  <widget source="session.CurrentService" position="805,1" transparent="1" zPosition="8" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon3</convert>
+		<convert type="KravenHDWeather">Day_3,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="772,71" size="136,42" source="session.CurrentService" halign="center" transparent="1" zPosition="8" valign="center">
-		<convert type="KravenHDWeather">text3</convert>
+		<convert type="KravenHDWeather">Day_3,Text</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="881,6" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">high3</convert>
+		<convert type="KravenHDWeather">Day_3,MaxTemp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="881,31" size="50,25" source="session.CurrentService" zPosition="8" halign="center" transparent="1">
-		<convert type="KravenHDWeather">low3</convert>
+		<convert type="KravenHDWeather">Day_3,MinTemp</convert>
 	  </widget>
-	  <widget source="Title" render="Label" position="982,8" size="170,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
-		<convert type="KravenHDTextTranslator">temp</convert>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="967,8" size="290,23" source="session.CurrentService" zPosition="3" halign="center" transparent="1">
+		<convert type="KravenHDWeather">Day_0,Feels</convert>
 	  </widget>
-	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,8" size="215,23" source="session.CurrentService" zPosition="3" transparent="1">
-		<convert type="KravenHDWeather">feels_like</convert>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="967,32" size="290,23" source="session.CurrentService" zPosition="3" halign="center" transparent="1">
+		<convert type="KravenHDWeather">Day_0,Wind</convert>
 	  </widget>
-	  <widget source="Title" render="Label" position="982,32" size="70,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
-		<convert type="KravenHDTextTranslator">wind</convert>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="967,56" size="290,23" source="session.CurrentService" zPosition="3" halign="center" transparent="1">
+		<convert type="KravenHDWeather">Day_0,Humidity</convert>
 	  </widget>
-	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,32" size="215,23" source="session.CurrentService" zPosition="3" transparent="1">
-		<convert type="KravenHDWeather">wind</convert>
-	  </widget>
-	  <widget source="Title" render="Label" position="982,56" size="180,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
-		<convert type="KravenHDTextTranslator">clime</convert>
-	  </widget>
-	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,56" size="215,23" source="session.CurrentService" zPosition="3" transparent="1">
-		<convert type="KravenHDWeather">humidity</convert>
-	  </widget>
-	  <widget source="Title" render="Label" position="982,80" size="60,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
-		<convert type="KravenHDTextTranslator">city</convert>
-	  </widget>
-	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,80" size="215,23" source="session.CurrentService" zPosition="3" transparent="1">
-		<convert type="KravenHDWeather">city</convert>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="967,80" size="290,23" source="session.CurrentService" zPosition="3" halign="center" transparent="1">
+		<convert type="KravenHDWeather">Day_0,City</convert>
 	  </widget>
 	</screen>
 	
@@ -2220,43 +2263,43 @@
 		<convert type="EventName">FullDescription</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" source="session.CurrentService" position="40,73" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="102,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday0</convert>
+		<convert type="KravenHDWeather">Day_0,WetterDate</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="142,71" size="55,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="102,100" size="100,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax0</convert>
+		<convert type="KravenHDWeather">Day_0,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" source="session.CurrentService" position="214,73" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon1</convert>
+		<convert type="KravenHDWeather">Day_1,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="276,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday1</convert>
+		<convert type="KravenHDWeather">Day_1,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="276,100" size="100,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax1</convert>
+		<convert type="KravenHDWeather">Day_1,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" source="session.CurrentService" position="374,73" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon2</convert>
+		<convert type="KravenHDWeather">Day_2,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="436,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday2</convert>
+		<convert type="KravenHDWeather">Day_2,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="436,100" size="100,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax2</convert>
+		<convert type="KravenHDWeather">Day_2,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" source="session.CurrentService" position="534,73" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon3</convert>
+		<convert type="KravenHDWeather">Day_3,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="596,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday3</convert>
+		<convert type="KravenHDWeather">Day_3,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="596,100" size="100,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax3</convert>
+		<convert type="KravenHDWeather">Day_3,MinMaxTemp</convert>
 	  </widget>
 	  <widget source="session.VideoPicture" render="Pig" position="920,71" size="320,180" zPosition="3" backgroundColor="transparent" />
 	  <eLabel backgroundColor="#00000000" position="920,71" size="320,180" transparent="0" zPosition="2" />
@@ -2354,43 +2397,43 @@
 		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="688,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="745,71" size="36,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday0</convert>
+		<convert type="KravenHDWeather">Day_0,WetterDate</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="781,71" size="55,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="745,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax0</convert>
+		<convert type="KravenHDWeather">Day_0,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="853,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon1</convert>
+		<convert type="KravenHDWeather">Day_1,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="910,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday1</convert>
+		<convert type="KravenHDWeather">Day_1,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="910,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax1</convert>
+		<convert type="KravenHDWeather">Day_1,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="983,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon2</convert>
+		<convert type="KravenHDWeather">Day_2,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="1040,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday2</convert>
+		<convert type="KravenHDWeather">Day_2,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="1040,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax2</convert>
+		<convert type="KravenHDWeather">Day_2,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="1113,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon3</convert>
+		<convert type="KravenHDWeather">Day_3,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="1170,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday3</convert>
+		<convert type="KravenHDWeather">Day_3,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="1170,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax3</convert>
+		<convert type="KravenHDWeather">Day_3,MinMaxTemp</convert>
 	  </widget>
 	  <!-- globalbg */-->
 	</screen>
@@ -2412,43 +2455,43 @@
 		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="40,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="97,71" size="36,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday0</convert>
+		<convert type="KravenHDWeather">Day_0,WetterDate</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="133,71" size="55,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">temp_cur</convert>
+		<convert type="KravenHDWeather">Day_0,Temp</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="97,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax0</convert>
+		<convert type="KravenHDWeather">Day_0,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="205,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon1</convert>
+		<convert type="KravenHDWeather">Day_1,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="262,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday1</convert>
+		<convert type="KravenHDWeather">Day_1,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="262,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax1</convert>
+		<convert type="KravenHDWeather">Day_1,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="335,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon2</convert>
+		<convert type="KravenHDWeather">Day_2,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="392,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday2</convert>
+		<convert type="KravenHDWeather">Day_2,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="392,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax2</convert>
+		<convert type="KravenHDWeather">Day_2,MinMaxTemp</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" source="session.CurrentService" position="465,71" transparent="1" zPosition="8" size="50,50" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
-		<convert  type="KravenHDWeather">icon3</convert>
+		<convert type="KravenHDWeather">Day_3,Icon</convert>
 	  </widget>
 	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="522,71" size="40,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1" noWrap="1">
-		<convert type="KravenHDWeather">shortday3</convert>
+		<convert type="KravenHDWeather">Day_3,WetterDate</convert>
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="522,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
-		<convert type="KravenHDWeather">minmax3</convert>
+		<convert type="KravenHDWeather">Day_3,MinMaxTemp</convert>
 	  </widget>
 	  <!-- globalbg */-->
 	</screen>
