@@ -40,7 +40,16 @@ from PIL import Image, ImageFilter, ImageDraw
 import gettext, time, subprocess, requests
 from enigma import ePicLoad, getDesktop, eConsoleAppContainer, eTimer
 from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
-import six
+
+python3 = False
+try:
+	import six
+	if six.PY2:
+		python3 = False
+	else:
+		python3 = True
+except ImportError:
+	python3 = False
 
 DESKTOP_WIDTH = getDesktop(0).size().width()
 
@@ -2288,37 +2297,39 @@ class KravenHD(ConfigListScreen, Screen):
 
 	def getWeatherData(self):
 		option = self["config"].getCurrent()[1]
-		if option.value == "auto-ip" or (option.value == "location" and config.plugins.KravenHD.cityname.value in ("", " ")) or (option == config.plugins.KravenHD.cityname and config.plugins.KravenHD.cityname.value in ("", " ")):
+		if option.value == "auto-ip" or (option.value == "location" and config.plugins.KravenHD.cityname.value == "") or (option == config.plugins.KravenHD.cityname and config.plugins.KravenHD.cityname.value == ""):
 			if option.value == "auto-ip":
 				self.getCityByIP("ip")
 			else:
 				self.getCityByIP("empty")
-		elif (option.value == "location" and not config.plugins.KravenHD.cityname.value in ("", " ")) or (option == config.plugins.KravenHD.cityname and not config.plugins.KravenHD.cityname.value in ("", " ")):
+		elif (option.value == "location" and config.plugins.KravenHD.cityname.value != "") or (option == config.plugins.KravenHD.cityname and config.plugins.KravenHD.cityname.value != ""):
+			reslist = []
 			try:
-				res = requests.request('get', 'http://dev.virtualearth.net/REST/v1/Locations/' + str(config.plugins.KravenHD.cityname.value) + '?&key=Amdqp42KR1c0kHZjTSFXtovl5Y-YridPCqZFguFnvFk6TbW-ITF8jdINSt0jqUQ2', timeout=3)
+				res = requests.get('http://dev.virtualearth.net/REST/v1/Locations/' + str(config.plugins.KravenHD.cityname.value) + '?&key=Amdqp42KR1c0kHZjTSFXtovl5Y-YridPCqZFguFnvFk6TbW-ITF8jdINSt0jqUQ2', timeout=3)
 				data = res.json()
-				reslist = []
 				for idx, locations in enumerate(data['resourceSets'][0]['resources']):
-					city = data['resourceSets'][0]['resources'][int(idx)]['address']['locality']
-					region = data['resourceSets'][0]['resources'][int(idx)]['address']['countryRegion']
-					lat = data['resourceSets'][0]['resources'][int(idx)]['geocodePoints'][0]['coordinates'][0]
-					lon = data['resourceSets'][0]['resources'][int(idx)]['geocodePoints'][0]['coordinates'][1]
-					reslist.append((city + " / " + region, city, lat, lon))
-				if len(reslist) > 0:
-					self.session.openWithCallback(self.LocationCallBack, ChoiceBox, list=reslist)
-				else:
-					self.getCityByIP("fallback")
+					city = str(data['resourceSets'][0]['resources'][int(idx)]['name'])
+					if city:
+						lat = str(data['resourceSets'][0]['resources'][int(idx)]['geocodePoints'][0]['coordinates'][0])
+						lon = str(data['resourceSets'][0]['resources'][int(idx)]['geocodePoints'][0]['coordinates'][1])
+						reslist.append((city, lat, lon))
 			except:
+				pass
+
+			if len(reslist) > 0:
+				self.session.openWithCallback(self.LocationCallBack, ChoiceBox, list=reslist)
+			else:
 				self.getCityByIP("fallback")
 
 	def LocationCallBack(self, callback):
 		if callback:
-			self.session.open(MessageBox, _("Location found:") + "\n" + str(callback[0]) + "\n\n" + _("latitude: ") + str(callback[2]) + "\n" + _("longitude: ") + str(callback[3]), MessageBox.TYPE_INFO, timeout=8)
-			config.plugins.KravenHD.cityfound.value = str(callback[1])
+			self.session.open(MessageBox, _("Location found:") + "\n" + str(callback[0]) + "\n\n" + _("latitude: ") + str(callback[1]) + "\n" + _("longitude: ") + str(callback[2]), MessageBox.TYPE_INFO, timeout=8)
+			city = str(callback[0]).split(",")[0]
+			config.plugins.KravenHD.cityfound.value = city
 			config.plugins.KravenHD.cityfound.save()
-			config.plugins.KravenHD.latitude.value = str(callback[2])
+			config.plugins.KravenHD.latitude.value = str(callback[1])
 			config.plugins.KravenHD.latitude.save()
-			config.plugins.KravenHD.longitude.value = str(callback[3])
+			config.plugins.KravenHD.longitude.value = str(callback[2])
 			config.plugins.KravenHD.longitude.save()
 			self.showPreview()
 
@@ -3688,7 +3699,7 @@ class KravenHD(ConfigListScreen, Screen):
 		self.appendSkinFile(self.data + "plugins.xml")
 
 		### MSNWeather
-		if fileExists("/usr/lib/enigma2/python/Components/Converter/MSNWeather.pyc"):
+		if fileExists("/usr/lib/enigma2/python/Components/Converter/MSNWeather.pyo") or fileExists("/usr/lib/enigma2/python/Components/Converter/MSNWeather.pyc"):
 			if config.plugins.KravenHD.IBStyle.value == "grad" or config.plugins.KravenHD.PopupStyle.value in ("popup-grad", "popup-grad-trans"):
 				self.changeColor("msnbg_gr", "msnbg", self.skincolorbackgroundcolor, None)
 			else:
@@ -3999,6 +4010,8 @@ class KravenHD(ConfigListScreen, Screen):
 		c.flush()
 
 	def loadProfile(self, loadDefault=False):
+		global python3
+
 		if loadDefault:
 			profile=config.plugins.KravenHD.defaultProfile.value
 			fname=self.profiles+"kravenhd_default_"+profile
@@ -4007,44 +4020,47 @@ class KravenHD(ConfigListScreen, Screen):
 			fname=self.profiles+"kravenhd_profile_"+profile
 		if profile and fileExists(fname):
 			print("[KravenPlugin]: Load profile " + fname)
-			
+
 			pFile=open(fname, "r")
 			for line in pFile:
 				try:
-					line=line.split("|")
-					name=line[0]
-					value=line[1]
-					if six.PY2:
-						type=line[2].strip('\n')
-						if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "cityfound", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
-							# fix for changed value "gradient"/"grad"
-							if name=="IBStyle" and value=="gradient":
-								value="grad"
-							# fix for changed name "InfobarColor"/"InfobarGradientColor"
-							if name=="InfobarColor":
-								config.plugins.KravenHD.InfobarGradientColor.value=value
-							if type == "<type 'int'>":
-								getattr(config.plugins.KravenHD, name).value=int(value)
-							elif type == "<type 'hex'>":
-								getattr(config.plugins.KravenHD, name).value=hex(value)
-							elif type == "<type 'list'>":
-								getattr(config.plugins.KravenHD, name).value=eval(value)
-							else:
-								getattr(config.plugins.KravenHD, name).value=str(value)
-					else:
+					if python3:
+						line=line.split("|")
+						name=line[0]
+						value=line[1]
 						valuetype=line[2].strip('\n')
 						if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "cityfound", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
 							# fix for changed value "gradient"/"grad"
 							if name=="IBStyle" and value=="gradient":
 								value="grad"
 							# fix for changed name "InfobarColor"/"InfobarGradientColor"
-							if name=="InfobarColor":
+							if name == "InfobarColor":
 								config.plugins.KravenHD.InfobarGradientColor.value=value
 							if valuetype == "<class 'int'>":
 								getattr(config.plugins.KravenHD, name).value=int(value)
 							elif valuetype == "<class 'hex'>":
 								getattr(config.plugins.KravenHD, name).value=hex(value)
 							elif valuetype == "<class 'list'>":
+								getattr(config.plugins.KravenHD, name).value=eval(value)
+							else:
+								getattr(config.plugins.KravenHD, name).value=str(value)
+					else:
+						line=line.split("|")
+						name=line[0]
+						value=line[1]
+						type=line[2].strip('\n')
+						if not (name in ("customProfile", "DebugNames", "searchby", "cityname", "cityfound", "latitude", "longitude") or (loadDefault and name == "defaultProfile")):
+							# fix for changed value "gradient"/"grad"
+							if name == "IBStyle" and value == "gradient":
+								value="grad"
+							# fix for changed name "InfobarColor"/"InfobarGradientColor"
+							if name == "InfobarColor":
+								config.plugins.KravenHD.InfobarGradientColor.value=value
+							if type == "<type 'int'>":
+								getattr(config.plugins.KravenHD, name).value=int(value)
+							elif type == "<type 'hex'>":
+								getattr(config.plugins.KravenHD, name).value=hex(value)
+							elif type == "<type 'list'>":
 								getattr(config.plugins.KravenHD, name).value=eval(value)
 							else:
 								getattr(config.plugins.KravenHD, name).value=str(value)
