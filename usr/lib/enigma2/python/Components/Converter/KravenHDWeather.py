@@ -22,7 +22,6 @@ from Components.Element import cached
 from Components.config import config
 from enigma import eTimer
 import requests, os, gettext, json
-from six import PY3
 from time import strftime, strptime, gmtime
 from datetime import datetime
 from math import floor
@@ -43,11 +42,21 @@ def _(txt):
 		t = gettext.gettext(txt)
 	return t
 
-if not PY3:
+python3 = False
+try:
+	import six
+	if six.PY2:
+		python3 = False
+	else:
+		python3 = True
+except ImportError:
+	python3 = False
+
+if python3:
+	from html import unescape as _unescape
+else:
 	from HTMLParser import HTMLParser
 	_unescape = HTMLParser().unescape
-else:
-	from html import unescape as _unescape
 
 WEATHER_DATA = None
 WEATHER_LOAD = True
@@ -55,12 +64,12 @@ WeekDays = [_("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat"), _("Sun")
 
 def Code_utf8(value):
 	value = "" if value is None else _unescape(value)
-	if not PY3:
-		value = value.replace('\xc2\x86', '').replace('\xc2\x87', '').decode("utf-8", "ignore").encode("utf-8") or ""
-		return decode(value, 'UTF-8')
-	else:
+	if python3:
 		value.replace('\x86', '').replace('\x87', '')
 		return value
+	else:
+		value = value.replace('\xc2\x86', '').replace('\xc2\x87', '').decode("utf-8", "ignore").encode("utf-8") or ""
+		return decode(value, 'UTF-8')
 
 def getDirection(angle):
 	def normalize_angle(angle):
