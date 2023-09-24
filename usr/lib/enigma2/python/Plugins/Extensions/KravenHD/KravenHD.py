@@ -945,6 +945,11 @@ config.plugins.KravenHD.PopupStyle = ConfigSelection(default="popup-grad-trans",
 				("popup-box", _("box"))
 				])
 
+config.plugins.KravenHD.PosterView = ConfigSelection(default="none", choices = [
+				("on", _("on")),
+				("none", _("off"))
+				])
+
 config.plugins.KravenHD.Sherlock = ConfigSelection(default="sherlock_org", choices = [
 				("sherlock_org", _("original")),
 				("sherlock_mod", _("modified"))
@@ -1266,7 +1271,8 @@ class KravenHD(ConfigListScreen, Screen):
 			else:
 				emptyLines+=1
 		list.append(getConfigListEntry(_("System-Infos"), config.plugins.KravenHD.SystemInfo, _("Choose from different additional windows with system informations or deactivate them completely.")))
-		for i in range(emptyLines+7):
+		list.append(getConfigListEntry(_("Show poster"), config.plugins.KravenHD.PosterView, _("Choose whether the poster should be displayed in the infobar or not.")))
+		for i in range(emptyLines+6):
 			list.append(getConfigListEntry(_(" "), ))
 
 		# page 5
@@ -3143,6 +3149,8 @@ class KravenHD(ConfigListScreen, Screen):
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress858.png"', " "]) # player
 			self.skinSearchAndReplace.append([' pixmap="KravenHD/progress/progress977.png"', " "]) # nopicon
 			self.skinSearchAndReplace.append(['name="KravenIBProgress" value="#00000000', 'name="KravenIBProgress" value="#00' + config.plugins.KravenHD.IBProgress.value])
+		else:
+			self.skinSearchAndReplace.append(['name="KravenIBProgress" value="#00000000', 'name="KravenIBProgress" value="#00C3461B'])
 
 		### Infobar Progress Background
 		if config.plugins.KravenHD.IBProgressBackgroundList.value == "none":
@@ -3558,6 +3566,41 @@ class KravenHD(ConfigListScreen, Screen):
 			self.skinSearchAndReplace.append(['<!-- Infobar tuners -->', '<panel name="infobar-style-x4-zz1-zzz1-' + self.Tuners + '"/>'])
 			self.skinSearchAndReplace.append(['<!-- Infobar infobox -->', '<panel name="infobar-style-x4-zz1-zzz1-infobox-' + config.plugins.KravenHD.Infobox2.value + '"/>'])
 
+		# show poster
+		if config.plugins.KravenHD.PosterView.value == "on":
+			if config.plugins.KravenHD.InfobarStyle.value == "infobar-style-nopicon":
+				if config.plugins.KravenHD.InfobarChannelName.value == "none":
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-nopicon-poster"/>'])
+				elif config.plugins.KravenHD.InfobarChannelName.value in ("infobar-channelname-small", "infobar-channelname-number-small"):
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-nopicon-poster-smallname"/>'])
+				else:
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-nopicon-poster-bigname"/>'])
+			elif config.plugins.KravenHD.InfobarStyle.value == "infobar-style-x1":
+				if config.plugins.KravenHD.InfobarChannelName.value == "none":
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x1-poster"/>'])
+				elif config.plugins.KravenHD.InfobarChannelName.value in ("infobar-channelname-small", "infobar-channelname-number-small"):
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x1-poster-smallname"/>'])
+				else:
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x1-poster-bigname"/>'])
+			elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-x2", "infobar-style-x3", "infobar-style-z1", "infobar-style-z2"):
+				if config.plugins.KravenHD.InfobarChannelName.value == "none":
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x2-x3-z1-z2-poster"/>'])
+				elif config.plugins.KravenHD.InfobarChannelName.value in ("infobar-channelname-small", "infobar-channelname-number-small"):
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x2-x3-z1-z2-poster-smallname"/>'])
+				else:
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x2-x3-z1-z2-poster-bigname"/>'])
+			elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-x4", "infobar-style-zz1"):
+				if config.plugins.KravenHD.InfobarChannelName.value == "none":
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x4-zz1-poster"/>'])
+				elif config.plugins.KravenHD.InfobarChannelName.value in ("infobar-channelname-small", "infobar-channelname-number-small"):
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x4-zz1-poster-smallname"/>'])
+				else:
+					self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-x4-zz1-poster-bigname"/>'])
+			elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-zz2", "infobar-style-zz3"):
+				self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-zz2-zz3-poster"/>'])
+			elif config.plugins.KravenHD.InfobarStyle.value == "infobar-style-zzz1":
+				self.skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-zzz1-poster"/>'])
+
 		### SecondInfobar
 		self.skinSearchAndReplace.append(['<!-- SIB style -->', '<panel name="' + config.plugins.KravenHD.SIB.value + '"/>'])
 
@@ -3608,18 +3651,18 @@ class KravenHD(ConfigListScreen, Screen):
 			self.skinSearchAndReplace.append(['<!-- PVRState style -->', '<panel name="' + config.plugins.KravenHD.PVRState.value + '"/>'])
 			if config.plugins.KravenHD.SkinResolution.value == "hd":
 				if config.plugins.KravenHD.PVRState.value == "pvrstate-center-big":
-					self.skinSearchAndReplace.append(['screen name="PVRState" position="0,0" size="0,0"', 'screen name="PVRState" position="center,center" size="220,90"'])
+					self.skinSearchAndReplace.append(['PVRState" position="0,0" size="0,0"', 'PVRState" position="center,center" size="220,90"'])
 				elif config.plugins.KravenHD.PVRState.value == "pvrstate-center-small":
-					self.skinSearchAndReplace.append(['screen name="PVRState" position="0,0" size="0,0"', 'screen name="PVRState" position="center,center" size="110,45"'])
+					self.skinSearchAndReplace.append(['PVRState" position="0,0" size="0,0"', 'PVRState" position="center,center" size="110,45"'])
 				elif config.plugins.KravenHD.PVRState.value == "pvrstate-left-small":
-					self.skinSearchAndReplace.append(['screen name="PVRState" position="0,0" size="0,0"', 'screen name="PVRState" position="30,20" size="110,45"'])
+					self.skinSearchAndReplace.append(['PVRState" position="0,0" size="0,0"', 'PVRState" position="30,20" size="110,45"'])
 			else:
 				if config.plugins.KravenHD.PVRState.value == "pvrstate-center-big":
-					self.skinSearchAndReplace.append(['screen name="PVRState" position="0,0" size="0,0"', 'screen name="PVRState" position="center,center" size="330,135"'])
+					self.skinSearchAndReplace.append(['PVRState" position="0,0" size="0,0"', 'PVRState" position="center,center" size="330,135"'])
 				elif config.plugins.KravenHD.PVRState.value == "pvrstate-center-small":
-					self.skinSearchAndReplace.append(['screen name="PVRState" position="0,0" size="0,0"', 'screen name="PVRState" position="center,center" size="165,67"'])
+					self.skinSearchAndReplace.append(['PVRState" position="0,0" size="0,0"', 'PVRState" position="center,center" size="165,67"'])
 				elif config.plugins.KravenHD.PVRState.value == "pvrstate-left-small":
-					self.skinSearchAndReplace.append(['screen name="PVRState" position="0,0" size="0,0"', 'screen name="PVRState" position="45,30" size="165,67"'])
+					self.skinSearchAndReplace.append(['PVRState" position="0,0" size="0,0"', 'PVRState" position="45,30" size="165,67"'])
 
 		### Main XML
 		self.appendSkinFile(self.data + "main.xml")

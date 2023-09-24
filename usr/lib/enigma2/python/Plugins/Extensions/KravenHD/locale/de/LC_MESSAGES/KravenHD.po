@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: KravenHD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-06 23:16+0200\n"
-"PO-Revision-Date: 2023-05-01 07:50+0200\n"
+"PO-Revision-Date: 2023-09-22 19:01+0200\n"
 "Last-Translator: oerlgrey <ochzoetna@gmail.com>\n"
 "Language-Team: oerlgrey\n"
 "Language: de\n"
@@ -1911,3 +1911,11 @@ msgstr "Gewitter mit leichtem Hagel"
 
 msgid "thunderstorm with heavy hail"
 msgstr "Gewitter mit starkem Hagel"
+
+#: KravenHD.py
+msgid "Show poster"
+msgstr "Zeige Poster"
+
+#: KravenHD.py
+msgid "Choose whether the poster should be displayed in the infobar or not."
+msgstr "Wählen Sie, ob das Poster in der Infoleiste angezeigt werden soll oder nicht."
