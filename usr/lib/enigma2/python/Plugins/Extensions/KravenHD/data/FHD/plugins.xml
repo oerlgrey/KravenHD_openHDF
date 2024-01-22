@@ -35,6 +35,18 @@
     <eLabel backgroundColor="Kravenbg2" position="399,375" size="1122,330" transparent="0" zPosition="-1" />
   </screen>
 
+  <screen name="KravenHDBrowser" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*KravenHDBrowser*-->
+    <widget backgroundColor="Kravenbg2" source="info" render="Label" font="Regular2;35" foregroundColor="KravenFont2" position="63,120" size="1104,45" transparent="1" zPosition="1" />
+    <widget backgroundColor="Kravenbg2" name="list" font="Regular;31" secondfont="Regular;29" position="63,180" size="1104,135" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" foregroundColor="KravenFont1" transparent="1" enableWrapAround="1" scrollbarMode="showOnDemand" scrollbarWidth="15" zPosition="2" />
+    <widget backgroundColor="Kravenbg2" source="instruction" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,870" size="1104,82" halign="center" valign="center" transparent="1" zPosition="1" />
+    <panel name="Title-big"/>
+	<!-- Logo -->
+	<panel name="gradient-menu"/>
+    <panel name="RGYB_Buttons"/>
+    <panel name="OKExit"/>
+  </screen>
+
   <screen backgroundColor="transparent" flags="wfNoBorder" name="SortableMenu" position="0,0" size="1920,1080" title="Menusort">
 	<!--*SortableMenu*-->
     <widget backgroundColor="Kravenbg3" name="menu" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" position="63,120" size="1104,810" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
@@ -340,7 +352,7 @@
 					 MultiContentEntryText(pos = (259,47),size = (100,41),flags = RT_HALIGN_LEFT, text = 4),# index 3 is length of call
 					 MultiContentEntryText(pos = (368,47),size = (729,41),flags = RT_HALIGN_RIGHT, text = 5),# index 4 is my number/name for number
 					],
-					 "fonts": [gFont("Regular",32)],
+					 "fonts": [gFont("Regular", 32)],
 					 "itemHeight": 90
 				}
 	  </convert>
@@ -360,7 +372,7 @@
 						 MultiContentEntryText(pos = (8,2),size = (539,41),flags = RT_HALIGN_LEFT,text = 1),# index 0 is the name,index 1 is shortname
 						 MultiContentEntryText(pos = (557,2),size = (539,41),flags = RT_HALIGN_LEFT,text = 2),# index 2 is number
 						],
-						 "fonts": [gFont("Regular",32)],
+						 "fonts": [gFont("Regular", 32)],
 						 "itemHeight": 45
 					}
 	  </convert>
@@ -871,7 +883,7 @@
 					MultiContentEntryText(pos=(180, 82), size=(435, 51), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # Views
 					MultiContentEntryText(pos=(630, 82), size=(450, 51), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=5), # Duration
 					],
-				"fonts": [gFont("Regular",32), gFont("Regular",27)],
+				"fonts": [gFont("Regular", 32), gFont("Regular", 27)],
 				"itemHeight": 135}
 	  </convert>
 	</widget>
@@ -890,7 +902,7 @@
 				{"template": [
 					MultiContentEntryText(pos=(15, 2), size=(1065, 41), font=0, flags=RT_HALIGN_LEFT, text=0)
 				],
-				"fonts": [gFont("Regular",32)],
+				"fonts": [gFont("Regular", 32)],
 				"itemHeight": 45}
 	  </convert>
 	</widget>
@@ -1170,7 +1182,7 @@
 							MultiContentEntryText(pos = (1622, 2), size = (156, 38), font=1, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
 							]),
 					},
-					"fonts": [gFont("Regular",26),gFont("Regular",29),gFont("Regular",26),gFont("Regular",29)],
+					"fonts": [gFont("Regular", 26),gFont("Regular", 29),gFont("Regular", 26),gFont("Regular", 29)],
 					"itemHeight": 45
 				}
 		</convert>
@@ -1183,7 +1195,7 @@
 
   <screen name="oscEntitlements" position="0,0" size="1920,1080" title="OscamReader Stats" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*oscEntitlements*-->
-	<widget backgroundColor="Kravenbg" source="output" render="Listbox" position="63,120" size="1796,810" selectionPixmap="KravenHD/graphics/sel_60.png" foregroundColor="KravenFont1" scrollbarMode="showOnDemand" scrollbarWidth="15" transparent="1" >
+	<widget backgroundColor="Kravenbg" source="output" render="Listbox" position="63,120" size="1794,810" selectionPixmap="KravenHD/graphics/sel_60.png" foregroundColor="KravenFont1" scrollbarMode="showOnDemand" scrollbarWidth="15" transparent="1" >
 		<convert type="TemplatedMultiContent">
 				{"templates":
 					{"default": (60,[
@@ -1211,7 +1223,7 @@
 							MultiContentEntryText(pos = (5, 47), size = (1767, 38), font=1, flags = RT_HALIGN_LEFT, text = 9), # index 9 is providers
 							]),
 					},
-					"fonts": [gFont("Regular",29),gFont("Regular",29),gFont("Regular",29),gFont("Regular",29)],
+					"fonts": [gFont("Regular", 29),gFont("Regular", 29),gFont("Regular", 29),gFont("Regular", 29)],
 					"itemHeight": 90
 				}
 		</convert>
@@ -1252,7 +1264,7 @@
   <screen backgroundColor="transparent" flags="wfNoBorder" name="CCcamInfoInfoScreen" position="0,0" size="1920,1080" title=" ">
 	<!--*CCcamInfoInfoScreen*-->
 	<eLabel text="CCcam Info" position="63,10" size="1500,69" backgroundColor="KravenIBbg3" font="Regular2;50" foregroundColor="KravenIBGFont2" halign="left" valign="center" transparent="1" />
-	<widget backgroundColor="Kravenbg3" name="text" font="Regular;33" foregroundColor="KravenFont1" position="63,120" size="1104,810" />
+	<widget backgroundColor="Kravenbg3" name="text" font="Regular;33" foregroundColor="KravenFont1" position="63,120" size="1794,810" />
 	<!-- Logo -->
 	<panel name="gradient-menu"/>
     <panel name="OKExit"/>
@@ -2106,7 +2118,7 @@
     <widget source="session.CurrentService" render="Label" backgroundColor="Kravenbg3" position="1023,120" size="135,41" font="Regular2;32" foregroundColor="KravenFont2" halign="right" valign="center" transparent="1">
       <convert type="KravenHDTextTranslator">age</convert>
     </widget>
-	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,165" size="1104,765" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
+	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,165" size="1104,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
 	  <convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryText(pos = (24, 2),   size = (621, 41), font=0, flags = RT_HALIGN_LEFT, text = 0),
@@ -2164,7 +2176,7 @@
 	<!--*OMBManagerInstall*-->
     <panel name="Title-big"/>
     <widget backgroundColor="Kravenbg3" name="info" position="63,120" size="1104,82" font="Regular2;32" foregroundColor="KravenFont2" transparent="1" />
-    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,255" size="1104,675" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
+    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,255" size="1104,675" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
       <convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (4, 2), size = (1096, 41), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
@@ -2184,7 +2196,7 @@
     <panel name="Title-big"/>
     <widget backgroundColor="Kravenbg3" name="label1" position="63,120" size="1104,41" font="Regular2;32" foregroundColor="KravenFont2" transparent="1" />
     <widget backgroundColor="Kravenbg3" name="label2" position="63,165" size="1104,41" font="Regular;32" foregroundColor="KravenFont1" transparent="1" />
-    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,255" size="1104,675" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
+    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,255" size="1104,675" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
       <convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (4, 2), size = (1096, 41), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
@@ -2339,13 +2351,13 @@
 
   <screen backgroundColor="transparent" flags="wfNoBorder" name="E2m3u2b_Menu" position="0,0" size="1920,1080" title=" ">
 	<!--*E2m3u2b_Menu*-->
-    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,120" size="1104,810" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
+    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,120" size="1104,810" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
 	  <convert type="TemplatedMultiContent">
 			{"template": [
 				MultiContentEntryPixmapAlphaTest(pos = (6, 6), size = (32, 32), png=0),
 				MultiContentEntryText(pos = (44, 2), size = (1058, 41), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
 				],
-				"fonts": [gFont("Regular",32)],
+				"fonts": [gFont("Regular", 32)],
 				"itemHeight": 45
 			}
 	  </convert>
@@ -2399,13 +2411,13 @@
 
   <screen backgroundColor="transparent" flags="wfNoBorder" name="E2m3u2b_Providers" position="0,0" size="1920,1080" title=" ">
 	<!--*E2m3u2b_Providers*-->
-    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,255" size="1104,675" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
+    <widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,255" size="1104,675" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
 	  <convert type="TemplatedMultiContent">
 			{"template": [
 				MultiContentEntryPixmapAlphaTest(pos = (6, 6), size = (32, 32), png=0),
 				MultiContentEntryText(pos = (44, 2), size = (1058, 41), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
 				],
-				"fonts": [gFont("Regular",32)],
+				"fonts": [gFont("Regular", 32)],
 				"itemHeight": 45
 			}
 	  </convert>
@@ -2559,7 +2571,7 @@
   <screen name="FileCommanderFileStatInfo" position="0,0" size="1920,1080" title="File/Directory Status Information" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*FileCommanderFileStatInfo*-->
 	<widget backgroundColor="Kravenbg3" name="filename" position="63,120" size="1104,82" font="Regular2;32" foregroundColor="KravenFont2" transparent="1" />
-	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,225" size="1104,720" foregroundColor="KravenFont1" scrollbarMode="showOnDemand" scrollbarWidth="10" selectionDisabled="1" transparent="1">
+	<widget backgroundColor="Kravenbg3" source="list" render="Listbox" position="63,225" size="1104,720" foregroundColor="KravenFont1" scrollbarMode="showOnDemand" scrollbarWidth="15" selectionDisabled="1" transparent="1">
 	  <convert type="TemplatedMultiContent">
 			{"template": [
 				MultiContentEntryText(pos = (0, 1), size = (390, 41), font = 0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is a label
@@ -2580,7 +2592,7 @@
   <screen name="vEditorScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*vEditorScreen*-->
 	<widget backgroundColor="Kravenbg" name="list_head" position="63,120" size="1794,45" font="Regular;35" foregroundColor="KravenFont2" noWrap="1" transparent="1" />
-	<widget backgroundColor="Kravenbg" name="filedata" position="63,180" size="1794,756" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="10" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg" name="filedata" position="63,180" size="1794,756" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
@@ -2602,8 +2614,8 @@
   <screen name="ArchiverMenuScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*ArchiverMenuScreen*-->
 	<widget backgroundColor="Kravenbg3" name="list_left_head" position="63,120" size="1104,30" font="Regular;35" foregroundColor="KravenFont2" noWrap="1" transparent="1" />
-	<widget backgroundColor="Kravenbg3" name="list_left" position="63,180" size="1104,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="10" enableWrapAround="1" transparent="1" />
-	<widget backgroundColor="Kravenbg3" name="unpacking" position="63,450" size="1104,45" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="10" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg3" name="list_left" position="63,180" size="1104,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg3" name="unpacking" position="63,450" size="1104,45" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
     <panel name="Title-big"/>
 	<!-- Logo -->
 	<panel name="gradient-menu"/>
@@ -2613,11 +2625,32 @@
   <screen name="ArchiverInfoScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*ArchiverInfoScreen*-->
 	<widget backgroundColor="Kravenbg" name="list_left_head" position="63,120" size="1794,45" font="Regular;35" foregroundColor="KravenFont2" noWrap="1" transparent="1" />
-	<widget backgroundColor="Kravenbg" name="list_left" position="63,180" size="1794,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="10" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg" name="list_left" position="63,180" size="1794,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
     <panel name="RGYB_Buttons"/>
+  </screen>
+
+  <screen name="TaskListScreen" position="0,0" size="1920,1080" title="Task list" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*TaskListScreen*-->
+    <widget backgroundColor="Kravenbg3" source="tasklist" render="Listbox" position="63,112" size="1104,825" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_50.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1">
+	  <convert type="TemplatedMultiContent">
+			{"template": [
+					MultiContentEntryText(pos = (7, 0), size = (1089, 37), font=1, flags = RT_HALIGN_LEFT, text = 1), # name
+					MultiContentEntryText(pos = (7, 37), size = (240, 37), font=1, flags = RT_HALIGN_LEFT, text = 2), # state
+					MultiContentEntryProgress(pos = (255, 42), size = (585, 27), percent = -3), # progress
+					MultiContentEntryText(pos = (855, 37), size = (226, 37), font=1, flags = RT_HALIGN_RIGHT, text = 4), # percentage
+				],
+			"fonts": [gFont("Regular", 30),gFont("Regular", 28)],
+			"itemHeight": 75
+			}
+	  </convert>
+	</widget>
+    <panel name="Title-big"/>
+    <!-- Logo -->
+	<panel name="gradient-menu"/>
+    <panel name="TemplateButtonRed"/>
   </screen>
 
   <screen name="HDFRadio" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
@@ -2740,12 +2773,14 @@
 	</widget>
 	<widget backgroundColor="Kravenbg2" source="artist" render="Label" font="Regular2;49" foregroundColor="KravenFont2" position="63,177" size="1320,63" noWrap="1" valign="top" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="songtitle" render="Label" font="Regular;44" foregroundColor="KravenFont1" position="63,252" size="1320,57" noWrap="1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg2" name="albumname" font="Regular2;35" foregroundColor="KravenFont2" position="63,336" size="201,45" noWrap="1" valign="top" transparent="1"/>
-	<widget backgroundColor="Kravenbg2" name="album" font="Regular;35" foregroundColor="KravenFont1" position="273,336" size="1110,45" noWrap="1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg2" name="genrename" font="Regular2;35" foregroundColor="KravenFont2" position="63,399" size="201,45" noWrap="1" valign="top" transparent="1"/>
-	<widget backgroundColor="Kravenbg2" name="genre" font="Regular;35" foregroundColor="KravenFont1" position="273,399" size="1110,45" noWrap="1" valign="top" transparent="1" />
-	<widget backgroundColor="Kravenbg2" name="yearname" font="Regular2;35" foregroundColor="KravenFont2" position="63,462" size="201,45" noWrap="1" valign="top" transparent="1"/>
-	<widget backgroundColor="Kravenbg2" name="year" font="Regular;35" foregroundColor="KravenFont1" position="273,462" size="1110,45" noWrap="1" valign="top" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="albumname" font="Regular2;35" foregroundColor="KravenFont2" position="63,333" size="201,45" noWrap="1" valign="top" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" name="album" font="Regular;35" foregroundColor="KravenFont1" position="273,333" size="1110,45" noWrap="1" valign="top" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="genrename" font="Regular2;35" foregroundColor="KravenFont2" position="63,381" size="201,45" noWrap="1" valign="top" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" name="genre" font="Regular;35" foregroundColor="KravenFont1" position="273,381" size="1110,45" noWrap="1" valign="top" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="yearname" font="Regular2;35" foregroundColor="KravenFont2" position="63,429" size="201,45" noWrap="1" valign="top" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" name="year" font="Regular;35" foregroundColor="KravenFont1" position="273,429" size="1110,45" noWrap="1" valign="top" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="trackname" font="Regular2;35" foregroundColor="KravenFont2" position="63,477" size="201,45" noWrap="1" valign="top" transparent="1"/>
+	<widget backgroundColor="Kravenbg2" name="track" font="Regular;35" foregroundColor="KravenFont1" position="273,477" size="1110,45" noWrap="1" valign="top" transparent="1" />
 	<widget backgroundColor="Kravenbg2" name="playlistname" font="Regular2;35" foregroundColor="KravenFont2" position="63,330" size="933,45" valign="center" transparent="1"/>
 	<widget backgroundColor="Kravenbg2" name="playlist" font="Regular;32" foregroundColor="KravenFont1" position="63,381" size="933,540" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1"/>
 	<widget backgroundColor="Kravenbg2" name="quickmenu" font="Regular;32" foregroundColor="KravenFont1" position="63,336" size="933,585" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1"/>

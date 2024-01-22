@@ -15,15 +15,12 @@
 #  If you think this license infringes any rights,
 #  please contact me at ochzoetna@gmail.com
 
+from __future__ import absolute_import
 from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
-from Components.config import config, configfile, ConfigYesNo, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigSlider
+from Components.config import config, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
-from Components.Input import Input
-from Components.Label import Label
 from Components.Sources.CanvasSource import CanvasSource
 import gettext
 from enigma import getDesktop, eTimer
@@ -46,11 +43,6 @@ def _(txt):
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
-
-def translateBlock(block):
-	for x in TranslationHelper:
-		if block.__contains__(x[0]):
-			block = block.replace(x[0], x[1])
 
 #############################################################
 
@@ -114,9 +106,8 @@ class KravenHDColorSelection(ConfigListScreen, Screen):
 		self["key_green"] = StaticText(_("Save Color"))
 		self["Title"] = StaticText(_("Color Selection"))
 		self["preview"] = CanvasSource()
-		
-		self.newcolor=color
 
+		self.newcolor=color
 		self.newcolor = self.newcolor[-6:]
 		config.plugins.KravenHD.SelfColorR.value = int(self.newcolor[0:2], 16)
 		config.plugins.KravenHD.SelfColorG.value = int(self.newcolor[2:4], 16)

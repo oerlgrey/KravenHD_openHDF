@@ -70,7 +70,7 @@
     <parameter name="ProgrammlistenUpdaterListFont" value="Regular;22" />
     <parameter name="ProgrammlistenUpdaterList" value="10,1,478,238,30" />
 	<!-- EpgList -->
-	<parameter name="EpgListIcon" value="2,7,17,17,3"/>
+	<parameter name="EpgListIcon" value="2,10,21,21,3"/>
 	<parameter name="EpgListMulti" value="160,100,80,10"/>
 	<parameter name="EpgListMultiProgressBar" value="70,10,1"/>
 	<parameter name="EpgListSingle" value="60,156"/>

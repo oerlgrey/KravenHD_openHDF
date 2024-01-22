@@ -36,7 +36,7 @@ class Bitrate:
 		if self.running:
 			return
 		service = NavigationInstance.instance.getCurrentService()
-		if service:
+		if service and self.E2Arch:
 			adapter = 0
 			demux = 0
 			try:
@@ -81,13 +81,13 @@ class Bitrate:
 		self.running = False
 
 	def dataAvail(self, str):
-		#prepend any remaining data from the previous call
+		# prepend any remaining data from the previous call
 		str = self.remainingdata + str
-		#split in lines
+		# split in lines
 		newlines = str.split('\n')
-		#'str' should end with '\n', so when splitting, the last line should be empty. If this is not the case, we received an incomplete line
+		# 'str' should end with '\n', so when splitting, the last line should be empty. If this is not the case, we received an incomplete line
 		if len(newlines[-1]):
-			#remember this data for next time
+			# remember this data for next time
 			self.remainingdata = newlines[-1]
 			newlines = newlines[0:-1]
 		else:
@@ -109,7 +109,9 @@ class Bitrate:
 			from boxbranding import getImageArch
 			if getImageArch() == "mips32el":
 				return "mipsel"
-			elif getImageArch() == "cortexa15hf-neon-vfpv4":
+			elif getImageArch() in ("cortexa7hf-vfp", "cortexa9hf-neon", "cortexa15hf-neon-vfpv4"):
 				return "arm"
+			else:
+				return ""
 		except:
-			return "unknown"
+			return ""

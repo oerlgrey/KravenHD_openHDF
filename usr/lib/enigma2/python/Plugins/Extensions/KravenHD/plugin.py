@@ -21,10 +21,9 @@ from enigma import getDesktop
 from Components.Language import language
 from os import environ
 import gettext
+from six.moves import reload_module
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 from . import KravenHD
-
-from six.moves import reload_module
 
 lang = language.getLanguage()
 environ["LANGUAGE"] = lang[:2]
@@ -56,8 +55,8 @@ def Plugins(**kwargs):
 	screenwidth = getDesktop(0).size().width()
 	list = []
 	list.append(PluginDescriptor(name="Setup KravenHD", description=_("Configuration tool for KravenHD"), where = PluginDescriptor.WHERE_MENU, fnc = main_menu))
-	if screenwidth and screenwidth == 1920:
-		list.append(PluginDescriptor(name="KravenHD", description=_("Configuration tool for KravenHD"), where = PluginDescriptor.WHERE_PLUGINMENU, icon='pluginfhd.png', fnc=main))
-	else:
+	if screenwidth <= 1280:
 		list.append(PluginDescriptor(name="KravenHD", description=_("Configuration tool for KravenHD"), where = PluginDescriptor.WHERE_PLUGINMENU, icon='plugin.png', fnc=main))
+	else:
+		list.append(PluginDescriptor(name="KravenHD", description=_("Configuration tool for KravenHD"), where = PluginDescriptor.WHERE_PLUGINMENU, icon='pluginfhd.png', fnc=main))
 	return list

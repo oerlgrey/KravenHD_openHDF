@@ -3,7 +3,7 @@
 #  pstrRndr Renderer
 #
 #  Coded/Modified/Adapted by oerlgrey
-#  Based on openATV image source code
+#  Based on openHDF image source code
 #
 #  This code is licensed under the Creative Commons 
 #  Attribution-NonCommercial-ShareAlike 3.0 Unported 
@@ -20,6 +20,7 @@
 from __future__ import absolute_import
 from Components.Renderer.Renderer import Renderer 
 from enigma import ePixmap, loadJPG
+from Components.config import config
 import os, re
 
 class KravenHDpstrRndr(Renderer):
@@ -49,19 +50,21 @@ class KravenHDpstrRndr(Renderer):
 
 	def changed(self, what):
 		try:
-			eventName = self.source.text
-			if eventName :
-				posterNm = re.sub('\s+', '+', eventName)
-				pstrNm = "/media/hdd/" + self.path + posterNm + ".jpg"
+			if config.plugins.KravenHD.PosterPath.value:
+				if os.path.isdir(config.plugins.KravenHD.PosterPath.value):
+					eventName = self.source.text
+					if eventName :
+						posterNm = re.sub('\s+', '+', eventName)
+						pstrNm = config.plugins.KravenHD.PosterPath.value + "/" + self.path + posterNm + ".jpg"
 
-				if os.path.exists(pstrNm):
-					if self.scale == '0':
-						self.instance.setScale(1)
-					self.instance.setPixmap(loadJPG(pstrNm))
-					self.instance.show()
-				else:
-					self.instance.hide()
-			else:
-				self.instance.hide()
+						if os.path.exists(pstrNm):
+							if self.scale == '0':
+								self.instance.setScale(1)
+							self.instance.setPixmap(loadJPG(pstrNm))
+							self.instance.show()
+						else:
+							self.instance.hide()
+					else:
+						self.instance.hide()
 		except:
 			pass
