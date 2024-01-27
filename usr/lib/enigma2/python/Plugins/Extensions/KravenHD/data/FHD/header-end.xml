@@ -139,7 +139,7 @@
     <parameter name="HelpMenuListExtHlp0" value="3,1,900,39" />
     <parameter name="HelpMenuListExtHlp1" value="3,42,900,30" />
 	<!-- EpgList -->
-	<parameter name="EpgListIcon" value="2,10,25,25,4"/>
+	<parameter name="EpgListIcon" value="2,15,31,31,4"/>
 	<parameter name="EpgListMulti" value="240,150,120,15"/>
 	<parameter name="EpgListMultiProgressBar" value="105,15,1"/>
 	<parameter name="EpgListSingle" value="88,220"/>

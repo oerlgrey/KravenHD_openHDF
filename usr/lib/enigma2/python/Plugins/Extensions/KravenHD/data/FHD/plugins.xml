@@ -2519,6 +2519,23 @@
     <panel name="OKExit"/>
   </screen>
 
+  <screen name="IPTVDMWidget" position="0,0" size="1920,1080" title="E2iPlayer Download Manager" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*IPTVDMWidget*-->
+	<widget backgroundColor="Kravenbg" name="list" position="63,120" size="1794,690" foregroundColor="KravenFont1" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
+    <widget backgroundColor="Kravenbg" name="titel" font="Regular2;32" foregroundColor="KravenFont2" position="63,840" size="450,41" transparent="1" />
+    <panel name="Title-big2"/>
+    <panel name="Background"/>
+	<panel name="gradient-menu"/>
+    <panel name="RGYB_Buttons"/>
+    <panel name="OKExit"/>
+  </screen>
+
+  <screen name="IPTVDMNotificationWidget" position="center,816" size="540,131" title="IPTVPlayer downloader" flags="wfNoBorder" backgroundColor="KravenBorder" zPosition="10" >
+	<widget backgroundColor="Kravenbg2" source="Title" render="Label" position="0,15" size="540,45" font="Regular2;35" foregroundColor="KravenFont2" halign="center" zPosition="2" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="message_label" position="0,75" size="540,41" font="Regular;32" foregroundColor="KravenFont1" halign="center" zPosition="2" transparent="1" />
+	<eLabel backgroundColor="Kravenbg2" position="3,3" size="534,125" zPosition="1" />
+  </screen>
+
   <screen name="FileCommanderScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*FileCommanderScreen*-->
 	<widget backgroundColor="Kravenbg" name="list_left_head1" position="63,111" size="877,38" font="Regular2;30" foregroundColor="KravenFont2" transparent="1" />
@@ -2592,7 +2609,7 @@
   <screen name="vEditorScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*vEditorScreen*-->
 	<widget backgroundColor="Kravenbg" name="list_head" position="63,120" size="1794,45" font="Regular;35" foregroundColor="KravenFont2" noWrap="1" transparent="1" />
-	<widget backgroundColor="Kravenbg" name="filedata" position="63,180" size="1794,756" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg" name="filedata" position="63,180" size="1794,756" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
@@ -2614,8 +2631,8 @@
   <screen name="ArchiverMenuScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*ArchiverMenuScreen*-->
 	<widget backgroundColor="Kravenbg3" name="list_left_head" position="63,120" size="1104,30" font="Regular;35" foregroundColor="KravenFont2" noWrap="1" transparent="1" />
-	<widget backgroundColor="Kravenbg3" name="list_left" position="63,180" size="1104,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
-	<widget backgroundColor="Kravenbg3" name="unpacking" position="63,450" size="1104,45" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg3" name="list_left" position="63,180" size="1104,765" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg3" name="unpacking" position="63,450" size="1104,45" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
     <panel name="Title-big"/>
 	<!-- Logo -->
 	<panel name="gradient-menu"/>
@@ -2625,7 +2642,7 @@
   <screen name="ArchiverInfoScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*ArchiverInfoScreen*-->
 	<widget backgroundColor="Kravenbg" name="list_left_head" position="63,120" size="1794,45" font="Regular;35" foregroundColor="KravenFont2" noWrap="1" transparent="1" />
-	<widget backgroundColor="Kravenbg" name="list_left" position="63,180" size="1794,765" foregroundColor="KravenFont1" selectionPixmap="KravenHD/graphics/sel_30.png" itemHeight="45" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
+	<widget backgroundColor="Kravenbg" name="list_left" position="63,180" size="1794,765" font="Regular;32" foregroundColor="KravenFont1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1" />
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
