@@ -24,7 +24,6 @@ from os import path, popen
 from Plugins.Extensions.KravenHD.bitrate import Bitrate
 
 class KravenHDSherlock(Poll, Converter, object):
-
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		Poll.__init__(self)

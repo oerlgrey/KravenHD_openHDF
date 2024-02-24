@@ -20,7 +20,6 @@ from Components.Element import cached
 from Components.Converter.Poll import Poll
 
 class KravenHDDolbyState(Poll, Converter, object):
-
 	Dolby20 = 1
 	Dolby51 = 2
 	Dolby = 3

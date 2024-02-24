@@ -58,9 +58,9 @@
     <parameter name="SelectionListLock" value="3,5,20,20" />
 	<parameter name="SelectionListLockOff" value="3,5,20,20" />
 	<!-- ServiceInfo -->
-	<parameter name="ServiceInfo" value="6,1,320,27" />
-	<parameter name="ServiceInfoLeft" value="6,1,320,27" />
-	<parameter name="ServiceInfoRight" value="330,1,400,27" />
+	<parameter name="ServiceInfo" value="0,1,736,27" />
+	<parameter name="ServiceInfoLeft" value="0,1,400,27" />
+	<parameter name="ServiceInfoRight" value="420,1,800,27" />
 	<!-- ConfigList -->
     <parameter name="ConfigListSeperator" value="400" />
 	<!-- Dreamexplorer -->

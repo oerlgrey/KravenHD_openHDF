@@ -56,25 +56,6 @@
 	  <eLabel position="0,69" size="1280,2" backgroundColor="KravenIBLine" zPosition="-8" />
 	</screen>
 	
-	<screen name="infobar-style-x2-z1-netatmobar-gradient">
-      <ePixmap pixmap="KravenHD/graphics/ibaro3.png" position="0,0" size="532,145" zPosition="-9" />
-	</screen>
-	
-	<screen name="infobar-style-x2-z1-netatmobar-box">
-      <eLabel position="0,0" size="532,70" backgroundColor="KravenIBbg" zPosition="-9" />
-	  <eLabel position="0,69" size="532,2" backgroundColor="KravenIBLine" zPosition="-8" />
-	</screen>
-	
-	<screen name="infobar-style-x2-z1-netatmobar-box2">
-      <ePixmap pixmap="KravenHD/graphics/ibaro2.png" position="0,0" size="532,70" zPosition="-9" alphatest="blend" />
-	  <eLabel position="0,69" size="532,2" backgroundColor="KravenIBLine" zPosition="-8" />
-	</screen>
-	
-	<screen name="infobar-style-x2-z1-netatmobar-texture">
-      <ePixmap pixmap="KravenHD/graphics/ibtexture.png" position="0,0" size="532,70" zPosition="-9" alphatest="blend" />
-	  <eLabel position="0,69" size="532,2" backgroundColor="KravenIBLine" zPosition="-8" />
-	</screen>
-	
 	<screen name="infobar-style-x2-x3-z1-z2-poster">
 	  <widget render="KravenHDpstrRndr" source="session.Event_Now" path="poster" position="30,252" size="200,300" backgroundColor="transparent" zPosition="1" transparent="0">
         <convert type="KravenHDpstrCnvrt">POSTER</convert>
