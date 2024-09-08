@@ -179,6 +179,13 @@
 	  </widget>
 	</screen>
 	
+	<screen name="Logo5">
+	  <!-- globalbg */-->
+	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg3" foregroundColor="KravenIBGFont1" position="1138,16" size="100,28" font="Regular;26" halign="right" transparent="1" valign="center">
+	    <convert type="KravenHDClockToText">Default</convert>
+	  </widget>
+	</screen>
+	
 	<screen name="NonTransbg">
 	  <!-- nontransbg */-->
 	  <ePixmap backgroundColor="Kravenbg2" pixmap="KravenHD/logo.png" position="902,72" size="256,256" alphatest="blend" />
@@ -209,34 +216,34 @@
 	</screen>
 	
 	<screen name="RGYB_Buttons">
-      <panel name="TemplateButtonRed"/>
-      <panel name="TemplateButtonGreen"/>
-      <panel name="TemplateButtonYellow"/>
-      <panel name="TemplateButtonBlue"/>
+      <panel name="TemplateKravenRed"/>
+      <panel name="TemplateKravenGreen"/>
+      <panel name="TemplateKravenYellow"/>
+      <panel name="TemplateKravenBlue"/>
 	</screen>
 	
 	<screen name="RGYB_Buttons2">
-      <panel name="TemplateButtonRed2"/>
-      <panel name="TemplateButtonGreen2"/>
-      <panel name="TemplateButtonYellow2"/>
-      <panel name="TemplateButtonBlue2"/>
+      <panel name="TemplateKravenRed2"/>
+      <panel name="TemplateKravenGreen2"/>
+      <panel name="TemplateKravenYellow2"/>
+      <panel name="TemplateKravenBlue2"/>
 	</screen>
 	
 	<screen name="RGYB_Buttons4">
-      <panel name="TemplateButtonRed4"/>
-      <panel name="TemplateButtonGreen4"/>
-      <panel name="TemplateButtonYellow4"/>
-      <panel name="TemplateButtonBlue4"/>
+      <panel name="TemplateKravenRed4"/>
+      <panel name="TemplateKravenGreen4"/>
+      <panel name="TemplateKravenYellow4"/>
+      <panel name="TemplateKravenBlue4"/>
 	</screen>
 	
 	<screen name="RGYB_Buttons5">
-      <panel name="TemplateButtonRed5"/>
-      <panel name="TemplateButtonGreen5"/>
-      <panel name="TemplateButtonYellow5"/>
-      <panel name="TemplateButtonBlue5"/>
+      <panel name="TemplateKravenRed5"/>
+      <panel name="TemplateKravenGreen5"/>
+      <panel name="TemplateKravenYellow5"/>
+      <panel name="TemplateKravenBlue5"/>
 	</screen>
 	
-	<screen name="TemplateButtonRed">
+	<screen name="TemplateKravenRed">
 	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
 	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -245,7 +252,7 @@
 	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonGreen">
+	<screen name="TemplateKravenGreen">
 	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
 	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -254,7 +261,7 @@
 	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonYellow">
+	<screen name="TemplateKravenYellow">
 	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
 	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -263,7 +270,7 @@
 	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonBlue">
+	<screen name="TemplateKravenBlue">
 	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
 	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -272,7 +279,7 @@
 	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg3" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonRed2">
+	<screen name="TemplateKravenRed2">
 	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
 	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -281,7 +288,7 @@
 	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonGreen2">
+	<screen name="TemplateKravenGreen2">
 	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
 	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -290,7 +297,7 @@
 	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonYellow2">
+	<screen name="TemplateKravenYellow2">
 	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
 	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -299,7 +306,7 @@
 	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonBlue2">
+	<screen name="TemplateKravenBlue2">
 	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
 	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -308,7 +315,7 @@
 	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg2" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonRed4">
+	<screen name="TemplateKravenRed4">
 	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
 	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -317,7 +324,7 @@
 	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonGreen4">
+	<screen name="TemplateKravenGreen4">
 	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
 	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -326,7 +333,7 @@
 	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonYellow4">
+	<screen name="TemplateKravenYellow4">
 	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
 	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -335,7 +342,7 @@
 	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonBlue4">
+	<screen name="TemplateKravenBlue4">
 	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
 	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -344,7 +351,7 @@
 	  <widget source="key_blue" render="Label" position="797,670" size="240,26" backgroundColor="KravenIBbg4" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_blue,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonRed5">
+	<screen name="TemplateKravenRed5">
 	  <ePixmap pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
 	  <widget source="key_red" render="Pixmap" pixmap="buttons/key_red1.png" position="42,697" size="200,5" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -353,7 +360,7 @@
 	  <widget source="key_red" render="Label" position="47,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_red,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonGreen5">
+	<screen name="TemplateKravenGreen5">
 	  <ePixmap pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
 	  <widget source="key_green" render="Pixmap" pixmap="buttons/key_green1.png" position="292,697" size="200,5" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -362,7 +369,7 @@
 	  <widget source="key_green" render="Label" position="297,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_green,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonYellow5">
+	<screen name="TemplateKravenYellow5">
 	  <ePixmap pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
 	  <widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow1.png" position="542,697" size="200,5" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -371,7 +378,7 @@
 	  <widget source="key_yellow" render="Label" position="547,670" size="240,26" backgroundColor="KravenIBbg5" font="Regular;20" foregroundColor="KravenButton" objectTypes="key_yellow,StaticText" transparent="1" noWrap="1" halign="left" valign="center" zPosition="1" />
 	</screen>
 	
-	<screen name="TemplateButtonBlue5">
+	<screen name="TemplateKravenBlue5">
 	  <ePixmap pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
 	  <widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue1.png" position="792,697" size="200,5" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
 		<convert type="ConditionalShowHide" />
@@ -1377,6 +1384,21 @@
 	  </widget>
 	</screen>
 	
+	<screen name="player-weather_OAWeather">
+	  <widget alphatest="blend" render="OAWeatherPixmap" position="1090,615" size="100,100" source="session.OAWeather" transparent="1" zPosition="1" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget source="session.OAWeather" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont2" position="1190,622" size="90,27" font="Regular2;24" noWrap="1" halign="center" valign="center" zPosition="2" transparent="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont1" position="1190,655" size="90,30" font="Regular;26" halign="center" valign="center" zPosition="2" transparent="1">
+		<convert type="KravenHDClockToText">Default</convert>
+	  </widget>
+	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont1" position="1190,688" size="90,21" font="Regular;17" halign="center" valign="center" zPosition="2" transparent="1">
+		<convert type="KravenHDClockToText">Format:%d.%m.%Y</convert>
+	  </widget>
+	</screen>
+	
 	<screen name="player-android">
 	  <widget backgroundColor="#00999999" font="Regular; 26" halign="center" render="Label" position="1090,644" size="53,30" source="global.CurrentTime" transparent="1" valign="center" zPosition="2" foregroundColor="black">
 		<convert type="KravenHDClockToText">Format:%H</convert>
@@ -1462,6 +1484,21 @@
 	  </widget>
 	</screen>
 	
+	<screen name="weather-small_OAWeather">
+	  <widget backgroundColor="KravenIBbg" source="session.OAWeather" transparent="1" zPosition="8" position="960,55" size="70,70" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular2;36" foregroundColor="KravenIBFont2" render="Label" position="1030,55" size="115,70" source="session.OAWeather" zPosition="3" halign="right" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1145,55" size="75,35" source="session.OAWeather" zPosition="8" halign="right" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_high,day1</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1145,90" size="75,35" source="session.OAWeather" zPosition="8" halign="right" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_low,day1</convert>
+	  </widget>
+	</screen>
+	
 	<screen name="weather-small2">
 	  <widget backgroundColor="KravenIBbg" source="session.CurrentService" transparent="1" zPosition="8" position="1000,25" size="70,70" render="KravenHDWetterPicon" alphatest="blend" path="WetterIcons">
 		<convert type="KravenHDWeather">Day_0,Icon</convert>
@@ -1474,6 +1511,21 @@
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1185,60" size="75,35" source="session.CurrentService" zPosition="8" halign="right" valign="center" transparent="1">
 		<convert type="KravenHDWeather">Day_0,MinTemp</convert>
+	  </widget>
+	</screen>
+	
+	<screen name="weather-small2_OAWeather">
+	  <widget backgroundColor="KravenIBbg" source="session.OAWeather" transparent="1" zPosition="8" position="1000,25" size="70,70" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular2;36" foregroundColor="KravenIBFont2" render="Label" position="1070,25" size="115,70" source="session.OAWeather" zPosition="3" halign="right" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1185,25" size="75,35" source="session.OAWeather" zPosition="8" halign="right" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_high,day1</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;24" foregroundColor="KravenIBFont1" render="Label" position="1185,60" size="75,35" source="session.OAWeather" zPosition="8" halign="right" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_low,day1</convert>
 	  </widget>
 	</screen>
 	
@@ -1538,6 +1590,48 @@
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="494,34" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
 		<convert type="KravenHDWeather">Day_3,MinMaxTemp</convert>
+	  </widget>
+	</screen>
+	
+	<screen name="weather-left_OAWeather">
+	  <widget backgroundColor="KravenIBbg" source="session.OAWeather" position="12,9" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="69,9" size="36,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day1</convert>
+	  </widget>
+	  <widget source="session.OAWeather" render="Label" position="105,9" size="55,25" font="Regular;20" halign="left" foregroundColor="KravenIBFont1" backgroundColor="KravenIBbg" noWrap="1" transparent="1" zPosition="3">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="69,34" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day1</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" source="session.OAWeather" position="177,9" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day2</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="234,9" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day2</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="234,34" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day2</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" source="session.OAWeather" position="308,9" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day3</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="365,9" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day3</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="365,34" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day3</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" source="session.OAWeather" position="437,9" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day4</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular;20" foregroundColor="KravenIBFont2" render="Label" position="494,9" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day4</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;15" foregroundColor="KravenIBFont1" render="Label" position="494,34" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day4</convert>
 	  </widget>
 	</screen>
 	
@@ -1613,6 +1707,102 @@
 	  </widget>
 	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="967,80" size="290,23" source="session.CurrentService" zPosition="3" halign="center" transparent="1">
 		<convert type="KravenHDWeather">Day_0,City</convert>
+	  </widget>
+	</screen>
+	
+	<screen name="weather-big_OAWeather">
+	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="10,18" size="55,25" source="session.OAWeather" zPosition="3" halign="right" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day1</convert>
+	  </widget>
+	  <widget source="session.OAWeather" position="79,1" transparent="1" zPosition="8" size="70,70" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="46,71" size="136,42" source="session.OAWeather" halign="center" transparent="1" zPosition="8" valign="center" >
+		<convert type="OAWeather">temperature_text,current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="155,6" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_high,day1</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="155,31" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_low,day1</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="252,18" size="55,25" source="session.OAWeather" zPosition="3" halign="right" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day2</convert>
+	  </widget>
+	  <widget source="session.OAWeather" position="321,1" transparent="1" zPosition="8" size="70,70" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day2</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="288,71" size="136,42" source="session.OAWeather" halign="center" transparent="1" zPosition="8" valign="center">
+		<convert type="OAWeather">temperature_text,day2</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="397,6" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_high,day2</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="397,31" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_low,day2</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="494,18" size="55,25" source="session.OAWeather" zPosition="3" halign="right" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day3</convert>
+	  </widget>
+	  <widget source="session.OAWeather" position="563,1" transparent="1" zPosition="8" size="70,70" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day3</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="530,71" size="136,42" source="session.OAWeather" halign="center" transparent="1" zPosition="8" valign="center">
+		<convert type="OAWeather">temperature_text,day3</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="639,6" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_high,day3</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="639,31" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_low,day3</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;20" foregroundColor="KravenIBFont2" render="Label" position="736,18" size="55,25" source="session.OAWeather" zPosition="3" halign="right" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day4</convert>
+	  </widget>
+	  <widget source="session.OAWeather" position="805,1" transparent="1" zPosition="8" size="70,70" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day4</convert>
+	  </widget>
+	  <widget backgroundColor="KravenIBbg" font="Regular2;16" foregroundColor="KravenIBFont2" render="Label" position="772,71" size="136,42" source="session.OAWeather" halign="center" transparent="1" zPosition="8" valign="center">
+		<convert type="OAWeather">temperature_text,day4</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="881,6" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_high,day4</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="881,31" size="50,25" source="session.OAWeather" zPosition="8" halign="center" transparent="1">
+		<convert type="OAWeather">temperature_low,day4</convert>
+	  </widget>
+	  <widget source="Title" render="Label" position="982,8" size="170,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
+		<convert type="KravenHDTextTranslator">temp</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,8" size="52,23" source="session.OAWeather" zPosition="3" valign="center" transparent="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1099,8" size="80,23" source="Title" zPosition="3" valign="center" transparent="1">
+		<convert type="KravenHDTextTranslator">feels</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1181,8" size="52,23" source="session.OAWeather" zPosition="3" valign="center" transparent="1">
+		<convert type="OAWeather">feelslike</convert>
+	  </widget>
+	  <widget source="Title" render="Label" position="982,32" size="70,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
+		<convert type="KravenHDTextTranslator">wind</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,32" size="215,23" source="session.OAWeather" zPosition="3" transparent="1">
+		<convert type="OAWeather">winddisplay</convert>
+	  </widget>
+	  <widget source="Title" render="Label" position="982,56" size="180,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
+		<convert type="KravenHDTextTranslator">clime</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,56" size="66,23" source="session.OAWeather" zPosition="3" valign="center" transparent="1">
+		<convert type="OAWeather">humidity</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1113,56" size="147,23" source="Title" zPosition="3" halign="left" valign="center" transparent="1">
+		<convert type="KravenHDTextTranslator">humidity</convert>
+	  </widget>
+	  <widget source="Title" render="Label" position="982,80" size="60,23" zPosition="5" font="Regular2;18" backgroundColor="KravenIBbg" transparent="1" foregroundColor="KravenIBFont2">
+		<convert type="KravenHDTextTranslator">city</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="KravenIBbg" font="Regular;18" foregroundColor="KravenIBFont1" render="Label" position="1045,80" size="215,23" source="session.OAWeather" zPosition="3" transparent="1">
+		<convert type="OAWeather">city</convert>
 	  </widget>
 	</screen>
 	
@@ -2332,6 +2522,73 @@
 	  <!-- nontransbg */-->
 	</screen>
 	
+	<screen name="sib1_OAWeather">
+	  <widget backgroundColor="Kravenbg2" font="Regular2;26" foregroundColor="KravenFont2" valign="top" position="40,140" render="Label" size="840,33" source="session.CurrentService" transparent="1" zPosition="1">
+		<convert type="ServiceName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular2;26" foregroundColor="KravenFont1" valign="top" position="40,184" render="Label" size="840,33" source="session.Event_Now" transparent="1">
+		<convert type="KravenHDEventName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;24" foregroundColor="KravenFont1" valign="top" position="40,228" render="Label" size="840,30" source="session.Event_Now" transparent="1">
+		<convert type="KravenHDEventName">Description</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;24" foregroundColor="KravenFont1" position="40,270" size="640,300" name="KravenEventNowHeight" render="KravenHDRunningText" options="movetype=running,direction=top,startpoint=0,startdelay=5000,steptime=90,wrap=1,always=0,repeat=2,oneshot=1" source="session.Event_Now" transparent="1">
+		<convert type="KravenHDEventName">ExtendedDescription</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular2;24" foregroundColor="KravenFont2" position="700,270" size="540,30" render="KravenHDEmptyEpg2" source="session.Event_Next" valign="top" transparent="1">
+		<convert type="KravenHDEventName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;24" foregroundColor="KravenFont2" position="700,300" size="540,270" name="KravenEventNowHeight" render="KravenHDEmptyEpg3" source="session.Event_Next" transparent="1">
+		<convert type="EventName">FullDescription</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" source="session.OAWeather" position="40,73" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="102,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day1</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="142,71" size="55,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="102,100" size="100,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day1</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" source="session.OAWeather" position="214,73" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day2</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="276,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day2</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="276,100" size="100,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day2</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" source="session.OAWeather" position="374,73" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day3</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="436,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day3</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="436,100" size="100,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day3</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" source="session.OAWeather" position="534,73" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day4</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="596,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day4</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg2" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="596,100" size="100,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day4</convert>
+	  </widget>
+	  <widget source="session.VideoPicture" render="KravenHDPig3" position="920,71" size="320,180" zPosition="3" backgroundColor="transparent" />
+	  <eLabel backgroundColor="#00000000" position="920,71" size="320,180" transparent="0" zPosition="2" />
+	  <eLabel backgroundColor="KravenBorder2" position="920,71" size="320,3" transparent="0" zPosition="4" />
+	  <eLabel backgroundColor="KravenBorder2" position="920,248" size="320,3" transparent="0" zPosition="4" />
+	  <eLabel backgroundColor="KravenBorder2" position="920,71" size="3,180" transparent="0" zPosition="4" />
+	  <eLabel backgroundColor="KravenBorder2" position="1237,71" size="3,180" transparent="0" zPosition="4" />
+	  <!-- nontransbg */-->
+	</screen>
+	
 	<screen name="sib2">
 	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont1" position="40,71" size="580,33" render="Label" source="session.Event_Now" valign="top" transparent="1">
 		<convert type="KravenHDEventName">Name</convert>
@@ -2460,6 +2717,58 @@
 	  <!-- globalbg */-->
 	</screen>
 	
+	<screen name="sib6_OAWeather">
+	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont2" position="40,80" size="460,33" render="Label" source="session.CurrentService" valign="top" transparent="1">
+		<convert type="ServiceName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont1" position="40,134" size="1200,33" render="Label" source="session.Event_Now" valign="top" transparent="1">
+		<convert type="KravenHDEventName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;24" foregroundColor="KravenFont1" position="40,180" size="1200,390" name="KravenEventNowHeight" render="KravenHDRunningText" options="movetype=running,direction=top,startpoint=0,startdelay=5000,steptime=90,wrap=1,always=0,repeat=2,oneshot=1" source="session.Event_Now" transparent="1">
+		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="688,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="745,71" size="36,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day1</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="781,71" size="55,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="745,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day1</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="853,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day2</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="910,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day2</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="910,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day2</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="983,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day3</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="1040,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day3</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="1040,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day3</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="1113,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day4</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="1170,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day4</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="1170,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day4</convert>
+	  </widget>
+	  <!-- globalbg */-->
+	</screen>
+	
 	<screen name="sib7">
 	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont1" position="780,80" size="460,33" render="Label" source="session.CurrentService" valign="top" transparent="1">
 		<convert type="ServiceName">Name</convert>
@@ -2514,6 +2823,64 @@
 	  </widget>
 	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="522,96" size="70,25" source="session.CurrentService" zPosition="3" halign="left" transparent="1">
 		<convert type="KravenHDWeather">Day_3,MinMaxTemp</convert>
+	  </widget>
+	  <!-- globalbg */-->
+	</screen>
+	
+	<screen name="sib7_OAWeather">
+	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont1" position="780,80" size="460,33" render="Label" source="session.CurrentService" valign="top" transparent="1">
+		<convert type="ServiceName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont1" position="40,134" size="700,33" render="Label" source="session.Event_Now" valign="top" transparent="1">
+		<convert type="KravenHDEventName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;24" foregroundColor="KravenFont1" position="40,180" size="700,390" name="KravenEventNowHeight" render="KravenHDRunningText" options="movetype=running,direction=top,startpoint=0,startdelay=5000,steptime=90,wrap=1,always=0,repeat=2,oneshot=1" source="session.Event_Now" transparent="1">
+		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular2;26" foregroundColor="KravenFont2" position="780,134" size="460,33" render="Label" source="session.Event_Next" valign="top" transparent="1">
+		<convert type="KravenHDEventName">Name</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;24" foregroundColor="KravenFont2" position="780,180" size="460,390" name="KravenEventNowHeight" render="KravenHDEmptyEpg3" source="session.Event_Next" transparent="1">
+		<convert type="KravenHDEventName">BothDescriptionsFiltered</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="40,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="97,71" size="36,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day1</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont1" render="Label" position="133,71" size="55,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="97,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day1</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="205,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day2</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="262,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day2</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="262,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day2</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="335,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day3</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="392,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day3</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="392,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day3</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" source="session.OAWeather" position="465,71" transparent="1" zPosition="8" size="50,50" render="OAWeatherPixmap" alphatest="blend" scale="1">
+		<convert type="OAWeather">weathericon,day4</convert>
+	  </widget>
+	  <widget backgroundColor="Kravenbg" font="Regular;20" foregroundColor="KravenFont2" render="Label" position="522,71" size="40,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1" noWrap="1">
+		<convert type="OAWeather">weekshortday,day4</convert>
+	  </widget>
+	  <widget noWrap="1" backgroundColor="Kravenbg" font="Regular;15" foregroundColor="KravenFont1" render="Label" position="522,96" size="70,25" source="session.OAWeather" zPosition="3" halign="left" transparent="1">
+		<convert type="OAWeather">temperature_high_low,day4</convert>
 	  </widget>
 	  <!-- globalbg */-->
 	</screen>

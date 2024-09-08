@@ -155,5 +155,7 @@ class KravenHDSherlock(Poll, Converter, object):
 				return "mipsel"
 			elif getImageArch() == "cortexa15hf-neon-vfpv4":
 				return "arm"
+			else:
+				return "unknown"
 		except ImportError:
 			return "unknown"

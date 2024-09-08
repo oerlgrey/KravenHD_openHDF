@@ -5,13 +5,21 @@ enigma.eTimer = eBaseImpl.eTimer
 enigma.eConsoleAppContainer = eConsoleImpl.eConsoleAppContainer
 from shutil import move
 from copy import deepcopy
-from Tools.Directories import fileExists
-from os import system, popen
+from Tools.Directories import fileExists, SCOPE_PLUGINS, defaultPaths
 from PIL import Image, ImageFilter
-import subprocess, time
+import subprocess, time, os
 from Components.NimManager import nimmanager
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigText, ConfigClock, ConfigSlider
 from . import ping
+
+def isPluginInstalled(pluginname, pluginfile="plugin"):
+	path, flags = defaultPaths.get(SCOPE_PLUGINS)
+	for plugintype in ["Extensions", "SystemPlugins"]:
+		for fileext in [".py", ".pyc", ".pyo"]:
+			fullpath = os.path.join(path, plugintype, pluginname, pluginfile + fileext)
+			if os.path.isfile(fullpath):
+				return True
+	return False
 
 # config
 ColorSelfList = [
@@ -550,6 +558,15 @@ config.plugins.KravenHD.ClockStyle = ConfigSelection(default="clock-classic", ch
 				("clock-weather", _("weather icon"))
 				])
 
+config.plugins.KravenHD.ClockStyleOAWeather = ConfigSelection(default="clock-classic", choices = [
+				("clock-classic", _("standard")),
+				("clock-classic-big", _("standard big")),
+				("clock-analog", _("analog")),
+				("clock-color", _("colored")),
+				("clock-flip", _("flip")),
+				("clock-weather", _("weather icon"))
+				])
+
 config.plugins.KravenHD.ClockStyleNoInternet = ConfigSelection(default="clock-classic", choices = [
 				("clock-classic", _("standard")),
 				("clock-classic-big", _("standard big")),
@@ -583,12 +600,14 @@ config.plugins.KravenHD.ECMVisible = ConfigSelection(default="none", choices = [
 config.plugins.KravenHD.ECMLine1 = ConfigSelection(default="ShortReader", choices = [
 				("VeryShortCaid", _("short with CAID")),
 				("VeryShortReader", _("short with source")),
+				("ShortHops", _("short with hops")),
 				("ShortReader", _("compact"))
 				])
 
 config.plugins.KravenHD.ECMLine2 = ConfigSelection(default="ShortReader", choices = [
 				("VeryShortCaid", _("short with CAID")),
 				("VeryShortReader", _("short with source")),
+				("ShortHops", _("short with hops")),
 				("ShortReader", _("compact")),
 				("Normal", _("balanced")),
 				("Long", _("extensive")),
@@ -598,6 +617,7 @@ config.plugins.KravenHD.ECMLine2 = ConfigSelection(default="ShortReader", choice
 config.plugins.KravenHD.ECMLine3 = ConfigSelection(default="ShortReader", choices = [
 				("VeryShortCaid", _("short with CAID")),
 				("VeryShortReader", _("short with source")),
+				("ShortHops", _("short with hops")),
 				("ShortReader", _("compact")),
 				("Normal", _("balanced")),
 				("Long", _("extensive")),
@@ -684,12 +704,14 @@ config.plugins.KravenHD.Logo = ConfigSelection(default="minitv", choices = [
 				("logo", _("Logo")),
 				("minitv", _("MiniTV")),
 				("metrix-icons", _("Icons")),
-				("minitv-metrix-icons", _("MiniTV + Icons"))
+				("minitv-metrix-icons", _("MiniTV + Icons")),
+				("empty", _("empty"))
 				])
 
 config.plugins.KravenHD.LogoNoInternet = ConfigSelection(default="minitv", choices = [
 				("logo", _("Logo")),
-				("minitv", _("MiniTV"))
+				("minitv", _("MiniTV")),
+				("empty", _("empty"))
 				])
 
 config.plugins.KravenHD.MainmenuFontsize = ConfigSelection(default="mainmenu-big", choices = [
@@ -761,9 +783,25 @@ config.plugins.KravenHD.cityfound = ConfigText(default="")
 config.plugins.KravenHD.latitude = ConfigText(default="")
 config.plugins.KravenHD.longitude = ConfigText(default="")
 
+config.plugins.KravenHD.UseOAWeather = ConfigSelection(default="none", choices = [
+				("on", _("on")),
+				("none", _("off"))
+				])
+
 config.plugins.KravenHD.PlayerClock = ConfigSelection(default="player-classic", choices = [
 				("player-classic", _("standard")),
 				("player-android", _("android")),
+				("player-flip", _("flip")),
+				("player-weather", _("weather icon"))
+				])
+
+config.plugins.KravenHD.PlayerClockOAWeather = ConfigSelection(default="player-classic", choices = [
+				("player-classic", _("standard")),
+				("player-flip", _("flip"))
+				])
+
+config.plugins.KravenHD.PlayerClockNoInternet = ConfigSelection(default="player-classic", choices = [
+				("player-classic", _("standard")),
 				("player-flip", _("flip")),
 				("player-weather", _("weather icon"))
 				])
@@ -830,6 +868,10 @@ config.plugins.KravenHD.CategoryAntialiasing = ConfigSelection(default="category
 
 config.plugins.KravenHD.CategoryVarious = ConfigSelection(default="category", choices = [
 				("category", _(" "))
+				])
+
+config.plugins.KravenHD.EmptyLine = ConfigSelection(default="empty", choices = [
+				("empty", _(" "))
 				])
 
 config.plugins.KravenHD.UnwatchedColorList = ConfigSelection(default="ffffff", choices = ColorSelfList)
@@ -970,18 +1012,28 @@ r = ping.doOne("8.8.8.8", 1.5)
 if r != None and r <= 1.5:
 	InternetAvailable = True
 
-# weather, menu, clock
+# weather, menu, clock, player
 actWeatherstyle = ""
+actMenustyle = ""
+actClockstyle = ""
+actPlayerstyle = ""
 if InternetAvailable:
 	if config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-nopicon", "infobar-style-x1", "infobar-style-x3", "infobar-style-x4", "infobar-style-z2", "infobar-style-zz1", "infobar-style-zz2", "infobar-style-zz3", "infobar-style-zzz1"):
 		actWeatherstyle = config.plugins.KravenHD.WeatherStyle.value
 	elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-x2", "infobar-style-z1"):
 		actWeatherstyle = config.plugins.KravenHD.WeatherStyle2.value
 	actMenustyle = config.plugins.KravenHD.Logo.value
-	actClockstyle = config.plugins.KravenHD.ClockStyle.value
+	if isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+		actClockstyle = config.plugins.KravenHD.ClockStyleOAWeather.value
+		actPlayerstyle = config.plugins.KravenHD.PlayerClockOAWeather.value
+	else:
+		actClockstyle = config.plugins.KravenHD.ClockStyle.value
+		actPlayerstyle = config.plugins.KravenHD.PlayerClock.value
 else:
+	actWeatherstyle = config.plugins.KravenHD.WeatherStyleNoInternet.value
 	actMenustyle = config.plugins.KravenHD.LogoNoInternet.value
 	actClockstyle = config.plugins.KravenHD.ClockStyleNoInternet.value
+	actPlayerstyle = config.plugins.KravenHD.PlayerClockNoInternet.value
 
 # global background
 if config.plugins.KravenHD.BackgroundColor.value == "gradient":
@@ -1016,7 +1068,7 @@ def justSave():
 	skinSearchAndReplace.append(['name="background" value="#00000000', 'name="background" value="#00' + skincolorbackgroundcolor])
 
 	### Background3 (Menus Transparency)
-	if actMenustyle in ("logo", "metrix-icons"):
+	if actMenustyle in ("logo", "metrix-icons", "empty"):
 		skinSearchAndReplace.append(['name="Kravenbg3" value="#00000000', 'name="Kravenbg3" value="#' + config.plugins.KravenHD.BackgroundColorTrans.value + skincolorbackgroundcolor])
 	else:
 		skinSearchAndReplace.append(['name="Kravenbg3" value="#00000000', 'name="Kravenbg3" value="#00' + skincolorbackgroundcolor])
@@ -1071,7 +1123,7 @@ def justSave():
 		else:
 			skinSearchAndReplace.append(['name="KravenIBbg2" value="#00000000', 'name="KravenIBbg2" value="#' + config.plugins.KravenHD.BackgroundColorTrans.value + skincolorinfobarcolor])
 			skinSearchAndReplace.append(['name="KravenIBbg4" value="#00000000', 'name="KravenIBbg4" value="#' + config.plugins.KravenHD.ChannelSelectionTrans.value + skincolorinfobarcolor])
-			if actMenustyle in ("logo", "metrix-icons"):
+			if actMenustyle in ("logo", "metrix-icons", "empty"):
 				skinSearchAndReplace.append(['name="KravenIBbg3" value="#00000000', 'name="KravenIBbg3" value="#' + config.plugins.KravenHD.BackgroundColorTrans.value + skincolorinfobarcolor])
 			else:
 				skinSearchAndReplace.append(['name="KravenIBbg3" value="#00000000', 'name="KravenIBbg3" value="#00' + skincolorinfobarcolor])
@@ -1079,7 +1131,7 @@ def justSave():
 	else:
 		skinSearchAndReplace.append(['name="KravenIBbg2" value="#00000000', 'name="KravenIBbg2" value="#' + config.plugins.KravenHD.BackgroundColorTrans.value + skincolorbackgroundcolor])
 		skinSearchAndReplace.append(['name="KravenIBbg4" value="#00000000', 'name="KravenIBbg4" value="#' + config.plugins.KravenHD.ChannelSelectionTrans.value + skincolorbackgroundcolor])
-		if actMenustyle in ("logo", "metrix-icons"):
+		if actMenustyle in ("logo", "metrix-icons", "empty"):
 			skinSearchAndReplace.append(['name="KravenIBbg3" value="#00000000', 'name="KravenIBbg3" value="#' + config.plugins.KravenHD.BackgroundColorTrans.value + skincolorbackgroundcolor])
 		else:
 			skinSearchAndReplace.append(['name="KravenIBbg3" value="#00000000', 'name="KravenIBbg3" value="#00' + skincolorbackgroundcolor])
@@ -1095,6 +1147,9 @@ def justSave():
 	elif actMenustyle == "metrix-icons":
 		skinSearchAndReplace.append(['<!-- Logo -->', '<panel name="Logo3"/>'])
 		skinSearchAndReplace.append(['<!-- Metrix-Icons -->', '<panel name="Icons3"/>'])
+	elif actMenustyle == "empty":
+		skinSearchAndReplace.append(['<!-- Logo -->', '<panel name="Logo5"/>'])
+		skinSearchAndReplace.append(['<!-- Metrix-Icons -->', '<panel name="Logo5"/>'])
 	else:
 		skinSearchAndReplace.append(['<!-- Logo -->', '<panel name="Logo4"/>'])
 		skinSearchAndReplace.append(['<!-- Metrix-Icons -->', '<panel name="Icons4"/>'])
@@ -1109,9 +1164,9 @@ def justSave():
 		pFile.close()
 		if graphpackname != config.plugins.KravenHD.SkinResolution.value:
 			if config.plugins.KravenHD.SkinResolution.value == "hd":
-				system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/HD/share.tar.gz -C /usr/share/enigma2/KravenHD/")
+				os.system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/HD/share.tar.gz -C /usr/share/enigma2/KravenHD/")
 			else:
-				system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/FHD/share.tar.gz -C /usr/share/enigma2/KravenHD/")
+				os.system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/FHD/share.tar.gz -C /usr/share/enigma2/KravenHD/")
 
 	### Mainmenu Fontsize
 	if config.plugins.KravenHD.MainmenuFontsize.value == "mainmenu-small":
@@ -1407,14 +1462,14 @@ def justSave():
 
 	if config.plugins.KravenHD.SkinResolution.value == "hd":
 		if config.plugins.KravenHD.IconStyle2.value == "icons-light2":
-			system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/HD/icons-white.tar.gz -C /usr/share/enigma2/KravenHD/")
+			os.system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/HD/icons-white.tar.gz -C /usr/share/enigma2/KravenHD/")
 		else:
-			system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/HD/icons-black.tar.gz -C /usr/share/enigma2/KravenHD/")
+			os.system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/HD/icons-black.tar.gz -C /usr/share/enigma2/KravenHD/")
 	else:
 		if config.plugins.KravenHD.IconStyle2.value == "icons-light2":
-			system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/FHD/icons-white.tar.gz -C /usr/share/enigma2/KravenHD/")
+			os.system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/FHD/icons-white.tar.gz -C /usr/share/enigma2/KravenHD/")
 		else:
-			system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/FHD/icons-black.tar.gz -C /usr/share/enigma2/KravenHD/")
+			os.system("tar xf /usr/lib/enigma2/python/Plugins/Extensions/KravenHD/data/FHD/icons-black.tar.gz -C /usr/share/enigma2/KravenHD/")
 
 	### Weather-Server
 	if config.plugins.KravenHD.SkinResolution.value == "hd":
@@ -1801,13 +1856,25 @@ def justSave():
 
 	### Infobar Clock
 	if config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-nopicon", "infobar-style-x1"):
-		skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="' + config.plugins.KravenHD.InfobarStyle.value + '-' + actClockstyle + '"/>'])
+		if actClockstyle == "clock-weather" and isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="' + config.plugins.KravenHD.InfobarStyle.value + '-clock-weather_OAWeather"/>'])
+		else:
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="' + config.plugins.KravenHD.InfobarStyle.value + '-' + actClockstyle + '"/>'])
 	elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-x2", "infobar-style-x3", "infobar-style-z1", "infobar-style-z2"):
-		skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-x2-x3-z1-z2-' + actClockstyle + '"/>'])
+		if actClockstyle == "clock-weather" and isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-x2-x3-z1-z2-clock-weather_OAWeather"/>'])
+		else:
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-x2-x3-z1-z2-' + actClockstyle + '"/>'])
 	elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-zz2", "infobar-style-zz3"):
-		skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-zz2-zz3-' + actClockstyle + '"/>'])
+		if actClockstyle == "clock-weather" and isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-zz2-zz3-clock-weather_OAWeather"/>'])
+		else:
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-zz2-zz3-' + actClockstyle + '"/>'])
 	elif config.plugins.KravenHD.InfobarStyle.value in ("infobar-style-x4", "infobar-style-zz1", "infobar-style-zzz1"):
-		skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-x4-zz1-zzz1-' + actClockstyle + '"/>'])
+		if actClockstyle == "clock-weather" and isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-x4-zz1-zzz1-clock-weather_OAWeather"/>'])
+		else:
+			skinSearchAndReplace.append(['<!-- Infobar clockstyle -->', '<panel name="infobar-style-x4-zz1-zzz1-' + actClockstyle + '"/>'])
 
 	### Infobar Channelname
 	if config.plugins.KravenHD.InfobarStyle.value == "infobar-style-nopicon" and not config.plugins.KravenHD.InfobarChannelName.value == "none":
@@ -1858,13 +1925,22 @@ def justSave():
 				skinSearchAndReplace.append(['<!-- Infobar weatherbackground -->', '<panel name="texture-weather-small"/>'])
 			else:
 				skinSearchAndReplace.append(['<!-- Infobar weatherbackground -->', '<panel name="box-weather-small"/>'])
-			skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-small2"/>'])
+			if isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+				skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-small2_OAWeather"/>'])
+			else:
+				skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-small2"/>'])
 		else:
 			skinSearchAndReplace.append(['<!-- Infobar weatherbackground -->', '<panel name="gradient-weather-small"/>'])
-			skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-small"/>'])
+			if isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+				skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-small_OAWeather"/>'])
+			else:
+				skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-small"/>'])
 
 	elif actWeatherstyle == "weather-left":
-		skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-left"/>'])
+		if isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+			skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-left_OAWeather"/>'])
+		else:
+			skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-left"/>'])
 
 	elif actWeatherstyle == "weather-big":
 		if config.plugins.KravenHD.IBStyle.value == "box":
@@ -1876,7 +1952,10 @@ def justSave():
 				skinSearchAndReplace.append(['<!-- Infobar weatherbackground -->', '<panel name="box-weather-big"/>'])
 		else:
 			skinSearchAndReplace.append(['<!-- Infobar weatherbackground -->', '<panel name="gradient-weather-big"/>'])
-		skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-big"/>'])
+		if isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+			skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-big_OAWeather"/>'])
+		else:
+			skinSearchAndReplace.append(['<!-- Infobar weatherstyle -->', '<panel name="weather-big"/>'])
 
 	### Infobar system-info
 	if not config.plugins.KravenHD.SystemInfo.value == "none":
@@ -1961,10 +2040,16 @@ def justSave():
 			skinSearchAndReplace.append(['<!-- Poster view -->', '<panel name="infobar-style-zzz1-poster"/>'])
 
 	### SecondInfobar
-	skinSearchAndReplace.append(['<!-- SIB style -->', '<panel name="' + config.plugins.KravenHD.SIB.value + '"/>'])
+	if config.plugins.KravenHD.SIB.value in ("sib1", "sib6", "sib7") and isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+		skinSearchAndReplace.append(['<!-- SIB style -->', '<panel name="' + config.plugins.KravenHD.SIB.value + '_OAWeather"/>'])
+	else:
+		skinSearchAndReplace.append(['<!-- SIB style -->', '<panel name="' + config.plugins.KravenHD.SIB.value + '"/>'])
 
 	### Players clockstyle
-	skinSearchAndReplace.append(['<!-- Player clockstyle -->', '<panel name="' + config.plugins.KravenHD.PlayerClock.value + '"/>'])
+	if actPlayerstyle == "player-weather" and isPluginInstalled("OAWeather") and config.plugins.KravenHD.UseOAWeather.value == "on":
+		skinSearchAndReplace.append(['<!-- Player clockstyle -->', '<panel name="player-weather_OAWeather"/>'])
+	else:
+		skinSearchAndReplace.append(['<!-- Player clockstyle -->', '<panel name="' + actPlayerstyle + '"/>'])
 
 	### Volume
 	skinSearchAndReplace.append(['<!-- Volume style -->', '<panel name="' + config.plugins.KravenHD.Volume.value + '"/>'])
@@ -2108,7 +2193,7 @@ def justSave():
 			changeColor("msnbg", "msnbg", skincolorbackgroundcolor, None)
 		appendSkinFile(data + "weatherplugin.xml")
 		if InternetAvailable and not fileExists("/usr/share/enigma2/KravenHD/msn_weather_icons/1.png"):
-			system("wget -q http://picons.mynonpublic.com/msn-icon.tar.gz -O /tmp/msn-icon.tar.gz; tar xf /tmp/msn-icon.tar.gz -C /usr/share/enigma2/KravenHD/")
+			os.system("wget -q http://picons.mynonpublic.com/msn-icon.tar.gz -O /tmp/msn-icon.tar.gz; tar xf /tmp/msn-icon.tar.gz -C /usr/share/enigma2/KravenHD/")
 	else:
 		appendSkinFile(data + "weatherplugin2.xml")
 
@@ -2149,16 +2234,6 @@ def justSave():
 
 	### bsWindow
 	makebsWindowpng()
-
-	### VirtualKeyBoard
-	if config.plugins.KravenHD.PopupStyle.value == "popup-grad-trans":
-		changeColor("virtualkeyboard_gr_tr", "virtualkeyboard", skincolorbackgroundcolor, None)
-	elif config.plugins.KravenHD.PopupStyle.value == "popup-grad":
-		changeColor("virtualkeyboard_gr", "virtualkeyboard", skincolorbackgroundcolor, None)
-	elif config.plugins.KravenHD.PopupStyle.value == "popup-box-trans":
-		changeColor("virtualkeyboard_bx_tr", "virtualkeyboard", skincolorbackgroundcolor, config.plugins.KravenHD.Border.value)
-	elif config.plugins.KravenHD.PopupStyle.value == "popup-box":
-		changeColor("virtualkeyboard_bx", "virtualkeyboard", skincolorbackgroundcolor, config.plugins.KravenHD.Border.value)
 
 	### SerienRecorder
 	if config.plugins.KravenHD.SerienRecorder.value == "serienrecorder":
@@ -2218,6 +2293,7 @@ def justSave():
 	xFile.close()
 	move(TMPFILE, FILE)
 
+	print("[SkinRestore]: KravenHD successfully restored")
 	return 0
 
 def appendSkinFile(appendFileName, skinPartSearchAndReplace=None):
@@ -2269,7 +2345,7 @@ def installIcons(author):
 		for line in pFile:
 			packonserver = line.strip('\n')
 		pFile.close()
-		popen("rm /tmp/" + versname)
+		os.popen("rm /tmp/" + versname)
 
 		# Download an install icon pack, if needed
 		if packinstalled != packonserver:
@@ -2277,7 +2353,7 @@ def installIcons(author):
 			fullpackname = pathname + packname
 			sub = subprocess.Popen("rm -rf /usr/share/enigma2/Kraven-menu-icons/*.*; rm -rf /usr/share/enigma2/Kraven-menu-icons; wget -q " + fullpackname + " -O /tmp/" + packname + "; tar xf /tmp/" + packname + " -C /usr/share/enigma2/", shell=True)
 			sub.wait()
-			popen("rm /tmp/" + packname)
+			os.popen("rm /tmp/" + packname)
 
 def makeIBGradTexturepng():
 	makeIbarTextureGradientpng(config.plugins.KravenHD.InfobarTexture.value, config.plugins.KravenHD.InfobarColorTrans.value) # ibars

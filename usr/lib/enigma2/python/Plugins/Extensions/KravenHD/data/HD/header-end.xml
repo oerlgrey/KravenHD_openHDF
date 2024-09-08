@@ -47,11 +47,11 @@
     <parameter name="FcFileListMultiIcon" value="33,5,20,20" />
     <parameter name="FcFileListMultiLock" value="3,5,20,20" />
 	<!-- PluginBrowser -->
-	<parameter name="PluginBrowserName" value="120,2,30"/>
-	<parameter name="PluginBrowserDescr" value="120,28,26"/>
+	<parameter name="PluginBrowserName" value="120,0,27"/>
+	<parameter name="PluginBrowserDescr" value="120,27,24"/>
 	<parameter name="PluginBrowserIcon" value="3,5,100,40"/>
-	<parameter name="PluginBrowserDownloadName" value="83,2,30"/>
-	<parameter name="PluginBrowserDownloadDescr" value="83,28,26"/>
+	<parameter name="PluginBrowserDownloadName" value="83,0,27"/>
+	<parameter name="PluginBrowserDownloadDescr" value="83,27,24"/>
 	<parameter name="PluginBrowserDownloadIcon" value="2,0,80,50"/>
 	<!-- SelectionList -->
     <parameter name="SelectionListDescr" value="36,1,694,27" />
@@ -99,7 +99,7 @@
 	<alias name="FileList" font="Regular" size="22" height="30" />
 	<alias name="FileListMulti" font="Regular" size="22" height="30" />
 	<alias name="PluginBrowser0" font="Regular" size="22" height="50"/>
-	<alias name="PluginBrowser1" font="Regular" size="15"/>
+	<alias name="PluginBrowser1" font="Regular" size="18"/>
 	<alias name="MaxCubeRoom" font="Regular" size="18" height="50"/>
 	<alias name="MaxCubeTemp" font="Regular2" size="30" height="50"/>
 	<alias name="SelectionList" font="Regular" size="22" height="30"/>

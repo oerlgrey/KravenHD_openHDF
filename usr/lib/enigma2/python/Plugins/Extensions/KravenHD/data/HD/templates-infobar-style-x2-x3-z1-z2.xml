@@ -498,6 +498,21 @@
 	  </widget>
 	</screen>
 	
+	<screen name="infobar-style-x2-x3-z1-z2-clock-weather_OAWeather">
+	  <widget alphatest="blend" render="OAWeatherPixmap" position="1066,608" size="96,96" source="session.OAWeather" transparent="1" zPosition="1" scale="1">
+		<convert type="OAWeather">weathericon,current</convert>
+	  </widget>
+	  <widget source="session.OAWeather" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont2" position="1173,615" size="90,27" font="Regular2;24" noWrap="1" halign="center" valign="center" zPosition="2" transparent="1">
+		<convert type="OAWeather">temperature_current</convert>
+	  </widget>
+	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont1" position="1173,648" size="90,30" font="Regular;26" halign="center" valign="center" zPosition="2" transparent="1">
+		<convert type="KravenHDClockToText">Default</convert>
+	  </widget>
+	  <widget source="global.CurrentTime" render="Label" backgroundColor="KravenIBbg" foregroundColor="KravenIBFont1" position="1173,681" size="90,21" font="Regular;17" halign="center" valign="center" zPosition="2" transparent="1">
+		<convert type="KravenHDClockToText">Format:%d.%m.%Y</convert>
+	  </widget>
+	</screen>
+	
 	<screen name="infobar-style-x2-x3-z1-z2-clock-analog">
 	  <widget backgroundColor="KravenIBbg" font="Regular2;18" foregroundColor="KravenIBFont2" halign="center" position="1054,690" render="Label" size="220,30" source="global.CurrentTime" transparent="1" valign="center" zPosition="2">
 		<convert type="KravenHDClockToText">Format:%A, %d.%m.%Y</convert>

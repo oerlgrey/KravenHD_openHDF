@@ -58,7 +58,7 @@
     <panel name="Exit"/>
   </screen>
 
-  <screen name="BitrateViewer" backgroundColor="transparent" position="0,0" size="1920,1080" title="Bitrate viewer" flags="wfBorder">
+  <screen name="BitrateViewer" backgroundColor="transparent" position="0,0" size="1920,1080" title="Bitrate viewer">
 	<!--*BitrateViewer*-->
 	<widget source="video" render="Label" position="127,180" zPosition="1" size="120,30" font="Regular;30" foregroundColor="KravenFont2" backgroundColor="Kravenbg3" transparent="1" />
 	<widget source="min" render="Label" position="127,225" zPosition="1" size="120,30" font="Regular;30" foregroundColor="KravenFont1" backgroundColor="Kravenbg3" transparent="1" />
@@ -2511,11 +2511,9 @@
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
-    <panel name="TemplateButtonRed"/>
+    <panel name="RGYB_Buttons"/>
 	<widget backgroundColor="KravenIBbg3" name="key_green_ext" position="446,1004" size="360,39" font="Regular;30" foregroundColor="KravenButton" noWrap="1" valign="center" zPosition="1" transparent="1" />
 	<ePixmap alphatest="blend" pixmap="KravenHD/buttons/key_green1.png" position="438,1045" size="300,7" />
-    <panel name="TemplateButtonYellow"/>
-    <panel name="TemplateButtonBlue"/>
     <panel name="OKExit"/>
   </screen>
 
@@ -2667,11 +2665,12 @@
     <panel name="Title-big"/>
     <!-- Logo -->
 	<panel name="gradient-menu"/>
-    <panel name="TemplateButtonRed"/>
+    <panel name="TemplateKravenRed"/>
   </screen>
 
   <screen name="HDFRadio" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*HDFRadio*-->
+	<widget backgroundColor="KravenIBbg2" name="waiting" font="HDFRadioRegular2;35" foregroundColor="#001ebf28" position="center,23" size="600,45" halign="center" valign="center" noWrap="1" transparent="1" />
 	<widget backgroundColor="KravenIBbg2" name="record" font="Regular2;32" foregroundColor="KravenIBGFont2" position="1030,25" size="300,41" valign="center" transparent="1" />
 	<widget backgroundColor="KravenIBbg2" name="recinfos" font="Regular2;32" foregroundColor="KravenIBGFont2" position="1339,25" size="272,41" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="station" render="Label" position="center,108" size="1794,70" font="Regular2;50" foregroundColor="KravenFont2" halign="center" valign="center" noWrap="1" transparent="1" />
@@ -2704,8 +2703,10 @@
 	<widget backgroundColor="Kravenbg2" source="instruction" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,815" size="1104,123" halign="center" valign="center" transparent="1" />
 	<widget backgroundColor="KravenIBbg2" source="key_red" render="Label" font="Regular;30" foregroundColor="KravenButton" position="71,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
 	<widget backgroundColor="KravenIBbg2" source="key_green" render="Label" font="Regular;30" foregroundColor="KravenButton" position="446,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" source="key_blue" render="Label" font="Regular;30" foregroundColor="KravenButton" position="1196,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
 	<widget source="key_red" render="Pixmap" pixmap="KravenHD/buttons/key_red1.png" position="63,1045" size="300,7" alphatest="blend" />
 	<widget source="key_green" render="Pixmap" pixmap="KravenHD/buttons/key_green1.png" position="438,1045" size="300,7" alphatest="blend" />
+	<widget source="key_blue" render="Pixmap" pixmap="KravenHD/buttons/key_blue1.png" position="1188,1045" size="300,7" alphatest="blend" />
     <panel name="Title-big2"/>
 	<panel name="NonTransbg"/>
 	<panel name="gradient-menu"/>
@@ -2730,6 +2731,7 @@
 
   <screen name="HDFRadioScreenSaver" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="#ff000000">
 	<!--*HDFRadioScreenSaver*-->
+	<widget backgroundColor="KravenIBbg2" name="waiting" font="HDFRadioRegular2;35" foregroundColor="#001ebf28" position="center,23" size="600,45" halign="center" valign="center" noWrap="1" transparent="1" />
 	<widget backgroundColor="#0A000000" source="recording" render="Label" font="Regular;30" foregroundColor="#00ff0000" position="60,36" size="1800,45" halign="center" valign="center" transparent="1" />
 	<widget backgroundColor="#0A000000" source="songtitle" render="Label" font="Regular;44" foregroundColor="#00ffffff" position="60,975" size="1800,75" noWrap="1" halign="center" valign="center" transparent="1" />
 	<widget backgroundColor="#0A000000" name="cover" position="219,120" size="450,450" zPosition="1" />
@@ -2771,7 +2773,8 @@
 
   <screen name="HDFRadioLyrics" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*HDFRadioLyrics*-->
-	<widget backgroundColor="KravenIBbg2" source="recording" render="Label" font="Regular2;35" foregroundColor="KravenIBGFont2" position="1030,23" size="600,45" valign="center" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" name="waiting" font="HDFRadioRegular2;35" foregroundColor="#001ebf28" position="center,23" size="600,45" halign="center" valign="center" noWrap="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" name="record" font="Regular2;35" foregroundColor="KravenIBGFont2" position="1030,23" size="600,45" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="songtitle" render="Label" font="Regular2;44" foregroundColor="KravenFont2" position="63,120" size="1794,57" noWrap="1" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="lyrics" render="KravenHDRunningText" options="movetype=running,direction=top,startpoint=0,startdelay=5000,steptime=90,wrap=1,always=0,repeat=2,oneshot=1" font="Regular;35" foregroundColor="KravenFont1" position="63,195" size="1440,675" transparent="1" />
 	<widget backgroundColor="Kravenbg2" name="lyrics2" font="Regular;35" foregroundColor="KravenFont1" position="63,195" size="1440,675" transparent="1" />
@@ -2785,6 +2788,7 @@
 	<widget name="green" pixmap="KravenHD/buttons/key_green1.png" position="438,1045" size="300,7" alphatest="blend" />
 	<widget name="yellow" pixmap="KravenHD/buttons/key_yellow1.png" position="813,1045" size="300,7" alphatest="blend" />
 	<widget name="blue" pixmap="KravenHD/buttons/key_blue1.png" position="1188,1045" size="300,7" alphatest="blend" />
+	<widget name="epg" pixmap="KravenHD/infobar-global-icons/key_epg.png" position="1717,1012" size="65,33" alphatest="blend" />
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
@@ -2793,7 +2797,8 @@
 
   <screen name="HDFRadioLyricsBrowser" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*HDFRadioLyricsBrowser*-->
-	<widget backgroundColor="KravenIBbg2" source="recording" render="Label" font="Regular2;35" foregroundColor="KravenIBGFont2" position="1030,23" size="600,45" valign="center" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" name="waiting" font="HDFRadioRegular2;35" foregroundColor="#001ebf28" position="center,23" size="600,45" halign="center" valign="center" noWrap="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" name="record" font="Regular2;35" foregroundColor="KravenIBGFont2" position="1030,23" size="600,45" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="song" render="Label" font="Regular2;44" foregroundColor="KravenFont2" position="63,120" size="1794,57" noWrap="1" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" name="list" font="Regular;32" foregroundColor="KravenFont1" position="63,195" size="540,720" textOffset="6,1" itemHeight="45" selectionPixmap="KravenHD/graphics/sel_30.png" scrollbarMode="showOnDemand" scrollbarWidth="15" enableWrapAround="1" transparent="1"/>
 	<widget backgroundColor="Kravenbg2" name="lyrics" font="Regular;35" foregroundColor="KravenFont1" position="657,195" size="1200,720" transparent="1" />
@@ -2802,6 +2807,7 @@
 	<widget backgroundColor="KravenIBbg2" source="key_yellow" render="Label" font="Regular;30" foregroundColor="KravenButton" position="821,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
 	<widget source="key_red" render="Pixmap" pixmap="KravenHD/buttons/key_red1.png" position="63,1045" size="300,7" alphatest="blend" />
 	<widget name="yellow" pixmap="KravenHD/buttons/key_yellow1.png" position="813,1045" size="300,7" alphatest="blend" />
+	<widget name="epg" pixmap="KravenHD/infobar-global-icons/key_epg.png" position="1717,1012" size="65,33" alphatest="blend" />
     <panel name="Title-big2"/>
     <panel name="Background"/>
 	<panel name="gradient-menu"/>
@@ -2810,6 +2816,7 @@
 
   <screen name="HDFRadioPlayer" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*HDFRadioPlayer*-->
+	<widget backgroundColor="KravenIBbg2" name="waiting" font="HDFRadioRegular2;35" foregroundColor="#001ebf28" position="center,23" size="600,45" halign="center" valign="center" noWrap="1" transparent="1" />
 	<widget backgroundColor="KravenIBbg2" name="playermode" font="Regular2;35" foregroundColor="KravenIBGFont2" position="1035,23" size="660,45" valign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="artist" render="Label" position="center,108" size="1794,70" font="Regular;50" foregroundColor="KravenFont2" halign="center" transparent="1" />
 	<widget backgroundColor="Kravenbg2" source="songtitle" render="Label" position="center,192" size="1794,57" font="Regular;38" foregroundColor="KravenFont1" halign="center" valign="center" noWrap="1" transparent="1" />
@@ -2892,13 +2899,45 @@
     <panel name="OKExit"/>
   </screen>
 
+  <screen name="HDFRadioInfo" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
+	<!--*HDFRadioInfo*-->
+	<widget backgroundColor="KravenIBbg2" name="waiting" font="HDFRadioRegular2;35" foregroundColor="#001ebf28" position="center,23" size="600,45" halign="center" valign="center" noWrap="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" name="record" font="Regular2;32" foregroundColor="KravenIBGFont2" position="1030,25" size="300,41" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="artistname" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,117" size="240,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="artist" render="Label" font="Regular;32" foregroundColor="KravenFont1" position="303,117" size="1554,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="songname" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,162" size="240,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="song" render="Label" font="Regular;32" foregroundColor="KravenFont1" position="303,162" size="1554,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="albumname" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,207" size="240,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="album" render="Label" font="Regular;32" foregroundColor="KravenFont1" position="303,207" size="1554,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="stationname" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,252" size="240,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="station" render="Label" font="Regular;32" foregroundColor="KravenFont1" position="303,252" size="1554,41" noWrap="1" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="description" font="Regular;35" foregroundColor="KravenFont1" position="63,315" size="1440,540" transparent="1" />
+	<widget backgroundColor="Kravenbg2" source="source" render="Label" font="Regular2;32" foregroundColor="KravenFont2" position="63,885" size="1440,41" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="cover" position="1557,315" size="300,300" zPosition="1" />
+	<widget backgroundColor="Kravenbg2" name="bitratename" position="1557,885" size="135,41" font="Regular2;32" foregroundColor="KravenFont2" halign="center" valign="center" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="bitrate" position="1692,885" size="165,41" font="Regular;32" foregroundColor="KravenFont1" halign="center" valign="center" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" source="key_red" render="Label" font="Regular;30" foregroundColor="KravenButton" position="71,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" source="key_green" render="Label" font="Regular;30" foregroundColor="KravenButton" position="446,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" source="key_yellow" render="Label" font="Regular;30" foregroundColor="KravenButton" position="821,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
+	<widget backgroundColor="KravenIBbg2" source="key_blue" render="Label" font="Regular;30" foregroundColor="KravenButton" position="1196,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
+	<widget source="key_red" render="Pixmap" pixmap="KravenHD/buttons/key_red1.png" position="63,1045" size="300,7" alphatest="blend" />
+	<widget name="green" pixmap="KravenHD/buttons/key_green1.png" position="438,1045" size="300,7" alphatest="blend" />
+	<widget name="yellow" pixmap="KravenHD/buttons/key_yellow1.png" position="813,1045" size="300,7" alphatest="blend" />
+	<widget name="blue" pixmap="KravenHD/buttons/key_blue1.png" position="1188,1045" size="300,7" alphatest="blend" />
+	<widget name="epg" pixmap="KravenHD/infobar-global-icons/key_epg.png" position="1717,1012" size="65,33" alphatest="blend" />
+    <panel name="Title-big2"/>
+	<panel name="Background"/>
+	<panel name="gradient-menu"/>
+    <panel name="Exit"/>
+  </screen>
+
   <screen name="HDFRadioHelp" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
 	<!--*HDFRadioHelp*-->
 	<widget backgroundColor="KravenIBbg2" source="version" render="Label" font="Regular;35" foregroundColor="KravenIBGFont1" position="1320,23" size="450,45" halign="center" valign="center" transparent="1" />
-	<widget backgroundColor="Kravenbg3" name="help" render="Label" font="Regular;32" foregroundColor="KravenFont1" position="63,115" size="1104,779" transparent="1" />
+	<widget backgroundColor="Kravenbg2" name="help" font="Regular;32" foregroundColor="KravenFont1" position="63,115" size="1104,779" transparent="1" />
 	<widget backgroundColor="KravenIBbg2" source="key_red" render="Label" font="Regular;30" foregroundColor="KravenButton" position="71,1004" size="330,39" valign="center" zPosition="1" transparent="1" />
 	<widget source="key_red" render="Pixmap" pixmap="KravenHD/buttons/key_red1.png" position="63,1045" size="300,7" alphatest="blend" />
-    <panel name="Title-big"/>
+    <panel name="Title-big2"/>
 	<panel name="NonTransbg"/>
 	<panel name="gradient-menu"/>
     <panel name="Exit"/>
@@ -2906,12 +2945,12 @@
 
   <screen name="HDFRadioYTPlayer" position="0,0" size="1920,1080" flags="wfNoBorder" title="InfoBar" backgroundColor="transparent">
 	<!--*HDFRadioYTPlayer*-->
-	<widget backgroundColor="KravenIBbg" name="cover" position="85,927" size="144,144" />
+	<widget backgroundColor="KravenIBbg" name="cover" position="37,831" size="240,240" zPosition="2" />
 	<widget backgroundColor="KravenIBbg" font="Regular;45" foregroundColor="KravenIBFont2" noWrap="1" position="315,930" render="Label" size="1062,55" source="session.CurrentService" transparent="1" zPosition="1">
 	  <convert type="ServiceName">Name</convert>
 	</widget>
 	<widget backgroundColor="KravenIBbg" source="session.CurrentService" render="Label" font="Regular;30" foregroundColor="KravenIBFont1" position="1452,943" size="150,39" halign="right" transparent="1">
-		<convert type="ServicePosition">Position</convert>
+	  <convert type="ServicePosition">Position</convert>
 	</widget>
 	<IBProgressBackground pixmap="KravenHD/graphics/progress_bg_pl.png" position="300,984" size="1317,31" zPosition="1" alphatest="IBProgressBackground" />
 	<eLabel position="315,999" size="1287,1" backgroundColor="KravenIBProgressBorderLine" zPosition="2" />
@@ -2948,7 +2987,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
 	<widget backgroundColor="KravenIBbg" source="session.CurrentService" render="Label" font="Regular;30" foregroundColor="KravenIBFont1" position="1482,1020" size="120,39" halign="right" transparent="1">
-		<convert type="ServicePosition">Length</convert>
+	  <convert type="ServicePosition">Length</convert>
 	</widget>
     <panel name="gradient-player"/>
 	<!-- Player clockstyle -->

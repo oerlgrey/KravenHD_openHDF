@@ -109,11 +109,11 @@
     <parameter name="FcFileListMultiIcon" value="50,8,30,30" />
     <parameter name="FcFileListMultiLock" value="5,8,30,30" />
 	<!-- PluginBrowser -->
-	<parameter name="PluginBrowserName" value="180,3,45"/>
-	<parameter name="PluginBrowserDescr" value="180,42,39"/>
+	<parameter name="PluginBrowserName" value="180,1,41"/>
+	<parameter name="PluginBrowserDescr" value="180,42,34"/>
 	<parameter name="PluginBrowserIcon" value="4,7,150,60"/>
-	<parameter name="PluginBrowserDownloadName" value="125,3,45"/>
-	<parameter name="PluginBrowserDownloadDescr" value="125,42,39"/>
+	<parameter name="PluginBrowserDownloadName" value="125,1,41"/>
+	<parameter name="PluginBrowserDownloadDescr" value="125,42,34"/>
 	<parameter name="PluginBrowserDownloadIcon" value="2,0,120,75"/>
 	<!-- SelectionList -->
     <parameter name="SelectionListDescr" value="55,2,1042,41" />
@@ -166,7 +166,7 @@
 	<alias name="VirtualKeyboard" font="Regular" size="42" height="67" />
 	<alias name="ServiceInfo" font="Regular" size="32" height="45"/>
 	<alias name="PluginBrowser0" font="Regular" size="32" height="75"/>
-	<alias name="PluginBrowser1" font="Regular" size="22"/>
+	<alias name="PluginBrowser1" font="Regular" size="27"/>
 	<alias name="HelpMenuList" font="Regular" size="30" height="45"/>
 	<alias name="HelpMenuListExt0" font="Regular" size="32" height="75"/>
 	<alias name="HelpMenuListExt1" font="Regular" size="28"/>

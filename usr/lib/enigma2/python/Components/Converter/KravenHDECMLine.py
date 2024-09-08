@@ -24,10 +24,9 @@ from Tools.Directories import fileExists
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 from Components.Language import language
 
+CI = False
 if fileExists("/etc/enigma2/ci0.xml") or fileExists("/etc/enigma2/ci1.xml"):
-		CI = True
-else:
-		CI = False
+	CI = True
 
 lang = language.getLanguage()
 os.environ["LANGUAGE"] = lang[:2]
@@ -42,14 +41,14 @@ def _(txt):
 	return t
 
 class KravenHDECMLine(Poll, Converter, object):
-
 	SATINFO = 0
 	VERYSHORTCAID = 1
 	VERYSHORTREADER = 2
-	SHORTREADER = 3
-	NORMAL = 4
-	LONG = 5
-	VERYLONG = 6
+	SHORTHOPS = 3
+	SHORTREADER = 4
+	NORMAL = 5
+	LONG = 6
+	VERYLONG = 7
 
 	FTAINVISIBLE = 0
 	FTAVISIBLE = 1
@@ -71,6 +70,8 @@ class KravenHDECMLine(Poll, Converter, object):
 			self.type = self.VERYSHORTCAID
 		elif type == 'VeryShortReader':
 			self.type = self.VERYSHORTREADER
+		elif type == 'ShortHops':
+			self.type = self.SHORTHOPS
 		elif type == 'ShortReader':
 			self.type = self.SHORTREADER
 		elif type == 'Normal':
@@ -181,6 +182,8 @@ class KravenHDECMLine(Poll, Converter, object):
 						ecmline = caid + ' - ' + ecmtime
 					elif self.type == self.VERYSHORTREADER:
 						ecmline = address + ' - ' + ecmtime
+					elif self.type == self.SHORTHOPS:
+						ecmline = caid + ' - ' + ecmtime + ' - ' + hops
 					elif self.type == self.SHORTREADER:
 						ecmline = caid + ' - ' + address + ' - ' + ecmtime
 					elif self.type == self.NORMAL:
@@ -197,6 +200,8 @@ class KravenHDECMLine(Poll, Converter, object):
 					elif self.type == self.VERYSHORTCAID:
 						ecmline = active
 					elif self.type == self.VERYSHORTREADER:
+						ecmline = active
+					elif self.type == self.SHORTHOPS:
 						ecmline = active
 					elif self.type == self.SHORTREADER:
 						ecmline = active
@@ -215,6 +220,8 @@ class KravenHDECMLine(Poll, Converter, object):
 						ecmline = caid + ' - ' + ecmtime
 					elif self.type == self.VERYSHORTREADER:
 						ecmline = reader + ' - ' + ecmtime
+					elif self.type == self.SHORTHOPS:
+						ecmline = caid + ' - ' + ecmtime + ' - ' + hops
 					elif self.type == self.SHORTREADER:
 						ecmline = caid + ' - ' + reader + ' - ' + ecmtime
 					elif self.type == self.NORMAL:
@@ -232,6 +239,8 @@ class KravenHDECMLine(Poll, Converter, object):
 						ecmline = caid + ' - ' + ecmtime
 					elif self.type == self.VERYSHORTREADER:
 						ecmline = source + ' - ' + ecmtime
+					elif self.type == self.SHORTHOPS:
+						ecmline = caid + ' - ' + ecmtime + ' - ' + hops
 					elif self.type == self.SHORTREADER:
 						ecmline = caid + ' - ' + source + ' - ' + ecmtime
 					elif self.type == self.NORMAL:

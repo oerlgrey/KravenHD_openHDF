@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: KravenHD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-06 23:16+0200\n"
-"PO-Revision-Date: 2024-01-22 22:09+0100\n"
+"PO-Revision-Date: 2024-08-11 20:39+0200\n"
 "Last-Translator: oerlgrey <ochzoetna@gmail.com>\n"
 "Language-Team: oerlgrey\n"
 "Language: de\n"
@@ -467,6 +467,9 @@ msgstr "kurz mit CAID"
 
 msgid "short with source"
 msgstr "kurz mit Quelle"
+
+msgid "short with hops"
+msgstr "kurz mit Hops"
 
 msgid "compact"
 msgstr "kompakt"
@@ -1550,6 +1553,24 @@ msgstr "U/m:"
 msgid "load"
 msgstr "Last"
 
+msgid "temp:"
+msgstr "Temp:"
+
+msgid "wind:"
+msgstr "Wind:"
+
+msgid "clime:"
+msgstr "Klima:"
+
+msgid "city:"
+msgstr "Ort:"
+
+msgid "humidity"
+msgstr "Luftfeuchte"
+
+msgid ", feels "
+msgstr ", gefühlt "
+
 msgid "Current Weather"
 msgstr "Aktuelles Wetter"
 
@@ -1570,12 +1591,6 @@ msgstr "Birthday Reminder Einstellungen"
 
 msgid "Select a path for the birthday file"
 msgstr "Wähle den Pfad für die Geburtstagsdatei"
-
-msgid "Screensaver"
-msgstr "Bildschirmschoner"
-
-msgid "Favorites"
-msgstr "Favoriten"
 
 msgid "not available with selected Infobar-Style"
 msgstr "nicht verfügbar mit dem ausgewählten Infoleisten-Stil"
@@ -1741,12 +1756,6 @@ msgstr "Suchoption"
 
 msgid "Location "
 msgstr "Standort"
-
-msgid "humidity"
-msgstr "Luftfeuchte"
-
-msgid ", feels "
-msgstr ", gefühlt "
 
 msgid "EPG-List Font"
 msgstr "EPG-Liste Schrift"
@@ -1957,3 +1966,15 @@ msgid ""
 msgstr ""
 "Sie haben keine Berechtigungen.\n"
 "Bitte wählen Sie einen anderen Pfad."
+
+#: KravenHD.py
+msgid "Use OAWeather"
+msgstr "Verwende OAWeather"
+
+#: KravenHD.py
+msgid "Choose if you want to use the OAWeather plugin."
+msgstr "Wählen Sie, ob Sie das OAWeather-Plugin verwenden möchten."
+
+#: KravenHD.py
+msgid "empty"
+msgstr "leer"
